@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     description:
       'Discover your public IP address and get detailed information about your internet connection, location, ISP, and more.',
     type: 'website',
-    url: 'https://yoursite.com', // Replace with your actual domain
+    url: 'https://ip-tracker-m8nglocor-tudors-projects-d44aa39d.vercel.app', // Your actual Vercel domain
   },
 };
 
@@ -29,15 +29,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Google AdSense - Only load in production */}
-        {process.env.NODE_ENV === 'production' && (
-          <Script
-            async
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2641120743401922"
-            crossOrigin="anonymous"
-            strategy="afterInteractive"
-          />
-        )}
+        {/* Google AdSense - Load in all environments for verification */}
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2641120743401922"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
+
+        {/* AdSense site verification meta tag */}
+        <meta name="google-adsense-account" content="ca-pub-2641120743401922" />
+
         {/* AdSense Publisher ID: ca-pub-2641120743401922 */}
 
         {/* Google Analytics (optional but recommended for monetization) */}
@@ -59,7 +61,7 @@ export default function RootLayout({
         )} */}
         {/* Replace GA_MEASUREMENT_ID with your actual Google Analytics ID */}
 
-        {/* <StructuredData /> */}
+        <StructuredData />
       </head>
       <body className="">
         <Navigation />
