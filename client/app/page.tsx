@@ -47,24 +47,24 @@ export default function Home() {
           data = await response.json();
 
           if (data.error) {
-            // Fallback to ip-api.com (very reliable for custom IPs)
+            // Fallback to freeipapi.com (HTTPS compatible)
             const fallbackResponse = await fetch(
-              `http://ip-api.com/json/${ip}?fields=status,message,country,countryCode,region,regionName,city,zip,lat,lon,timezone,isp,org,as,query`,
+              `https://freeipapi.com/api/json/${ip}`,
             );
             const fallbackData = await fallbackResponse.json();
 
-            if (fallbackData.status === 'success') {
+            if (fallbackData.ipAddress) {
               data = {
-                ip: fallbackData.query,
-                city: fallbackData.city,
+                ip: fallbackData.ipAddress,
+                city: fallbackData.cityName,
                 region: fallbackData.regionName,
-                country_name: fallbackData.country,
+                country_name: fallbackData.countryName,
                 country_code: fallbackData.countryCode,
-                org: fallbackData.isp,
-                timezone: fallbackData.timezone,
-                latitude: fallbackData.lat,
-                longitude: fallbackData.lon,
-                postal: fallbackData.zip,
+                org: fallbackData.isP,
+                timezone: fallbackData.timeZone,
+                latitude: fallbackData.latitude,
+                longitude: fallbackData.longitude,
+                postal: fallbackData.zipCode,
               };
             } else {
               throw new Error(fallbackData.message || 'Invalid IP address');
@@ -88,22 +88,22 @@ export default function Home() {
 
             // Use ip-api.com for detailed info (reliable in production)
             const detailResponse = await fetch(
-              `http://ip-api.com/json/${ipData.ip}?fields=status,message,country,countryCode,region,regionName,city,zip,lat,lon,timezone,isp,org,as,query`,
+              `https://freeipapi.com/api/json/${ipData.ip}`,
             );
             const detailData = await detailResponse.json();
 
-            if (detailData.status === 'success') {
+            if (detailData.ipAddress) {
               data = {
-                ip: detailData.query,
-                city: detailData.city,
+                ip: detailData.ipAddress,
+                city: detailData.cityName,
                 region: detailData.regionName,
-                country_name: detailData.country,
+                country_name: detailData.countryName,
                 country_code: detailData.countryCode,
-                org: detailData.isp,
-                timezone: detailData.timezone,
-                latitude: detailData.lat,
-                longitude: detailData.lon,
-                postal: detailData.zip,
+                org: detailData.isP,
+                timezone: detailData.timeZone,
+                latitude: detailData.latitude,
+                longitude: detailData.longitude,
+                postal: detailData.zipCode,
               };
             } else {
               throw new Error('IP details lookup failed');
@@ -295,7 +295,7 @@ export default function Home() {
               </div>
 
               {/* In-Article Ad */}
-              <InArticleAd />
+              {/* <InArticleAd /> */}
 
               {/* Additional Details */}
               <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8">
@@ -460,7 +460,7 @@ export default function Home() {
           </div>
 
           {/* Square Ad */}
-          <SquareAd className="mt-12" />
+          {/* <SquareAd className="mt-12" /> */}
 
           {/* Educational Content Section */}
           <div className="mt-12 bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8">
