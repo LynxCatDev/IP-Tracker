@@ -37,43 +37,133 @@ export default function Home() {
       setLoading(true);
       setError(null);
 
-      const url = ip
-        ? `https://ipapi.co/${ip}/json/`
-        : 'https://ipapi.co/json/';
+      let data;
 
-      const response = await fetch(url);
-      const data = await response.json();
+      if (ip) {
+        // For custom IP lookup - production optimized
+        try {
+          // Try ipapi.co first (good for production)
+          const response = await fetch(`https://ipapi.co/${ip}/json/`);
+          data = await response.json();
 
-      if (!data.error) {
-        // Map ipapi.co response to our expected format
-        const mappedData = {
-          query: data.ip,
-          city: data.city,
-          regionName: data.region,
-          country: data.country_name,
-          countryCode: data.country_code,
-          isp: data.org,
-          org: data.org,
-          timezone: data.timezone,
-          lat: data.latitude,
-          lon: data.longitude,
-          zip: data.postal,
-          as: data.asn,
-        };
-        setIpData(mappedData);
+          if (data.error) {
+            // Fallback to ip-api.com (very reliable for custom IPs)
+            const fallbackResponse = await fetch(
+              `http://ip-api.com/json/${ip}?fields=status,message,country,countryCode,region,regionName,city,zip,lat,lon,timezone,isp,org,as,query`,
+            );
+            const fallbackData = await fallbackResponse.json();
 
-        // Add to recent lookups if it's a custom IP
-        if (ip && ip !== data.ip) {
-          setRecentLookups((prev) => {
-            const updated = [ip, ...prev.filter((i) => i !== ip)].slice(0, 5);
-            return updated;
-          });
+            if (fallbackData.status === 'success') {
+              data = {
+                ip: fallbackData.query,
+                city: fallbackData.city,
+                region: fallbackData.regionName,
+                country_name: fallbackData.country,
+                country_code: fallbackData.countryCode,
+                org: fallbackData.isp,
+                timezone: fallbackData.timezone,
+                latitude: fallbackData.lat,
+                longitude: fallbackData.lon,
+                postal: fallbackData.zip,
+              };
+            } else {
+              throw new Error(fallbackData.message || 'Invalid IP address');
+            }
+          }
+        } catch (err) {
+          throw new Error('Failed to lookup custom IP address');
         }
       } else {
-        setError(data.reason || 'Failed to fetch IP information');
+        // For current IP detection - production-optimized
+        try {
+          // Primary approach: ipapi.co (works well in production)
+          const response = await fetch('https://ipapi.co/json/');
+          data = await response.json();
+
+          // If ipapi.co has rate limit or error, try fallback
+          if (data.error) {
+            // Fallback 1: Get IP first, then details from ip-api.com
+            const ipResponse = await fetch('https://api.ipify.org?format=json');
+            const ipData = await ipResponse.json();
+
+            // Use ip-api.com for detailed info (reliable in production)
+            const detailResponse = await fetch(
+              `http://ip-api.com/json/${ipData.ip}?fields=status,message,country,countryCode,region,regionName,city,zip,lat,lon,timezone,isp,org,as,query`,
+            );
+            const detailData = await detailResponse.json();
+
+            if (detailData.status === 'success') {
+              data = {
+                ip: detailData.query,
+                city: detailData.city,
+                region: detailData.regionName,
+                country_name: detailData.country,
+                country_code: detailData.countryCode,
+                org: detailData.isp,
+                timezone: detailData.timezone,
+                latitude: detailData.lat,
+                longitude: detailData.lon,
+                postal: detailData.zip,
+              };
+            } else {
+              throw new Error('IP details lookup failed');
+            }
+          }
+        } catch (err) {
+          // Final fallback: minimal info with just IP
+          try {
+            const response = await fetch('https://api.ipify.org?format=json');
+            const ipData = await response.json();
+
+            data = {
+              ip: ipData.ip,
+              city: 'Loading...',
+              region: 'Loading...',
+              country_name: 'Loading...',
+              country_code: 'XX',
+              org: 'Loading...',
+              timezone: 'Loading...',
+              latitude: null,
+              longitude: null,
+              postal: null,
+            };
+          } catch (finalErr) {
+            throw new Error('Unable to detect IP address');
+          }
+        }
+      }
+
+      // Map to our expected format
+      const mappedData = {
+        query: data.ip,
+        city: data.city,
+        regionName: data.region,
+        country: data.country_name,
+        countryCode: data.country_code,
+        isp: data.org,
+        org: data.org,
+        timezone: data.timezone,
+        lat: data.latitude,
+        lon: data.longitude,
+        zip: data.postal,
+        as: data.asn || 'N/A',
+      };
+
+      setIpData(mappedData);
+
+      // Add to recent lookups if it's a custom IP
+      if (ip && ip !== mappedData.query) {
+        setRecentLookups((prev) => {
+          const updated = [ip, ...prev.filter((i) => i !== ip)].slice(0, 5);
+          return updated;
+        });
       }
     } catch (err) {
-      setError('Network error occurred. Please check your connection.');
+      setError(
+        err instanceof Error
+          ? err.message
+          : 'Failed to fetch IP information. Please try again.',
+      );
     } finally {
       setLoading(false);
     }
