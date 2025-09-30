@@ -27,48 +27,39 @@ export default function AdSense({
   const isLoadedRef = useRef(false);
 
   useEffect(() => {
-    // Only load ads in production or if not already loaded
-    if (process.env.NODE_ENV === 'development' && isLoadedRef.current) {
-      return;
-    }
-
     const loadAd = () => {
       try {
-        if (adRef.current && !isLoadedRef.current) {
-          // Check if adsbygoogle script is loaded
-          if (typeof window !== 'undefined' && window.adsbygoogle) {
-            // Clear any existing content
-            if (adRef.current.innerHTML.trim() !== '') {
-              adRef.current.innerHTML = '';
-            }
-
-            window.adsbygoogle.push({});
-            isLoadedRef.current = true;
+        // Only proceed if we have the ad element and script is loaded
+        if (
+          adRef.current &&
+          typeof window !== 'undefined' &&
+          window.adsbygoogle
+        ) {
+          // Check if ad is already initialized to prevent duplicate ads
+          if (isLoadedRef.current) {
+            return;
           }
+
+          // Push ad to queue for initialization
+          (window.adsbygoogle = window.adsbygoogle || []).push({});
+          isLoadedRef.current = true;
         }
       } catch (err) {
-        // In development, we expect errors since we don't have real ad units
-        if (process.env.NODE_ENV === 'development') {
-          console.log(
-            'AdSense (dev mode):',
-            `Ad slot ${adSlot} - ads disabled in development`,
-          );
-        } else {
-          console.error('AdSense error:', err);
-        }
+        console.error('AdSense loading error:', err);
       }
     };
 
-    // Small delay to ensure DOM is ready
-    const timer = setTimeout(loadAd, 100);
+    // Wait for script to load and DOM to be ready
+    const timer = setTimeout(loadAd, 300);
 
     return () => {
       clearTimeout(timer);
+      // Reset on cleanup to allow re-initialization if component remounts
       isLoadedRef.current = false;
     };
-  }, [adSlot]);
+  }, [adSlot]); // Re-run if adSlot changes
 
-  // In development, show a placeholder
+  // Show placeholder in development
   if (process.env.NODE_ENV === 'development') {
     return (
       <div className={`ad-container ${className}`}>
@@ -84,13 +75,13 @@ export default function AdSense({
             color: '#6b7280',
             fontSize: '14px',
             fontFamily: 'monospace',
+            flexDirection: 'column',
+            gap: '8px',
           }}
         >
-          AdSense Placeholder
-          <br />
-          Slot: {adSlot}
-          <br />
-          Format: {adFormat}
+          <div>🔧 AdSense Development</div>
+          <div>Slot: {adSlot}</div>
+          <div>Format: {adFormat}</div>
         </div>
       </div>
     );

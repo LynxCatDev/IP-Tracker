@@ -38,24 +38,39 @@ export default function Home() {
       setError(null);
 
       const url = ip
-        ? `https://ip-api.com/json/${ip}?fields=status,message,country,countryCode,region,regionName,city,zip,lat,lon,timezone,isp,org,as,query`
-        : 'https://ip-api.com/json/?fields=status,message,country,countryCode,region,regionName,city,zip,lat,lon,timezone,isp,org,as,query';
+        ? `https://ipapi.co/${ip}/json/`
+        : 'https://ipapi.co/json/';
 
       const response = await fetch(url);
       const data = await response.json();
 
-      if (data.status === 'success') {
-        setIpData(data);
+      if (!data.error) {
+        // Map ipapi.co response to our expected format
+        const mappedData = {
+          query: data.ip,
+          city: data.city,
+          regionName: data.region,
+          country: data.country_name,
+          countryCode: data.country_code,
+          isp: data.org,
+          org: data.org,
+          timezone: data.timezone,
+          lat: data.latitude,
+          lon: data.longitude,
+          zip: data.postal,
+          as: data.asn,
+        };
+        setIpData(mappedData);
 
         // Add to recent lookups if it's a custom IP
-        if (ip && ip !== data.query) {
+        if (ip && ip !== data.ip) {
           setRecentLookups((prev) => {
             const updated = [ip, ...prev.filter((i) => i !== ip)].slice(0, 5);
             return updated;
           });
         }
       } else {
-        setError(data.message || 'Failed to fetch IP information');
+        setError(data.reason || 'Failed to fetch IP information');
       }
     } catch (err) {
       setError('Network error occurred. Please check your connection.');
