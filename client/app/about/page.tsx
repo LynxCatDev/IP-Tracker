@@ -45,7 +45,7 @@ export default function About() {
             </div>
           </div>
 
-          <InArticleAd />
+          {/* <InArticleAd /> */}
 
           <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8">
             <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-6">

@@ -41,7 +41,7 @@ export default function RootLayout({
         {/* AdSense Publisher ID: ca-pub-2641120743401922 */}
 
         {/* Google Analytics (optional but recommended for monetization) */}
-        {process.env.NODE_ENV === 'production' && (
+        {/* {process.env.NODE_ENV === 'production' && (
           <>
             <Script
               src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"
@@ -56,10 +56,10 @@ export default function RootLayout({
               `}
             </Script>
           </>
-        )}
+        )} */}
         {/* Replace GA_MEASUREMENT_ID with your actual Google Analytics ID */}
 
-        <StructuredData />
+        {/* <StructuredData /> */}
       </head>
       <body className="">
         <Navigation />
