@@ -42,20 +42,17 @@ export default function RootLayout({
         />
 
         {/* Google AdSense - Load in all environments for verification */}
-        <Script
+        <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2641120743401922"
           crossOrigin="anonymous"
-          strategy="afterInteractive"
-        />
+        ></script>
 
         {/* AdSense site verification meta tag */}
         <meta name="google-adsense-account" content="ca-pub-2641120743401922" />
 
-        {/* AdSense Publisher ID: ca-pub-2641120743401922 */}
-
         {/* Google Analytics (optional but recommended for monetization) */}
-        {/* {process.env.NODE_ENV === 'production' && (
+        {process.env.NODE_ENV === 'production' && (
           <>
             <Script
               src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"
@@ -70,7 +67,7 @@ export default function RootLayout({
               `}
             </Script>
           </>
-        )} */}
+        )}
         {/* Replace GA_MEASUREMENT_ID with your actual Google Analytics ID */}
 
         <StructuredData />
