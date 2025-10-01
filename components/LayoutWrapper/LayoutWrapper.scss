@@ -1,0 +1,13 @@
+.layout {
+  min-height: 100vh;
+  background: linear-gradient(
+    to bottom right,
+    var(--primary-bg) 0%,
+    var(--secondary-bg) 100%
+  );
+
+  &-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
