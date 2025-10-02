@@ -1,0 +1,41 @@
+.ip-details {
+  padding: 40px;
+  background: linear-gradient(135deg, #155dfc, #e60076);
+  border-radius: var(--default-size);
+  color: var(--primary-text);
+
+  &--info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  &--info-header {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    &-badge {
+      padding: 2px 8px;
+      background-color: var(
+        --primary-light-dark-color-50,
+        rgba(51, 51, 51, 0.5)
+      );
+      border-radius: var(--extra-small-size);
+    }
+  }
+
+  &--ip-address {
+    margin: var(--large-size) 0 var(--small-size);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h2 {
+      font-size: 60px;
+      font-weight: 700;
+    }
+  }
+}

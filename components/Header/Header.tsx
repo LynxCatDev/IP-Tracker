@@ -10,6 +10,7 @@ export const Header = () => {
           <div className="header--logo-icon">
             <Globe width={30} height={30} />
           </div>
+
           <div className="header--logo-text">IP Tracker</div>
         </Link>
       </div>

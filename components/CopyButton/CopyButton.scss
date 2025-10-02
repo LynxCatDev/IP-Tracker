@@ -1,0 +1,12 @@
+.copy-button {
+  background: none;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  color: var(--primary-text);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--default-size);
+  font-weight: 600;
+}

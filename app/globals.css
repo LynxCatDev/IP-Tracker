@@ -6,15 +6,18 @@
 
 :root {
   --primary-text: #ffffff;
-  --primary-dark-text: #000000;
+  --primary-dark: #000000;
+  --primary-light-dark-color: #333;
   --primary-bg: #a355a3;
   --secondary-bg: #707ae6;
   --hover-color: #faead2;
 
   /* sizes */
-  --small-size: 8px;
+  --extra-small-size: 8px;
+  --small-size: 12px;
   --default-size: 16px;
   --medium-size: 20px;
+  --large-size: 24px;
 }
 
 a {
@@ -31,4 +34,17 @@ body {
   font-family: var(--font-montserrat-alternates), sans-serif;
   /* color: var(--colors-text);
   background-color: var(--colors-bg); */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+.home {
+  padding-top: var(--default-size);
 }

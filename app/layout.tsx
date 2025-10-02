@@ -3,6 +3,7 @@ import Script from 'next/script';
 import { Montserrat_Alternates } from 'next/font/google';
 import { Header, LayoutWrapper } from '@/components';
 import './globals.css';
+import { ToastContainer } from 'react-toastify';
 
 const montserratAlternates = Montserrat_Alternates({
   subsets: ['latin'],
@@ -71,6 +72,20 @@ export default function RootLayout({
       <body className={montserratAlternates.className}>
         <Header />
         <LayoutWrapper>{children}</LayoutWrapper>
+
+        {/* Add ToastContainer for react-toastify */}
+        <ToastContainer
+          position="top-right"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
       </body>
     </html>
   );
