@@ -38,4 +38,50 @@
       font-weight: 700;
     }
   }
+
+  &--loading {
+    text-align: center;
+    margin: 36px 0;
+
+    .spinner {
+      width: 32px; // h-8 w-8 (32px)
+      height: 32px;
+      border-radius: 50%; // rounded-full
+      border: 2px solid transparent;
+      border-bottom: 2px solid white; // border-b-2 border-white
+      margin: 0 auto 16px auto; // mx-auto mb-4 (16px)
+      animation: spin 1s linear infinite; // animate-spin
+    }
+
+    p {
+      margin-top: 16px;
+      opacity: 0.8;
+    }
+  }
+
+  &--error {
+    text-align: center;
+    padding: 8px 0;
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 16px;
+      color: #ff6b6b;
+    }
+
+    p {
+      margin-bottom: 20px;
+      opacity: 0.8;
+    }
+  }
+}
+
+// Keyframe animation for spinner
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

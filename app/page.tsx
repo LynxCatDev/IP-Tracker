@@ -1,25 +1,13 @@
 import dynamic from 'next/dynamic';
 
-const IPDetails = dynamic(
-  () => import('@/components/IPDetails/IPDetails').then((mod) => mod.IPDetails),
-  {
-    loading: () => <div>Loading...</div>,
-  },
+const IPDetails = dynamic(() =>
+  import('@/components/IPDetails/IPDetails').then((mod) => mod.IPDetails),
 );
 
-export default async function Home() {
-  const getIPData = async () => {
-    const response = await fetch(`https://freeipapi.com/api/json/`, {
-      next: { revalidate: 3600 },
-    });
-    return response.json();
-  };
-  const data = await getIPData();
-  console.log(data, 'response');
-
+export default function Home() {
   return (
     <div className="home">
-      <IPDetails ipData={data} />
+      <IPDetails />
     </div>
   );
 }

@@ -1,15 +1,47 @@
 'use client';
 
-import { Satellite } from 'lucide-react';
-import { IPDetailsProps } from '@/types/ip-data.interface';
-import './IPDetails.scss';
+import { RotateCcw, Satellite } from 'lucide-react';
 import { CopyButton } from '../CopyButton/CopyButton';
+import './IPDetails.scss';
+import { useIPDetails } from './useIPDetails';
+import { Button } from '../Button/Button';
 
-interface Props {
-  ipData: IPDetailsProps;
-}
+export const IPDetails = () => {
+  const { ipData, loading, error, refetch } = useIPDetails();
 
-export const IPDetails = ({ ipData }: Props) => {
+  if (loading) {
+    return (
+      <div className="ip-details">
+        <div className="ip-details--loading">
+          <div className="spinner" />
+          <p>Fetching your IP information...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="ip-details">
+        <div className="ip-details--error">
+          <h3>Error</h3>
+          <p>{error}</p>
+          <Button
+            variant="error"
+            onClick={refetch}
+            icon={<RotateCcw size={16} />}
+          >
+            Try Again
+          </Button>
+        </div>
+      </div>
+    );
+  }
+
+  if (!ipData) {
+    return <div>No Data Available</div>;
+  }
+
   return (
     <div className="ip-details">
       <div className="ip-details--info">
@@ -19,16 +51,16 @@ export const IPDetails = ({ ipData }: Props) => {
         </div>
 
         <div className="ip-details--info-header-badge">
-          <span>IPv{ipData.ipVersion}</span>
+          <span>{ipData.version}</span>
         </div>
       </div>
 
       <div className="ip-details--ip-address">
-        <h2>{ipData.ipAddress}</h2>
-        <CopyButton textToCopy={ipData.ipAddress} />
+        <h2>{ipData.ip}</h2>
+        <CopyButton textToCopy={ipData.ip} />
       </div>
 
-      <div>{`${ipData.capital}, ${ipData.countryName}`}</div>
+      <div>{`${ipData.city}, ${ipData.country_name}`}</div>
     </div>
   );
 };
