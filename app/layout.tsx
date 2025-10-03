@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
-import { Montserrat_Alternates } from 'next/font/google';
+import { Montserrat } from 'next/font/google';
 import { Header, LayoutWrapper } from '@/components';
 import './globals.css';
 import { ToastContainer } from 'react-toastify';
 
-const montserratAlternates = Montserrat_Alternates({
+const montserratAlternates = Montserrat({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
   variable: '--font-montserrat-alternates',

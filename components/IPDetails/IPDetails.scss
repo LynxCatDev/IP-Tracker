@@ -74,6 +74,29 @@
       opacity: 0.8;
     }
   }
+
+  &--cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 32px;
+  }
+
+  // Responsive grid
+  @media (max-width: 768px) {
+    &__cards-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 24px;
+
+    &__cards-grid {
+      margin-top: 24px;
+    }
+  }
 }
 
 // Keyframe animation for spinner
