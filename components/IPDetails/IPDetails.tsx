@@ -5,14 +5,15 @@ import {
   Globe,
   MapPin,
   Network,
+  RefreshCcw,
   RotateCcw,
   Satellite,
 } from 'lucide-react';
 import { CopyButton } from '../CopyButton/CopyButton';
-import './IPDetails.scss';
 import { useIPDetails } from './useIPDetails';
 import { Button } from '../Button/Button';
 import { DetailsCard } from '../DetailsCard/DetailsCard';
+import './IPDetails.scss';
 
 export const IPDetails = () => {
   const { ipData, loading, error, refetch } = useIPDetails();
@@ -66,7 +67,7 @@ export const IPDetails = () => {
 
         <div className="ip-details--ip-address">
           <h2>{ipData.ip}</h2>
-          <CopyButton textToCopy={ipData.ip} />
+          <CopyButton textToCopy={ipData.ip} variant="secondary" />
         </div>
 
         <div className="ip-details--location">
@@ -102,6 +103,16 @@ export const IPDetails = () => {
           value={ipData.timezone || 'Unknown'}
           iconColor="orange"
         />
+      </div>
+
+      <div className="ip-details--refresh">
+        <Button
+          variant="primary"
+          onClick={refetch}
+          icon={<RefreshCcw size={16} />}
+        >
+          Refresh Information
+        </Button>
       </div>
     </div>
   );

@@ -7,9 +7,10 @@ import './CopyButton.scss';
 
 interface Props {
   textToCopy: string;
+  variant?: 'primary' | 'secondary';
 }
 
-export const CopyButton = ({ textToCopy }: Props) => {
+export const CopyButton = ({ textToCopy, variant = 'primary' }: Props) => {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = async () => {
@@ -25,7 +26,7 @@ export const CopyButton = ({ textToCopy }: Props) => {
 
   return (
     <button
-      className="copy-button"
+      className={`copy-button copy-button--${variant}`}
       onClick={handleCopy}
       title="Copy to clipboard"
     >

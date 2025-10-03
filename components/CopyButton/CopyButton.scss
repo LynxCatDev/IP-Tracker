@@ -9,4 +9,10 @@
   gap: 8px;
   font-size: var(--default-size);
   font-weight: 600;
+
+  &--secondary {
+    background-color: var(--primary-light-dark-color-50, rgba(51, 51, 51, 0.5));
+    border-radius: var(--extra-small-size);
+    padding: 4px 8px;
+  }
 }
