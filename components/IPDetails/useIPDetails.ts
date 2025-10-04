@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { IPDetailsProps } from '@/types/ip-data.interface';
+import { IPDetailsProps } from '@/types/ipData.interface';
 import { toast } from 'react-toastify';
 
 interface UseIPDetailsReturn {

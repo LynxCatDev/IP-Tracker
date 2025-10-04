@@ -8,10 +8,18 @@
   /* colors */
   --primary-text: #ffffff;
   --primary-dark: #000000;
+  --text-grey: #6b7280;
   --primary-light-dark-color: #333;
+  --text-foreground: #717182;
   --primary-bg: #a355a3;
   --secondary-bg: #707ae6;
-  --hover-color: #faead2;
+  --hover-color-1: #caedf9;
+  --hover-color-2: #f1d6f2;
+  --icon-color-1: #155dfc;
+  --icon-color-2: #9333ea;
+  --icon-color-3: #059669;
+  --icon-color-4: #f54a00;
+  --gradient-1: #a9daf9;
 
   /* sizes */
   --extra-small-size: 8px;
@@ -26,8 +34,12 @@ a {
   transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
 
-a:hover {
+a:hover,
+a:active,
+a:visited,
+a:focus {
   text-decoration: none;
+  color: var(--primary-light-dark-color);
 }
 
 body {

@@ -1,22 +1,18 @@
 'use client';
 
-import {
-  Clock,
-  Globe,
-  MapPin,
-  Network,
-  RefreshCcw,
-  RotateCcw,
-  Satellite,
-} from 'lucide-react';
+import { useMemo } from 'react';
+import { MapPin, RefreshCcw, RotateCcw, Satellite } from 'lucide-react';
 import { CopyButton } from '../CopyButton/CopyButton';
 import { useIPDetails } from './useIPDetails';
 import { Button } from '../Button/Button';
-import { DetailsCard } from '../DetailsCard/DetailsCard';
+import { DetailsCard, DetailsCardProps } from '../DetailsCard/DetailsCard';
+import { IP_DETAILS_DATA } from '@/constants/ipDetailsData';
 import './IPDetails.scss';
 
 export const IPDetails = () => {
   const { ipData, loading, error, refetch } = useIPDetails();
+
+  const ipDetails = useMemo(() => ipData && IP_DETAILS_DATA(ipData), [ipData]);
 
   if (loading) {
     return (
@@ -76,33 +72,17 @@ export const IPDetails = () => {
         </div>
       </div>
       <div className="ip-details--cards-grid">
-        <DetailsCard
-          icon={<MapPin />}
-          title="Location"
-          value={`${ipData.city}, ${ipData.country_name}`}
-          iconColor="blue"
-        />
-
-        <DetailsCard
-          icon={<Globe />}
-          title="Country"
-          value={`${ipData.country_name} (${ipData.country})`}
-          iconColor="purple"
-        />
-
-        <DetailsCard
-          icon={<Network />}
-          title="Internet Provider"
-          value={ipData.org || 'Unknown'}
-          iconColor="green"
-        />
-
-        <DetailsCard
-          icon={<Clock />}
-          title="Timezone"
-          value={ipData.timezone || 'Unknown'}
-          iconColor="orange"
-        />
+        {ipDetails?.map((detail) => {
+          return (
+            <DetailsCard
+              key={detail.id}
+              icon={detail.icon}
+              title={detail.title}
+              value={detail.value}
+              iconColor={detail.iconColor as DetailsCardProps['iconColor']}
+            />
+          );
+        })}
       </div>
 
       <div className="ip-details--refresh">

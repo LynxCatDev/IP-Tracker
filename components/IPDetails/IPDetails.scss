@@ -8,7 +8,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 12px;
+    font-size: var(--small-size);
     font-weight: 600;
   }
 
@@ -48,12 +48,12 @@
       height: 32px;
       border-radius: 50%;
       border: 2px solid transparent;
-      border-bottom: 2px solid white;
+      border-bottom: 2px solid var(--primary-text);
       margin: 0 auto 16px auto;
       animation: spin 1s linear infinite;
     }
 
-    p {
+    span {
       margin-top: 16px;
       opacity: 0.8;
     }
@@ -64,7 +64,7 @@
     padding: 8px 0;
 
     h3 {
-      font-size: 24px;
+      font-size: var(--large-size);
       margin-bottom: 16px;
       color: #ff6b6b;
     }
@@ -78,7 +78,7 @@
   &--cards-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
+    gap: var(--medium-size);
     margin-top: 32px;
   }
 

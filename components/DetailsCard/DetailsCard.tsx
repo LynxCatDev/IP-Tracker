@@ -2,9 +2,8 @@
 
 import { CSSProperties, ReactNode } from 'react';
 import './DetailsCard.scss';
-import { icons } from 'lucide-react';
 
-interface DetailsCardProps {
+export interface DetailsCardProps {
   icon: ReactNode;
   title: string;
   value: string;
@@ -15,22 +14,22 @@ const colorConfig = {
   blue: {
     gradient: '#a9daf9',
     hover: '#caedf9',
-    icon: '#1c5fff',
+    icon: 'var(--icon-color-1)',
   },
   purple: {
     gradient: '#eabbee',
     hover: '#f1d6f2',
-    icon: '#9333ea',
+    icon: 'var(--icon-color-2)',
   },
   green: {
     gradient: '#9be3c7',
     hover: '#bee7dd',
-    icon: '#059669',
+    icon: 'var(--icon-color-3)',
   },
   orange: {
     gradient: '#fed7aa',
     hover: '#fbf2f0',
-    icon: '#f54a00',
+    icon: 'var(--icon-color-4)',
   },
 };
 
