@@ -24,7 +24,16 @@ export const TargetCardsItem = ({ targetCard }: Props) => {
         {targetCard.description}
       </div>
 
-      <Button>I want {targetCard.title.toLowerCase()}</Button>
+      <Button
+        className="target-cards--item-button"
+        style={
+          {
+            '--gradient': targetCard.gradient,
+          } as React.CSSProperties
+        }
+      >
+        I want {targetCard.title.toLowerCase()}
+      </Button>
     </Link>
   );
 };

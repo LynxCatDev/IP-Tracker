@@ -14,13 +14,15 @@ export const TARGETS_DATA = [
     title: 'Privacy',
     description:
       'I want to prevent my government, ISP and advertisers from tracking me.',
-    icon: <Eye width={40} height={40} />,
+    icon: <Eye width={40} height={40} color="var(--icon-color-5)" />,
+    gradient: 'var(--gradient-5)',
   },
   {
     id: 3,
     title: 'Access',
     description:
       'I want to access Netflix, Twitch and other streaming services without being blocked.',
-    icon: <Lock width={40} height={40} />,
+    icon: <Lock width={40} height={40} color="var(--icon-color-3)" />,
+    gradient: 'var(--gradient-3)',
   },
 ];
