@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
-import { Montserrat } from 'next/font/google';
-import { Header, LayoutWrapper } from '@/components';
-import './globals.css';
 import { ToastContainer } from 'react-toastify';
+import { Montserrat } from 'next/font/google';
+import { Footer, Header, LayoutWrapper } from '@/components';
+import './globals.css';
 
 const montserratAlternates = Montserrat({
   subsets: ['latin'],
@@ -72,6 +72,7 @@ export default function RootLayout({
       <body className={montserratAlternates.className}>
         <Header />
         <LayoutWrapper>{children}</LayoutWrapper>
+        <Footer />
 
         {/* Add ToastContainer for react-toastify */}
         <ToastContainer

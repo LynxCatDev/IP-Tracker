@@ -30,18 +30,3 @@
     font-weight: 600;
   }
 }
-
-nav {
-  display: flex;
-  align-items: center;
-  gap: var(--default-size);
-
-  a {
-    font-weight: 600;
-    padding: 8px 12px;
-    border-radius: 4px;
-    &:hover {
-      background-color: var(--hover-color-2);
-    }
-  }
-}
