@@ -1,0 +1,32 @@
+.ip-address-lookup {
+  margin-top: var(--large-size);
+  padding: 32px;
+  background-color: var(--primary-text);
+  border-radius: var(--medium-size);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--large-size);
+
+  &--header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    svg {
+      color: var(--icon-color-1);
+    }
+  }
+
+  &--input {
+    display: flex;
+    gap: 12px;
+
+    input {
+      flex: 1;
+      border-radius: 8px;
+      border: 1px solid var(--border-color-1);
+      padding: 4px 12px;
+    }
+  }
+}

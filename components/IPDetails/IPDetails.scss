@@ -1,0 +1,116 @@
+.ip-details {
+  padding: 40px;
+  background: linear-gradient(135deg, #155dfc, #e60076);
+  border-radius: var(--default-size);
+  color: var(--primary-text);
+
+  &--info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: var(--small-size);
+    font-weight: 600;
+  }
+
+  &--info-header {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    &-badge {
+      padding: 2px 8px;
+      background-color: var(
+        --primary-light-dark-color-50,
+        rgba(51, 51, 51, 0.5)
+      );
+      border-radius: var(--extra-small-size);
+    }
+  }
+
+  &--ip-address {
+    margin: var(--large-size) 0 var(--small-size);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h2 {
+      font-size: 60px;
+      font-weight: 700;
+    }
+  }
+
+  &--loading {
+    text-align: center;
+    margin: 36px 0;
+
+    .spinner {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      border-bottom: 2px solid var(--primary-text);
+      margin: 0 auto 16px auto;
+      animation: spin 1s linear infinite;
+    }
+
+    span {
+      margin-top: 16px;
+      opacity: 0.8;
+    }
+  }
+
+  &--error {
+    text-align: center;
+    padding: 8px 0;
+
+    h3 {
+      font-size: var(--large-size);
+      margin-bottom: 16px;
+      color: #ff6b6b;
+    }
+
+    p {
+      margin-bottom: 20px;
+      opacity: 0.8;
+    }
+  }
+
+  &--cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--medium-size);
+    margin-top: 32px;
+  }
+
+  &--refresh {
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+  }
+
+  // Responsive grid
+  @media (max-width: 768px) {
+    &__cards-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 24px;
+
+    &__cards-grid {
+      margin-top: 24px;
+    }
+  }
+}
+
+// Keyframe animation for spinner
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
