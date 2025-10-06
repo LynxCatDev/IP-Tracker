@@ -5,7 +5,7 @@ import './Button.scss';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
-  variant?: 'primary' | 'secondary' | 'error' | 'success';
+  variant?: 'primary' | 'secondary' | 'error' | 'success' | 'search';
   size?: 'small' | 'medium' | 'large';
   loading?: boolean;
   icon?: ReactNode;
@@ -36,19 +36,7 @@ export const Button = ({
 
   return (
     <button className={buttonClasses} disabled={disabled || loading} {...props}>
-      {loading ? (
-        <div className="button__spinner"></div>
-      ) : (
-        <>
-          {icon && iconPosition === 'left' && (
-            <span className="button__icon button__icon--left">{icon}</span>
-          )}
-          <span className="button__text">{children}</span>
-          {icon && iconPosition === 'right' && (
-            <span className="button__icon button__icon--right">{icon}</span>
-          )}
-        </>
-      )}
+      {loading ? <div className="button--spinner"></div> : children}
     </button>
   );
 };

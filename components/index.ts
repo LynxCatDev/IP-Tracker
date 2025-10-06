@@ -2,3 +2,5 @@ export * from './Header/Header';
 export * from './LayoutWrapper/LayoutWrapper';
 export * from './IPDetails/IPDetails';
 export * from './CopyButton/CopyButton';
+export * from './TargetCards/TargetCards';
+export * from './IPAddressLookup/IPAddressLookup';

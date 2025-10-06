@@ -1,5 +1,5 @@
 import dynamic from 'next/dynamic';
-import { TargetCards } from '@/components/TargetCards/TargetCards';
+import { IPAddressLookup, TargetCards } from '@/components';
 
 const IPDetails = dynamic(() =>
   import('@/components/IPDetails/IPDetails').then((mod) => mod.IPDetails),
@@ -10,6 +10,7 @@ export default function Home() {
     <div className="home">
       <IPDetails />
       <TargetCards />
+      <IPAddressLookup />
     </div>
   );
 }
