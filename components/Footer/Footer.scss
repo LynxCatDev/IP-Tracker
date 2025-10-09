@@ -16,6 +16,8 @@
   }
 
   &--navigation {
+    display: flex;
+    align-items: center;
     gap: 8px;
 
     a {
@@ -23,6 +25,7 @@
       transition: all 0.3s ease-in-out;
       padding: 4px 8px;
       font-size: 14px;
+      border-radius: 4px;
 
       &:hover {
         background: var(--gradient-5);

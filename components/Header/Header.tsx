@@ -1,6 +1,6 @@
 import { Globe } from 'lucide-react';
 import Link from 'next/link';
-import { Navigation } from '../Navigation/Navigation';
+import { HeaderNavigation } from './HeaderNavigation';
 import './Header.scss';
 
 export const Header = () => {
@@ -16,7 +16,7 @@ export const Header = () => {
         </Link>
       </div>
 
-      <Navigation />
+      <HeaderNavigation />
     </header>
   );
 };
