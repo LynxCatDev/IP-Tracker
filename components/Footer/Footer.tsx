@@ -9,7 +9,7 @@ export const Footer = () => {
           © {new Date().getFullYear()} IP Tracker. All rights reserved.
         </div>
         <div>
-          <Navigation />
+          <Navigation isFooter />
         </div>
       </div>
     </footer>

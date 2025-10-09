@@ -1,5 +1,5 @@
 .footer {
-  background-color: var(--primary-text);
+  background-color: var(--footer-bg);
 
   &--container {
     max-width: 1200px;
@@ -12,5 +12,21 @@
 
   &--copyright {
     font-weight: 600;
+    color: var(--primary-text);
+  }
+
+  &--navigation {
+    gap: 8px;
+
+    a {
+      color: var(--primary-text);
+      transition: all 0.3s ease-in-out;
+      padding: 4px 8px;
+      font-size: 14px;
+
+      &:hover {
+        background: var(--gradient-5);
+      }
+    }
   }
 }
