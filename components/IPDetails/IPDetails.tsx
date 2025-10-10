@@ -9,8 +9,12 @@ import { DetailsCard, DetailsCardProps } from '../DetailsCard/DetailsCard';
 import { IP_DETAILS_DATA } from '@/constants/ipDetailsData';
 import './IPDetails.scss';
 
-export const IPDetails = () => {
-  const { ipData, loading, error, refetch } = useIPDetails({});
+interface IPDetailsProps {
+  ip?: string;
+}
+
+export const IPDetails = ({ ip }: IPDetailsProps) => {
+  const { ipData, loading, error, refetch } = useIPDetails(ip || '');
 
   const ipDetails = useMemo(() => ipData && IP_DETAILS_DATA(ipData), [ipData]);
 
@@ -68,7 +72,7 @@ export const IPDetails = () => {
 
         <div className="ip-details--location">
           <MapPin size={16} />
-          <span>{`${ipData.city}, ${ipData.country_name}`}</span>
+          <span>{`${ipData.city}, ${ipData.region}, ${ipData.country_name}`}</span>
         </div>
       </div>
       <div className="ip-details--cards-grid">
@@ -83,6 +87,35 @@ export const IPDetails = () => {
             />
           );
         })}
+      </div>
+
+      <div className="ip-details--selected-data">
+        <div className="ip-details--selected-data-info">
+          <div className="ip-details--selected-data-info-title">
+            IP Details For: {ipData.ip}
+          </div>
+          {ipData.asn && <div>ASN: {ipData.asn}</div>}
+          {ipData.org && <div>ISP: {ipData.org}</div>}
+          {ipData.postal && <div>Postal Code: {ipData.postal}</div>}
+          {ipData.currency_name && (
+            <div>
+              Currency: {ipData.currency_name} ({ipData.currency})
+            </div>
+          )}
+          {ipData.timezone && (
+            <div>
+              Time Zone: {ipData.timezone} ({ipData.continent_code}) (UTC{' '}
+              {ipData.utc_offset})
+            </div>
+          )}
+          {ipData.country_capital && (
+            <div>Capital: {ipData.country_capital}</div>
+          )}
+          {ipData.latitude && <div>Latitude: {ipData.latitude}</div>}
+          {ipData.longitude && <div>Longitude: {ipData.longitude}</div>}
+        </div>
+
+        <div>map</div>
       </div>
 
       <div className="ip-details--refresh">

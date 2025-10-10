@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   gap: 16px;
-  padding: 24px;
+  padding: 16px 24px;
   background: var(--primary-text);
   backdrop-filter: blur(10px);
   border-radius: 16px;
@@ -45,7 +45,7 @@
   }
 
   &__value {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 600;
     color: var(--primary-light-dark-color);
     margin: 0;

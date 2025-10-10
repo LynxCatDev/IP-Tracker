@@ -69,7 +69,9 @@ export default function RootLayout({
           </>
         )}
       </head>
-      <body className={montserratAlternates.className}>
+      <body
+      // className={montserratAlternates.className}
+      >
         <Header />
         <LayoutWrapper>{children}</LayoutWrapper>
         <Footer />
