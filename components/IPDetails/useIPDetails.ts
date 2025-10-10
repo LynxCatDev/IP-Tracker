@@ -25,11 +25,7 @@ export const useIPDetails = (ip: string): UseIPDetailsReturn => {
       }
       setLoading(true);
       setError(null);
-      const response = await axios.get(url, {
-        headers: {
-          'Cache-Control': 'public, s-maxage=1800, stale-while-revalidate=3600',
-        },
-      });
+      const response = await axios.get(url);
       console.log(response.data, 'response');
       setIPData(response.data);
     } catch (err) {
