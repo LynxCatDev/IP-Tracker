@@ -10,7 +10,7 @@ import { IP_DETAILS_DATA } from '@/constants/ipDetailsData';
 import './IPDetails.scss';
 
 export const IPDetails = () => {
-  const { ipData, loading, error, refetch } = useIPDetails();
+  const { ipData, loading, error, refetch } = useIPDetails({});
 
   const ipDetails = useMemo(() => ipData && IP_DETAILS_DATA(ipData), [ipData]);
 
