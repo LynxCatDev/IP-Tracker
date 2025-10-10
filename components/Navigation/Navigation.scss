@@ -1,0 +1,37 @@
+.navigation {
+  display: flex;
+  align-items: center;
+
+  a {
+    border-radius: 4px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  &--header {
+    gap: var(--default-size);
+
+    a {
+      font-weight: 600;
+      padding: 8px 12px;
+
+      color: var(--secondary-bg);
+
+      &:hover {
+        background-color: var(--hover-color-2);
+      }
+    }
+  }
+
+  &--footer {
+    gap: 8px;
+    a {
+      color: var(--primary-text);
+      padding: 4px 8px;
+      font-size: 14px;
+
+      &:hover {
+        background: var(--gradient-5);
+      }
+    }
+  }
+}

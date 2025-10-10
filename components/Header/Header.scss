@@ -29,21 +29,4 @@
     font-size: var(--medium-size);
     font-weight: 600;
   }
-
-  &--navigation {
-    display: flex;
-    align-items: center;
-    gap: var(--default-size);
-
-    a {
-      font-weight: 600;
-      padding: 8px 12px;
-      border-radius: 4px;
-      color: var(--secondary-bg);
-
-      &:hover {
-        background-color: var(--hover-color-2);
-      }
-    }
-  }
 }

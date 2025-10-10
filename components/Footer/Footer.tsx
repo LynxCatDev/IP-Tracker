@@ -1,5 +1,6 @@
+import { NAVIGATION_LINKS } from '@/constants/navigationData';
+import { Navigation } from '../Navigation/Navigation';
 import './Footer.scss';
-import { FooterNavigation } from './FooterNavigation';
 
 export const Footer = () => {
   return (
@@ -9,7 +10,11 @@ export const Footer = () => {
           © {new Date().getFullYear()} IP Tracker. All rights reserved.
         </div>
         <div>
-          <FooterNavigation />
+          <Navigation
+            links={NAVIGATION_LINKS.footer}
+            variant="footer"
+            showActiveStates={false}
+          />
         </div>
       </div>
     </footer>

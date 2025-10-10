@@ -1,6 +1,7 @@
 import { Globe } from 'lucide-react';
 import Link from 'next/link';
-import { HeaderNavigation } from './HeaderNavigation';
+import { Navigation } from '../Navigation/Navigation';
+import { NAVIGATION_LINKS } from '@/constants/navigationData';
 import './Header.scss';
 
 export const Header = () => {
@@ -16,7 +17,11 @@ export const Header = () => {
         </Link>
       </div>
 
-      <HeaderNavigation />
+      <Navigation
+        links={NAVIGATION_LINKS.header}
+        variant="header"
+        showActiveStates={true}
+      />
     </header>
   );
 };
