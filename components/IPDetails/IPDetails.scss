@@ -39,6 +39,34 @@
     }
   }
 
+  &--location {
+    display: flex;
+    gap: 8px;
+  }
+
+  &--selected-data {
+    margin-top: 16px;
+    background: linear-gradient(90deg, #3a6ea3, var(--icon-color-5));
+    color: var(--primary-text);
+    padding: 16px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+
+    &-info {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-weight: 600;
+
+      &-title {
+        font-size: var(--large-size);
+      }
+    }
+  }
+
   &--loading {
     text-align: center;
     margin: 36px 0;

@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, cache } from 'react';
 import axios from 'axios';
-import { IPDetailsProps } from '@/types/ipData.interface';
 import { toast } from 'react-toastify';
+import { IPDetailsProps } from '@/types/ipData.interface';
 
 interface UseIPDetailsReturn {
   ipData: IPDetailsProps | null;
@@ -10,21 +10,34 @@ interface UseIPDetailsReturn {
   refetch: () => void;
 }
 
-export const useIPDetails = (): UseIPDetailsReturn => {
+export const useIPDetails = (ip: string): UseIPDetailsReturn => {
   const [ipData, setIPData] = useState<IPDetailsProps | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   const getIPData = async () => {
     try {
+      let url = '';
+      if (!ip) {
+        url = 'https://ipapi.co/json/';
+      } else {
+        url = `https://ipapi.co/${ip}/json/`;
+      }
       setLoading(true);
       setError(null);
-      const response = await axios.get(`https://ipapi.co/json/`);
+      const response = await axios.get(url);
       console.log(response.data, 'response');
       setIPData(response.data);
     } catch (err) {
-      setError('Failed to fetch IP information');
-      toast.error('Failed to fetch IP information', { autoClose: 4000 });
+      if (axios.isAxiosError(err) && err.response?.status === 429) {
+        setError('Rate limit exceeded. Please try again in a few minutes.');
+        toast.error('Too many requests. Please wait a moment.', {
+          autoClose: 4000,
+        });
+      } else {
+        setError('Failed to fetch IP information');
+        toast.error('Failed to fetch IP information', { autoClose: 4000 });
+      }
     } finally {
       setLoading(false);
     }
@@ -35,7 +48,7 @@ export const useIPDetails = (): UseIPDetailsReturn => {
   };
 
   useEffect(() => {
-    getIPData();
+    cache(getIPData)();
   }, []);
 
   return {

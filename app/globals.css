@@ -13,6 +13,7 @@
   --text-foreground: #717182;
   --primary-bg: #a355a3;
   --secondary-bg: #707ae6;
+  --footer-bg: #1f4872;
   --border-color-1: #cbced4;
   --hover-color-1: #caedf9;
   --hover-color-2: #f1d6f2;
@@ -40,17 +41,16 @@ a {
   transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
 
-a:hover,
-a:active,
-a:visited,
-a:focus {
+a:hover {
   text-decoration: none;
   color: var(--primary-light-dark-color);
 }
 
 body {
   margin: 0;
-  font-family: var(--font-montserrat-alternates), sans-serif;
+  /* font-family: var(--font-montserrat-alternates), sans-serif; */
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    'Liberation Mono', 'Courier New', monospace;
   /* color: var(--colors-text);
   background-color: var(--colors-bg); */
 }
