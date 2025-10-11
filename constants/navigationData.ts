@@ -6,12 +6,13 @@ export interface NavLink {
 export const NAVIGATION_LINKS: Record<string, NavLink[]> = {
   header: [
     { href: '/about', label: 'About' },
-    { href: '/contact', label: 'Contact' },
+    { href: '/contacts', label: 'Contacts' },
   ],
   footer: [
-    { href: '/about', label: 'About' },
-    { href: '/contact', label: 'Contact' },
     { href: '/privacy', label: 'Privacy Policy' },
     { href: '/terms', label: 'Terms of Service' },
+    { href: '/support', label: 'Support' },
+    { href: '/about', label: 'About' },
+    { href: '/contacts', label: 'Contacts' },
   ],
 };

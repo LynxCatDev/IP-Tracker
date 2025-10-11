@@ -95,22 +95,21 @@ export const IPDetails = ({ ip }: IPDetailsProps) => {
             IP Details For: {ipData.ip}
           </div>
           {ipData.asn && <div>ASN: {ipData.asn}</div>}
-          {ipData.org && <div>ISP: {ipData.org}</div>}
-          {ipData.postal && <div>Postal Code: {ipData.postal}</div>}
-          {ipData.currency_name && (
-            <div>
-              Currency: {ipData.currency_name} ({ipData.currency})
-            </div>
-          )}
           {ipData.timezone && (
             <div>
-              Time Zone: {ipData.timezone} ({ipData.continent_code}) (UTC{' '}
-              {ipData.utc_offset})
+              Time Zone: {ipData.timezone} ({ipData.continent_code})
             </div>
           )}
           {ipData.country_capital && (
             <div>Capital: {ipData.country_capital}</div>
           )}
+          {ipData.org && <div>ISP: {ipData.org}</div>}
+          {ipData.currency_name && (
+            <div>
+              Currency: {ipData.currency_name} ({ipData.currency})
+            </div>
+          )}
+          {ipData.postal && <div>Postal Code: {ipData.postal}</div>}
           {ipData.latitude && <div>Latitude: {ipData.latitude}</div>}
           {ipData.longitude && <div>Longitude: {ipData.longitude}</div>}
         </div>
