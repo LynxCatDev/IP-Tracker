@@ -1,0 +1,33 @@
+.contacts-page {
+  padding: 48px 0;
+
+  &--header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 24px;
+    color: var(--primary-text);
+
+    &-icon {
+      width: 64px;
+      height: 64px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #155dfc, #9810fa, #e60076);
+      border-radius: 50%;
+      transition: all 0.7s ease;
+
+      &:hover {
+        transform: scale(1.1) rotate(360deg);
+      }
+    }
+
+    &-text {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+  }
+}
