@@ -1,3 +1,5 @@
+@import '../../app/mixins.scss';
+
 .ip-details {
   padding: 40px;
   background: linear-gradient(135deg, #155dfc, #e60076);
@@ -72,9 +74,7 @@
       }
 
       &-icon {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        @include flex-center;
         background-color: var(--icon-color-2);
         padding: 8px;
         border-radius: 8px;

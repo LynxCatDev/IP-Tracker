@@ -1,0 +1,14 @@
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin main-gradient {
+  background: linear-gradient(
+    135deg,
+    var(--icon-color-1),
+    var(--icon-color-2),
+    var(--gradient-6)
+  );
+}

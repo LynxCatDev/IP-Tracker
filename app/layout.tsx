@@ -3,7 +3,7 @@ import Script from 'next/script';
 import { ToastContainer } from 'react-toastify';
 import { Montserrat } from 'next/font/google';
 import { Footer, Header, LayoutWrapper } from '@/components';
-import './globals.css';
+import './globals.scss';
 
 const montserratAlternates = Montserrat({
   subsets: ['latin'],

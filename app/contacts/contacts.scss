@@ -1,3 +1,5 @@
+@import '../mixins.scss';
+
 .contacts-page {
   padding: 48px 0;
 
@@ -12,12 +14,10 @@
     &-icon {
       width: 64px;
       height: 64px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(135deg, #155dfc, #9810fa, #e60076);
       border-radius: 50%;
       transition: all 0.7s ease;
+      @include flex-center;
+      @include main-gradient;
 
       &:hover {
         transform: scale(1.1) rotate(360deg);
