@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail } from 'lucide-react';
+import { Home, Info, Mail } from 'lucide-react';
 
 export interface NavLink {
   href: string;
@@ -9,7 +9,8 @@ export interface NavLink {
 
 export const NAVIGATION_LINKS: Record<string, NavLink[]> = {
   header: [
-    { href: '/about', label: 'About' },
+    { href: '/', label: 'Home', icon: <Home size={16} /> },
+    { href: '/about', label: 'About', icon: <Info size={16} /> },
     { href: '/contacts', label: 'Contacts', icon: <Mail size={16} /> },
   ],
   footer: [

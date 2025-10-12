@@ -1,7 +1,7 @@
-@import '../../app/mixins.scss';
-
 .button {
-  @include flex-center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   gap: 8px;
   border: 1px solid var(--border-color-1);
   border-radius: 8px;
