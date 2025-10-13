@@ -5,7 +5,13 @@ import './Button.scss';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
-  variant?: 'primary' | 'secondary' | 'error' | 'success' | 'search';
+  variant?:
+    | 'primary'
+    | 'secondary'
+    | 'error'
+    | 'success'
+    | 'search'
+    | 'gradient';
   size?: 'small' | 'medium' | 'large';
   loading?: boolean;
   icon?: ReactNode;

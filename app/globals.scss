@@ -15,6 +15,7 @@
   --secondary-bg: #707ae6;
   --footer-bg: #1f4872;
   --border-color-1: #cbced4;
+  --border-color-2: #a1a1a1;
   --hover-color-1: #caedf9;
   --hover-color-2: #f1d6f2;
   --icon-color-1: #155dfc;
@@ -30,6 +31,7 @@
   --gradient-6: #e60076;
 
   /* sizes */
+  --border-radius: 8px;
   --extra-small-size: 8px;
   --small-size: 12px;
   --default-size: 16px;
@@ -63,4 +65,8 @@ h4,
 h5,
 h6 {
   margin: 0;
+}
+
+h3 {
+  font-size: var(--medium-size);
 }

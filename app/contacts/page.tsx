@@ -1,4 +1,5 @@
 import { Mail, MapPin, MessageSquare, Phone } from 'lucide-react';
+import { ContactForm } from '@/components';
 import './contacts.scss';
 
 export default function ContactsPage() {
@@ -84,7 +85,7 @@ export default function ContactsPage() {
           </div>
         </div>
 
-        <div></div>
+        <ContactForm />
       </div>
     </div>
   );

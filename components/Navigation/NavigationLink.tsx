@@ -27,7 +27,7 @@ export const NavigationLink = ({
       className={`${className} ${isActive ? 'navigation--link--active' : ''}`}
     >
       {icon && <span className="navigation--link--icon">{icon}</span>}
-      {label}
+      <span>{label}</span>
     </Link>
   );
 };

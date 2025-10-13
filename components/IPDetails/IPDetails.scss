@@ -1,4 +1,4 @@
-@import '../../app/mixins.scss';
+@use '../../app/mixins.scss' as *;
 
 .ip-details {
   padding: 40px;
@@ -113,7 +113,6 @@
     padding: 8px 0;
 
     h3 {
-      font-size: var(--large-size);
       margin-bottom: 16px;
       color: #ff6b6b;
     }

@@ -1,4 +1,4 @@
-@import '../../app/mixins.scss';
+@use '../../app/mixins.scss' as *;
 
 .target-cards {
   margin-top: 24px;
