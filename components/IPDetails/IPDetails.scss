@@ -1,3 +1,5 @@
+@use '../../app/mixins.scss' as *;
+
 .ip-details {
   padding: 40px;
   background: linear-gradient(135deg, #155dfc, #e60076);
@@ -58,11 +60,30 @@
     &-info {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 32px;
       font-weight: 600;
 
       &-title {
+        display: flex;
+        align-items: center;
+        gap: 8px;
         font-size: var(--large-size);
+        padding: 8px 12px;
+        background: #1f4872;
+        border-radius: 8px;
+      }
+
+      &-icon {
+        @include flex-center;
+        background-color: var(--icon-color-2);
+        padding: 8px;
+        border-radius: 8px;
+      }
+
+      &-list {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
       }
     }
   }
@@ -92,7 +113,6 @@
     padding: 8px 0;
 
     h3 {
-      font-size: var(--large-size);
       margin-bottom: 16px;
       color: #ff6b6b;
     }

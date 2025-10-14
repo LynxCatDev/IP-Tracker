@@ -1,7 +1,7 @@
 'use client';
 
 import { useMemo } from 'react';
-import { MapPin, RefreshCcw, RotateCcw, Satellite } from 'lucide-react';
+import { MapPin, RefreshCcw, RotateCcw, Satellite, Shield } from 'lucide-react';
 import { CopyButton } from '../CopyButton/CopyButton';
 import { useIPDetails } from './useIPDetails';
 import { Button } from '../Button/Button';
@@ -92,27 +92,32 @@ export const IPDetails = ({ ip }: IPDetailsProps) => {
       <div className="ip-details--selected-data">
         <div className="ip-details--selected-data-info">
           <div className="ip-details--selected-data-info-title">
-            IP Details For: {ipData.ip}
+            <div className="ip-details--selected-data-info-icon">
+              <Shield />
+            </div>
+            <div>Additional Details For: {ipData.ip}</div>
           </div>
-          {ipData.asn && <div>ASN: {ipData.asn}</div>}
-          {ipData.org && <div>ISP: {ipData.org}</div>}
-          {ipData.postal && <div>Postal Code: {ipData.postal}</div>}
-          {ipData.currency_name && (
-            <div>
-              Currency: {ipData.currency_name} ({ipData.currency})
-            </div>
-          )}
-          {ipData.timezone && (
-            <div>
-              Time Zone: {ipData.timezone} ({ipData.continent_code}) (UTC{' '}
-              {ipData.utc_offset})
-            </div>
-          )}
-          {ipData.country_capital && (
-            <div>Capital: {ipData.country_capital}</div>
-          )}
-          {ipData.latitude && <div>Latitude: {ipData.latitude}</div>}
-          {ipData.longitude && <div>Longitude: {ipData.longitude}</div>}
+
+          <div className="ip-details--selected-data-info-list">
+            {ipData.asn && <div>ASN: {ipData.asn}</div>}
+            {ipData.timezone && (
+              <div>
+                Time Zone: {ipData.timezone} ({ipData.continent_code})
+              </div>
+            )}
+            {ipData.country_capital && (
+              <div>Capital: {ipData.country_capital}</div>
+            )}
+            {ipData.org && <div>ISP: {ipData.org}</div>}
+            {ipData.currency_name && (
+              <div>
+                Currency: {ipData.currency_name} ({ipData.currency})
+              </div>
+            )}
+            {ipData.postal && <div>Postal Code: {ipData.postal}</div>}
+            {ipData.latitude && <div>Latitude: {ipData.latitude}</div>}
+            {ipData.longitude && <div>Longitude: {ipData.longitude}</div>}
+          </div>
         </div>
 
         <div>map</div>

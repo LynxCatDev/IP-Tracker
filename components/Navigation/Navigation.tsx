@@ -24,6 +24,7 @@ export const Navigation = ({
           key={link.href}
           href={link.href}
           label={link.label}
+          icon={link.icon}
           showActive={showActiveStates}
         />
       ))}

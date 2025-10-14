@@ -1,0 +1,89 @@
+@use '../mixins.scss' as *;
+
+.contacts-page {
+  &--methods {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    margin-top: 32px;
+  }
+
+  &--info {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    &-details {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      background-color: var(--primary-text);
+      padding: 16px;
+      border-radius: 8px;
+    }
+
+    &-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: translateX(5px);
+      }
+    }
+
+    &-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      @include flex-center;
+    }
+
+    &-title {
+      color: var(--text-foreground);
+    }
+  }
+
+  .contacts-email {
+    background-color: var(--gradient-1);
+  }
+
+  .contacts-phone {
+    background-color: var(--gradient-2);
+  }
+
+  .contacts-address {
+    background-color: var(--gradient-3);
+  }
+
+  &--working-hours {
+    background-color: var(--primary-text);
+    padding: 16px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    &-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    &-content {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    &-time {
+      display: flex;
+      justify-content: space-between;
+
+      span:first-child {
+        color: var(--text-foreground);
+      }
+    }
+  }
+}

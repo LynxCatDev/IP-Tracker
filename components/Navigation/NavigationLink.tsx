@@ -8,6 +8,7 @@ interface NavigationLinkProps {
   label: string;
   showActive?: boolean;
   className?: string;
+  icon?: React.ReactNode;
 }
 
 export const NavigationLink = ({
@@ -15,6 +16,7 @@ export const NavigationLink = ({
   label,
   showActive = false,
   className = 'navigation--link',
+  icon,
 }: NavigationLinkProps) => {
   const pathname = usePathname();
   const isActive = showActive && pathname === href;
@@ -24,7 +26,8 @@ export const NavigationLink = ({
       href={href}
       className={`${className} ${isActive ? 'navigation--link--active' : ''}`}
     >
-      {label}
+      {icon && <span className="navigation--link--icon">{icon}</span>}
+      <span>{label}</span>
     </Link>
   );
 };

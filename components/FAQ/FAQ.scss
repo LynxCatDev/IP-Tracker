@@ -1,0 +1,150 @@
+@use '../../app/mixins.scss' as *;
+
+.contacts-faq {
+  margin-top: 60px;
+
+  &--title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--primary-text);
+    margin-bottom: 32px;
+  }
+
+  &--grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  &--item {
+    background: var(--primary-text);
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    }
+  }
+
+  &--question {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--primary-dark);
+    margin-bottom: 16px;
+  }
+
+  &--answer {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-grey);
+    margin: 0;
+  }
+}
+
+.faq {
+  margin-top: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  &--item {
+    background-color: var(--primary-text);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+
+    // CSS Animation
+    // animation: fadeInUp 0.5s ease-out backwards;
+    @include fade-in-up(0.5s);
+
+    &:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    &-open {
+      .faq--chevron {
+        transform: rotate(180deg);
+      }
+
+      .faq--answer-wrapper {
+        grid-template-rows: 1fr;
+      }
+    }
+  }
+
+  &--header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: rgba(139, 92, 246, 0.02);
+    }
+  }
+
+  &--title {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex: 1;
+  }
+
+  &--icon {
+    @include flex-center;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: var(--border-radius);
+    transition: transform 0.3s ease;
+
+    .faq--item:hover & {
+      transform: scale(1.1);
+    }
+  }
+
+  &--question {
+    h3 {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--primary-dark);
+    }
+  }
+
+  &--chevron {
+    flex-shrink: 0;
+    color: var(--text-grey);
+    transition: transform 0.3s ease, color 0.2s ease;
+
+    .faq--item-open & {
+      color: var(--icon-color-2);
+    }
+  }
+
+  &--answer-wrapper {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.3s ease;
+  }
+
+  &--answer {
+    overflow: hidden;
+    color: var(--text-foreground);
+    line-height: 1.7;
+    padding: 0 24px;
+
+    .faq--item-open & {
+      padding-bottom: 24px;
+    }
+  }
+}
