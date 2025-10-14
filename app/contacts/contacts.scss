@@ -60,16 +60,17 @@
       background-color: var(--primary-text);
       padding: 16px;
       border-radius: 8px;
-
-      h3 {
-        font-size: var(--medium-size);
-      }
     }
 
     &-item {
       display: flex;
       align-items: center;
       gap: 12px;
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: translateX(5px);
+      }
     }
 
     &-icon {
