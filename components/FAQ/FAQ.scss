@@ -2,6 +2,7 @@
 
 .contacts-faq {
   margin-top: 60px;
+  @include fade-in-up(0.5s);
 
   &--title {
     text-align: center;
