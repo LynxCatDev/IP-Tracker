@@ -6,4 +6,5 @@ export * from './TargetCards/TargetCards';
 export * from './IPAddressLookup/IPAddressLookup';
 export * from './Footer/Footer';
 export * from './ContactForm/ContactForm';
-export * from './FAQ/FAQ';
+export * from './FAQ/ContactsFAQ';
+export * from './PageInfo/PageInfo';

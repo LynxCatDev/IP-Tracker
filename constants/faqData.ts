@@ -1,6 +1,7 @@
 interface FAQItemInterface {
   question: string;
   answer: string;
+  icon?: React.ReactNode;
 }
 
 export const faqData: FAQItemInterface[] = [

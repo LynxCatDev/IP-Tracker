@@ -1,23 +1,15 @@
 import { Mail, MapPin, MessageSquare, Phone } from 'lucide-react';
-import { ContactForm, FAQ } from '@/components';
+import { ContactForm, ContactsFAQ, PageInfo } from '@/components';
 import './contacts.scss';
 
 export default function ContactsPage() {
   return (
     <div className="contacts-page">
-      <div className="contacts-page--header">
-        <div className="contacts-page--header-icon">
-          <Mail size={32} />
-        </div>
-
-        <div className="contacts-page--header-text">
-          <h1>Get in Touch</h1>
-          <span>
-            Have questions about IP tracking or need assistance? We're here to
-            help!
-          </span>
-        </div>
-      </div>
+      <PageInfo
+        title="Get in Touch"
+        description="Have questions about IP tracking or need assistance? We're here to help!"
+        icon={<Mail size={32} />}
+      />
 
       <div className="contacts-page--methods">
         <div className="contacts-page--info">
@@ -88,7 +80,7 @@ export default function ContactsPage() {
         <ContactForm />
       </div>
 
-      <FAQ />
+      <ContactsFAQ />
     </div>
   );
 }

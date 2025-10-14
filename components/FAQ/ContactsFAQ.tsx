@@ -1,7 +1,7 @@
 import { faqData } from '@/constants/faqData';
 import './FAQ.scss';
 
-export const FAQ = () => {
+export const ContactsFAQ = () => {
   return (
     <div className="faq">
       <h3 className="faq--title">Frequently Asked Questions</h3>
