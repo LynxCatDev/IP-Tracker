@@ -12,3 +12,38 @@
     var(--gradient-6)
   );
 }
+
+// Fade-in animation keyframes
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@mixin fade-in-up($duration: 0.5s) {
+  animation: fadeInUp $duration ease-out backwards;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@mixin fade-in-up($duration: 0.5s) {
+  animation: fadeInUp $duration ease-out backwards;
+}
+
+@mixin fade-in-down($duration: 0.5s) {
+  animation: fadeInDown $duration ease-out backwards;
+}

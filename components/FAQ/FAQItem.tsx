@@ -1,25 +1,23 @@
 'use client';
 
 import { useState } from 'react';
-import { AnimatePresence, motion } from 'motion/react';
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import { FAQItemInterface } from '@/constants/faqData';
 
 interface FAQItemProps {
   faqItem: FAQItemInterface;
+  index: number;
 }
 
-export const FAQItem = ({ faqItem }: FAQItemProps) => {
+export const FAQItem = ({ faqItem, index }: FAQItemProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const icon = faqItem.icon;
+
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      className="faq--item"
+    <div
+      className={`faq--item ${isOpen ? 'faq--item-open' : ''}`}
       onClick={() => setIsOpen(!isOpen)}
-      data-open={isOpen}
+      style={{ animationDelay: `${index * 0.05}s` }}
     >
       <div className="faq--header">
         <div className="faq--title">
@@ -38,27 +36,12 @@ export const FAQItem = ({ faqItem }: FAQItemProps) => {
           </div>
         </div>
 
-        <motion.div
-          animate={{ rotate: isOpen ? 180 : 0 }}
-          transition={{ duration: 0.3 }}
-        >
-          {isOpen ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
-        </motion.div>
+        <ChevronDown size={20} className="faq--chevron" />
       </div>
 
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="faq--answer"
-          >
-            {faqItem.answer}
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.div>
+      <div className="faq--answer-wrapper">
+        <div className="faq--answer">{faqItem.answer}</div>
+      </div>
+    </div>
   );
 };
