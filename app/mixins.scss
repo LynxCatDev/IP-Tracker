@@ -40,10 +40,36 @@
   }
 }
 
-@mixin fade-in-up($duration: 0.5s) {
-  animation: fadeInUp $duration ease-out backwards;
-}
-
 @mixin fade-in-down($duration: 0.5s) {
   animation: fadeInDown $duration ease-out backwards;
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@mixin fade-in-left($duration: 0.5s) {
+  animation: fadeInLeft $duration ease-out backwards;
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@mixin fade-in-right($duration: 0.5s) {
+  animation: fadeInRight $duration ease-out backwards;
 }
