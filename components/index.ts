@@ -7,4 +7,6 @@ export * from './IPAddressLookup/IPAddressLookup';
 export * from './Footer/Footer';
 export * from './ContactForm/ContactForm';
 export * from './FAQ/ContactsFAQ';
+export * from './FAQ/FAQ';
 export * from './PageInfo/PageInfo';
+export * from './Button/Button';

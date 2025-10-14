@@ -1,6 +1,6 @@
 @use '../../app/mixins.scss' as *;
 
-.faq {
+.contacts-faq {
   margin-top: 60px;
 
   &--title {
@@ -44,5 +44,43 @@
     line-height: 1.6;
     color: var(--text-grey);
     margin: 0;
+  }
+}
+
+.faq {
+  margin-top: 48px;
+
+  &--item {
+    background-color: var(--primary-text);
+    border-radius: var(--border-radius);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &--header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &--title {
+    @include flex-center;
+    gap: 8px;
+  }
+
+  &--icon {
+    @include flex-center;
+    width: 36px;
+    padding: 8px;
+    border-radius: var(--border-radius);
+  }
+
+  &--answer {
+    overflow: hidden;
+    padding-bottom: 8px;
+    padding-left: 40px;
+    color: var(--text-foreground);
   }
 }

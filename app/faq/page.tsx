@@ -1,5 +1,5 @@
 import { CircleQuestionMark } from 'lucide-react';
-import { PageInfo } from '@/components';
+import { FAQ, PageInfo } from '@/components';
 
 export default function FAQPage() {
   return (
@@ -9,6 +9,8 @@ export default function FAQPage() {
         description="Everything you need to know about IP addresses, privacy, and security"
         icon={<CircleQuestionMark size={32} />}
       />
+
+      <FAQ />
     </div>
   );
 }

@@ -11,7 +11,8 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     | 'error'
     | 'success'
     | 'search'
-    | 'gradient';
+    | 'gradient'
+    | 'icon';
   size?: 'small' | 'medium' | 'large';
   loading?: boolean;
   icon?: ReactNode;
