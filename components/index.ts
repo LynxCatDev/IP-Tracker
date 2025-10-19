@@ -3,6 +3,7 @@ export * from './LayoutWrapper/LayoutWrapper';
 export * from './IPDetails/IPDetails';
 export * from './CopyButton/CopyButton';
 export * from './TargetCards/TargetCards';
+export * from './TrustedStats/TrustedStats';
 export * from './IPAddressLookup/IPAddressLookup';
 export * from './Footer/Footer';
 export * from './ContactForm/ContactForm';

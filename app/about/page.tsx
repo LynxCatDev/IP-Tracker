@@ -1,5 +1,5 @@
 import { Target } from 'lucide-react';
-import { PageInfo } from '@/components';
+import { PageInfo, TrustedStats } from '@/components';
 
 export default function AboutPage() {
   return (
@@ -10,6 +10,8 @@ export default function AboutPage() {
         icon={<Target size={32} />}
         type="colored"
       />
+
+      <TrustedStats />
     </div>
   );
 }
