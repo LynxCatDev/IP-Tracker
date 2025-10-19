@@ -31,7 +31,7 @@
     gap: 32px;
     padding: 32px;
     border-radius: var(--default-size);
-    @include fade-in-up(0.6s);
+    @include fade-in-up(0.5s);
 
     &:hover {
       box-shadow: 0 25px 50px -12px #00000040;
