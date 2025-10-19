@@ -5,6 +5,7 @@
   background: linear-gradient(135deg, #155dfc, #e60076);
   border-radius: var(--default-size);
   color: var(--primary-text);
+  @include fade-in-down(0.6s);
 
   &--info {
     display: flex;

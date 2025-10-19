@@ -1,6 +1,6 @@
 @use '../../app/mixins.scss' as *;
 
-.trusted-stats {
+.features {
   padding: 32px 0 0;
 
   &--title {
@@ -13,53 +13,50 @@
 
   &--grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 24px;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
   }
 
   &--item {
     background: var(--primary-text);
     border-radius: 16px;
-    padding: 40px 24px;
-    text-align: center;
+    padding: 32px;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
     transition: all 0.3s ease;
     @include fade-in-up(0.6s);
 
     &:hover {
       transform: translateY(-8px);
-      box-shadow: 0 8px 24px rgba(139, 92, 246, 0.15);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
     }
   }
 
   &--icon {
     width: 56px;
     height: 56px;
-    margin: 0 auto 24px;
-    border-radius: 50%;
-    background: rgba(139, 92, 246, 0.1);
-    transition: transform 0.3s ease;
+    border-radius: 12px;
     @include flex-center;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
 
-    .trusted-stats--item:hover & {
-      transform: scale(1.15) rotate(5deg);
+    .features--item:hover & {
+      transform: scale(1.1) rotate(4deg);
     }
   }
 
-  &--value {
-    font-size: 32px;
+  &--name {
+    font-size: 20px;
     font-weight: 700;
-    color: var(--icon-color-2);
+    color: var(--primary-dark);
     margin-bottom: 12px;
-    line-height: 1;
   }
 
-  &--label {
+  &--description {
     font-size: 14px;
-    font-weight: 500;
+    line-height: 1.7;
     color: var(--text-grey);
-    line-height: 1.4;
+    margin: 0;
   }
 }

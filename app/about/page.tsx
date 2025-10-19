@@ -1,5 +1,5 @@
 import { Target } from 'lucide-react';
-import { PageInfo, TrustedStats } from '@/components';
+import { Features, PageInfo, TargetCards, TrustedStats } from '@/components';
 
 export default function AboutPage() {
   return (
@@ -12,6 +12,10 @@ export default function AboutPage() {
       />
 
       <TrustedStats />
+
+      <Features />
+
+      <TargetCards title="Our Core Values" />
     </div>
   );
 }

@@ -4,6 +4,7 @@ export * from './IPDetails/IPDetails';
 export * from './CopyButton/CopyButton';
 export * from './TargetCards/TargetCards';
 export * from './TrustedStats/TrustedStats';
+export * from './Features/Features';
 export * from './IPAddressLookup/IPAddressLookup';
 export * from './Footer/Footer';
 export * from './ContactForm/ContactForm';

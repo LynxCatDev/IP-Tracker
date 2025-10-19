@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <div className="home">
       <IPDetails />
-      <TargetCards />
+      <TargetCards title="Which is your biggest concern about using the Internet?" />
       <IPAddressLookup />
     </div>
   );

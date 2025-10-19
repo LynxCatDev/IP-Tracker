@@ -8,7 +8,14 @@ interface Props {
 
 export const TargetCardsItem = ({ targetCard }: Props) => {
   return (
-    <Link href="/" key={targetCard.id} className="target-cards--item">
+    <Link
+      href="/"
+      key={targetCard.id}
+      className="target-cards--item"
+      style={{
+        animationDelay: `${targetCard.id * 0.2}s`,
+      }}
+    >
       <div
         className="target-cards--item-icon"
         style={{

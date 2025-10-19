@@ -1,6 +1,6 @@
 import { Eye, Lock, Shield } from 'lucide-react';
 
-export const TARGETS_DATA = [
+export const targetsData = [
   {
     id: 1,
     title: 'Security',
