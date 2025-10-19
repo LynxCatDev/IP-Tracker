@@ -14,6 +14,7 @@ export const useIPDetails = (ip: string): UseIPDetailsReturn => {
   const [ipData, setIPData] = useState<IPDetailsProps | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const controller = new AbortController();
 
   const getIPData = async () => {
     try {
@@ -25,7 +26,9 @@ export const useIPDetails = (ip: string): UseIPDetailsReturn => {
       }
       setLoading(true);
       setError(null);
-      const response = await axios.get(url);
+      const response = await axios.get(url, {
+        signal: controller.signal,
+      });
       console.log(response.data, 'response');
       setIPData(response.data);
     } catch (err) {
@@ -49,6 +52,10 @@ export const useIPDetails = (ip: string): UseIPDetailsReturn => {
 
   useEffect(() => {
     cache(getIPData)();
+
+    return () => {
+      controller.abort();
+    };
   }, []);
 
   return {
