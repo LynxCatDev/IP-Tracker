@@ -123,6 +123,16 @@
       var(--icon-color-5)
     );
   }
+
+  &--link {
+    @include main-gradient;
+    padding: 12px 20px;
+    color: var(--primary-text);
+
+    &:hover {
+      color: var(--primary-text);
+    }
+  }
 }
 
 @keyframes spin {

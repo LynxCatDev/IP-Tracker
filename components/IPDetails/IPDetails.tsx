@@ -46,7 +46,7 @@ export const IPDetails = ({ ip }: IPDetailsProps) => {
   }
 
   return (
-    <div>
+    <div className="ip-details--wrapper">
       <div className="ip-details">
         <div className="ip-details--info">
           <div className="ip-details--info-header ip-details--info-header-badge">

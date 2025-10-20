@@ -12,3 +12,4 @@ export * from './FAQ/ContactsFAQ';
 export * from './FAQ/FAQ';
 export * from './PageInfo/PageInfo';
 export * from './Button/Button';
+export * from './GeneralInfo/GeneralInfo';
