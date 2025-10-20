@@ -138,7 +138,7 @@
 
   // Responsive grid
   @media (max-width: 768px) {
-    &__cards-grid {
+    &--cards-grid {
       grid-template-columns: 1fr;
       gap: 16px;
     }
@@ -147,7 +147,7 @@
   @media (max-width: 480px) {
     padding: 24px;
 
-    &__cards-grid {
+    &--cards-grid {
       margin-top: 24px;
     }
   }

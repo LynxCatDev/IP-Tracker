@@ -1,0 +1,201 @@
+@use '../../app/mixins.scss' as *;
+
+// Shimmer animation
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 0%, #f8f8f8 50%, #f0f0f0 100%);
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite linear;
+  border-radius: 8px;
+
+  &--badge {
+    width: 140px;
+    height: 24px;
+    border-radius: 12px;
+  }
+
+  &--badge-small {
+    width: 60px;
+    height: 24px;
+    border-radius: 12px;
+  }
+
+  &--ip {
+    width: 280px;
+    height: 56px;
+    border-radius: 12px;
+
+    @include respond-to('mobile') {
+      width: 200px;
+      height: 48px;
+    }
+  }
+
+  &--button {
+    width: 120px;
+    height: 40px;
+    border-radius: 8px;
+  }
+
+  &--location-text {
+    width: 320px;
+    height: 20px;
+    border-radius: 8px;
+
+    @include respond-to('mobile') {
+      width: 240px;
+    }
+  }
+
+  &--icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+  }
+
+  &--icon-small {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+  }
+
+  &--card-title {
+    width: 100px;
+    height: 12px;
+    margin-top: 12px;
+  }
+
+  &--card-value {
+    width: 140px;
+    height: 16px;
+  }
+
+  &--card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  &--additional-title {
+    width: 280px;
+    height: 20px;
+  }
+
+  &--list-item {
+    width: 100%;
+    height: 20px;
+    margin-bottom: 12px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &--refresh-button {
+    width: 200px;
+    height: 44px;
+    border-radius: 8px;
+  }
+}
+
+.ip-details-skeleton {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 16px;
+  padding: 32px;
+  color: var(--primary-text);
+
+  @include respond-to('mobile') {
+    padding: 24px;
+  }
+
+  &--wrapper {
+    @include fade-in-down(0.5s);
+  }
+
+  &--info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+
+  &--ip-address {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+
+  &--location {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &--cards-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 24px;
+
+    @include respond-to('tablet') {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond-to('mobile') {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &--card {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--primary-text);
+    border-radius: 12px;
+    padding: 16px 24px;
+  }
+
+  &--additional {
+    background: linear-gradient(135deg, #3a7bd5 0%, #00d2ff 100%);
+    border-radius: 16px;
+    padding: 32px;
+    margin-top: 24px;
+
+    @include respond-to('mobile') {
+      padding: 24px;
+    }
+  }
+
+  &--additional-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  &--additional-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+
+    @include respond-to('mobile') {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &--refresh {
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+  }
+}
