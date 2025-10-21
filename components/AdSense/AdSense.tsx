@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import { googleAdsClientId } from '@/utils/utils';
 
 interface AdSenseProps {
   adSlot: string;
@@ -94,7 +95,7 @@ export const AdSense = ({
         ref={adRef}
         className="adsbygoogle"
         style={style}
-        data-ad-client="ca-pub-2641120743401922"
+        data-ad-client={googleAdsClientId}
         data-ad-slot={adSlot}
         data-ad-format={adFormat}
         data-full-width-responsive={fullWidthResponsive}
