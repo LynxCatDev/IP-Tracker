@@ -3,6 +3,7 @@ import Script from 'next/script';
 import { ToastContainer } from 'react-toastify';
 import { Montserrat } from 'next/font/google';
 import { Footer, Header, LayoutWrapper } from '@/components';
+import { googleAdsClientId } from '@/utils/utils';
 import './globals.scss';
 
 const montserratAlternates = Montserrat({
@@ -33,7 +34,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const googleAdsClientId = process.env.GOOGLE_ADS_CLIENT_ID || '';
   return (
     <html lang="en" className={montserratAlternates.variable}>
       <head>

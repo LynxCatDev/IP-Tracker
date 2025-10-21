@@ -4,11 +4,11 @@ import { AdSense } from './AdSense';
 
 export const BannerAd = ({ className = '' }: { className?: string }) => {
   return (
-    <div className={`w-full flex justify-center my-6 ${className}`}>
+    <div className={`banner-ad ${className}`}>
       <AdSense
         adSlot="2886736646" // Real AdSense slot ID - Full Width Ad
         adFormat="auto"
-        className="max-w-4xl w-full"
+        className=""
         style={{ display: 'block', minHeight: '90px' }}
         fullWidthResponsive={true}
       />
