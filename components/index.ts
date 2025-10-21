@@ -13,3 +13,5 @@ export * from './FAQ/FAQ';
 export * from './PageInfo/PageInfo';
 export * from './Button/Button';
 export * from './GeneralInfo/GeneralInfo';
+export * from './AdSense/AdSense';
+export * from './AdSense/AdComponents';

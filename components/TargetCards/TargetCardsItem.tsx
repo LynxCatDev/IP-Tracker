@@ -9,7 +9,7 @@ interface Props {
 export const TargetCardsItem = ({ targetCard }: Props) => {
   return (
     <Link
-      href="/"
+      href={targetCard.link || ''}
       key={targetCard.id}
       className="target-cards--item"
       style={{
