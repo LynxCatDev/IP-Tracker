@@ -1,3 +1,5 @@
+@use '../../app/mixins.scss' as *;
+
 .ip-address-lookup {
   margin-top: var(--large-size);
   padding: 32px;
@@ -7,6 +9,7 @@
   flex-direction: column;
   justify-content: center;
   gap: var(--large-size);
+  @include fade-in-down(0.5s);
 
   &--header {
     display: flex;

@@ -1,6 +1,7 @@
 'use client';
 
-import { ReactNode, ButtonHTMLAttributes } from 'react';
+import { ReactNode, ButtonHTMLAttributes, AnchorHTMLAttributes } from 'react';
+import Link from 'next/link';
 import './Button.scss';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -12,11 +13,13 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     | 'success'
     | 'search'
     | 'gradient'
-    | 'icon';
+    | 'icon'
+    | 'link';
   size?: 'small' | 'medium' | 'large';
   loading?: boolean;
   icon?: ReactNode;
   iconPosition?: 'left' | 'right';
+  href?: string;
 }
 
 export const Button = ({
@@ -27,6 +30,7 @@ export const Button = ({
   icon,
   iconPosition = 'left',
   disabled,
+  href,
   className = '',
   ...props
 }: ButtonProps) => {
@@ -40,6 +44,18 @@ export const Button = ({
   ]
     .filter(Boolean)
     .join(' ');
+
+  if (variant === 'link') {
+    return (
+      <Link
+        href={href || '/'}
+        className="button button--link"
+        {...(props as AnchorHTMLAttributes<HTMLAnchorElement>)}
+      >
+        {loading ? <div className="button--spinner"></div> : children}
+      </Link>
+    );
+  }
 
   return (
     <button className={buttonClasses} disabled={disabled || loading} {...props}>

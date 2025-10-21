@@ -1,11 +1,16 @@
 @use '../../app/mixins.scss' as *;
 
 .target-cards {
-  margin-top: 24px;
+  margin-top: 32px;
+  @include fade-in-up(0.6s);
 
   &--header {
     text-align: center;
     color: var(--primary-text);
+
+    h3 {
+      font-size: 32px;
+    }
   }
 
   &--list {
@@ -26,6 +31,7 @@
     gap: 32px;
     padding: 32px;
     border-radius: var(--default-size);
+    @include fade-in-up(0.5s);
 
     &:hover {
       box-shadow: 0 25px 50px -12px #00000040;

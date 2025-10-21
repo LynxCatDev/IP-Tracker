@@ -6,6 +6,11 @@
   border-radius: var(--default-size);
   color: var(--primary-text);
 
+  &--wrapper {
+    margin-top: 32px;
+    // @include fade-in-down(0.6s);
+  }
+
   &--info {
     display: flex;
     justify-content: space-between;
@@ -138,7 +143,7 @@
 
   // Responsive grid
   @media (max-width: 768px) {
-    &__cards-grid {
+    &--cards-grid {
       grid-template-columns: 1fr;
       gap: 16px;
     }
@@ -147,7 +152,7 @@
   @media (max-width: 480px) {
     padding: 24px;
 
-    &__cards-grid {
+    &--cards-grid {
       margin-top: 24px;
     }
   }

@@ -1,0 +1,62 @@
+@use '../../app/mixins.scss' as *;
+
+.features {
+  padding: 32px 0 0;
+
+  &--title {
+    text-align: center;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--primary-text);
+    margin-bottom: 16px;
+  }
+
+  &--grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  &--item {
+    background: var(--primary-text);
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease;
+    @include fade-in-up(0.5s);
+
+    &:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+  }
+
+  &--icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    @include flex-center;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+
+    .features--item:hover & {
+      transform: scale(1.1) rotate(4deg);
+    }
+  }
+
+  &--name {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--primary-dark);
+    margin-bottom: 12px;
+  }
+
+  &--description {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text-grey);
+    margin: 0;
+  }
+}

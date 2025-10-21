@@ -6,6 +6,7 @@ import { CopyButton } from '../CopyButton/CopyButton';
 import { useIPDetails } from './useIPDetails';
 import { Button } from '../Button/Button';
 import { DetailsCard, DetailsCardProps } from '../DetailsCard/DetailsCard';
+import { IPDetailsSkeleton } from './IPDetailsSkeleton';
 import { IP_DETAILS_DATA } from '@/constants/ipDetailsData';
 import './IPDetails.scss';
 
@@ -19,14 +20,7 @@ export const IPDetails = ({ ip }: IPDetailsProps) => {
   const ipDetails = useMemo(() => ipData && IP_DETAILS_DATA(ipData), [ipData]);
 
   if (loading) {
-    return (
-      <div className="ip-details">
-        <div className="ip-details--loading">
-          <div className="spinner" />
-          <p>Fetching your IP information...</p>
-        </div>
-      </div>
-    );
+    return <IPDetailsSkeleton />;
   }
 
   if (error) {
@@ -52,7 +46,7 @@ export const IPDetails = ({ ip }: IPDetailsProps) => {
   }
 
   return (
-    <div>
+    <div className="ip-details--wrapper">
       <div className="ip-details">
         <div className="ip-details--info">
           <div className="ip-details--info-header ip-details--info-header-badge">

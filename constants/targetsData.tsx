@@ -1,6 +1,7 @@
+import { link } from 'fs';
 import { Eye, Lock, Shield } from 'lucide-react';
 
-export const TARGETS_DATA = [
+export const targetsData = [
   {
     id: 1,
     title: 'Security',
@@ -8,6 +9,7 @@ export const TARGETS_DATA = [
       'I want protection from hackers on public Wi-Fi and other unsecured networks.',
     icon: <Shield width={40} height={40} color="var(--icon-color-1)" />,
     gradient: 'var(--gradient-1)',
+    link: '/security',
   },
   {
     id: 2,
@@ -16,6 +18,7 @@ export const TARGETS_DATA = [
       'I want to prevent my government, ISP and advertisers from tracking me.',
     icon: <Eye width={40} height={40} color="var(--icon-color-5)" />,
     gradient: 'var(--gradient-5)',
+    link: '/privacy',
   },
   {
     id: 3,
@@ -24,5 +27,6 @@ export const TARGETS_DATA = [
       'I want to access Netflix, Twitch and other streaming services without being blocked.',
     icon: <Lock width={40} height={40} color="var(--icon-color-3)" />,
     gradient: 'var(--gradient-3)',
+    link: '/access',
   },
 ];
