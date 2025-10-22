@@ -15,3 +15,4 @@ export * from './Button/Button';
 export * from './GeneralInfo/GeneralInfo';
 export * from './AdSense/AdSense';
 export * from './AdSense/AdComponents';
+export * from './InfoCard/InfoCard';

@@ -1,7 +1,8 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { googleAdsClientId } from '@/utils/utils';
+import './AdSense.scss';
 
 interface AdSenseProps {
   adSlot: string;
@@ -26,6 +27,7 @@ export const AdSense = ({
 }: AdSenseProps) => {
   const adRef = useRef<HTMLModElement>(null);
   const isLoadedRef = useRef(false);
+  const [isAdLoaded, setIsAdLoaded] = useState(false);
 
   useEffect(() => {
     const loadAd = () => {
@@ -44,9 +46,14 @@ export const AdSense = ({
           // Push ad to queue for initialization
           (window.adsbygoogle = window.adsbygoogle || []).push({});
           isLoadedRef.current = true;
+
+          // Hide skeleton after ad loads (with a small delay to ensure ad renders)
+          setTimeout(() => setIsAdLoaded(true), 1000);
         }
       } catch (err) {
         console.error('AdSense loading error:', err);
+        // Hide skeleton even on error to prevent infinite loading
+        setIsAdLoaded(true);
       }
     };
 
@@ -57,6 +64,7 @@ export const AdSense = ({
       clearTimeout(timer);
       // Reset on cleanup to allow re-initialization if component remounts
       isLoadedRef.current = false;
+      setIsAdLoaded(false);
     };
   }, [adSlot]); // Re-run if adSlot changes
 
@@ -72,7 +80,6 @@ export const AdSense = ({
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            minHeight: '100px',
             color: '#6b7280',
             fontSize: '14px',
             fontFamily: 'monospace',
@@ -91,10 +98,22 @@ export const AdSense = ({
 
   return (
     <div className={`ad-container ${className}`}>
+      {/* Skeleton loader - show while ad is loading */}
+      {!isAdLoaded && (
+        <div className="ad-skeleton" style={style}>
+          <div className="ad-skeleton__shimmer"></div>
+        </div>
+      )}
+
+      {/* Actual AdSense ad */}
       <ins
         ref={adRef}
         className="adsbygoogle"
-        style={style}
+        style={{
+          ...style,
+          opacity: isAdLoaded ? 1 : 0,
+          transition: 'opacity 0.3s ease',
+        }}
         data-ad-client={googleAdsClientId}
         data-ad-slot={adSlot}
         data-ad-format={adFormat}
