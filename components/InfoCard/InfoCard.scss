@@ -1,0 +1,26 @@
+@use '../../app/mixins.scss' as *;
+
+.info-card {
+  padding: 48px;
+  background-color: var(--primary-text);
+  border-radius: 16px;
+  margin-top: 32px;
+  display: flex;
+  gap: 16px;
+  @include fade-in-left(0.8s);
+
+  &--content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    color: var(--primary-text);
+  }
+
+  &--icon {
+    @include flex-center;
+    min-width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    color: var(--primary-text);
+  }
+}
