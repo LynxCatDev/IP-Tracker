@@ -111,6 +111,7 @@
   border-radius: 16px;
   padding: 32px;
   color: var(--primary-text);
+  margin-top: 32px;
 
   @include respond-to('mobile') {
     padding: 24px;

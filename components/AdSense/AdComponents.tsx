@@ -9,7 +9,7 @@ export const BannerAd = ({ className = '' }: { className?: string }) => {
         adSlot="2886736646" // Real AdSense slot ID - Full Width Ad
         adFormat="auto"
         className=""
-        style={{ display: 'block', minHeight: '90px' }}
+        style={{ display: 'block' }}
         fullWidthResponsive={true}
       />
     </div>

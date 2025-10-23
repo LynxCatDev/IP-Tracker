@@ -85,7 +85,7 @@ export const AdSense = ({
             fontFamily: 'monospace',
             flexDirection: 'column',
             gap: '8px',
-            borderRadius: '16px',
+            height: '100%',
           }}
         >
           <div>🔧 AdSense Development</div>
