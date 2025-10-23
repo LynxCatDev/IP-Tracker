@@ -1,5 +1,5 @@
 import { CircleAlert, Eye } from 'lucide-react';
-import { InfoCard, PageInfo } from '@/components';
+import { InfoCard, PageInfo, SecurityCard } from '@/components';
 
 export default function PrivacyPage() {
   return (
