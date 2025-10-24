@@ -69,7 +69,7 @@ export const AdSense = ({
   }, [adSlot]); // Re-run if adSlot changes
 
   // Show placeholder in development
-  if (process.env.NODE_ENV === 'development') {
+  if (process.env.NEXT_PUBLIC_NODE_ENV === 'development') {
     return (
       <div className={`ad-container ${className}`}>
         <div

@@ -40,7 +40,7 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" sizes="any" />
 
         {/* Google AdSense - Load in all environments for verification */}
-        {process.env.NODE_ENV === 'production' && (
+        {process.env.NEXT_PUBLIC_NODE_ENV === 'production' && (
           <script
             async
             src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${googleAdsClientId}`}
@@ -52,7 +52,7 @@ export default function RootLayout({
         <meta name="google-adsense-account" content={googleAdsClientId} />
 
         {/* Google Analytics (optional but recommended for monetization) */}
-        {process.env.NODE_ENV === 'production' && (
+        {process.env.NEXT_PUBLIC_NODE_ENV === 'production' && (
           <>
             <Script
               src={`https://www.googletagmanager.com/gtag/js?id=${googleAdsClientId}`}

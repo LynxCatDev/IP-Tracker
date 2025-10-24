@@ -1,0 +1,10 @@
+.privacy-info {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+
+  &--item {
+    display: flex;
+    gap: 8px;
+  }
+}
