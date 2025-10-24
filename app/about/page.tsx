@@ -1,4 +1,4 @@
-import { Target } from 'lucide-react';
+import { Info, Target } from 'lucide-react';
 import {
   Features,
   GeneralInfo,
@@ -6,6 +6,7 @@ import {
   TargetCards,
   TrustedStats,
 } from '@/components';
+import { aboutGeneralCardInfo } from '@/constants/generalCardInfo';
 
 export default function AboutPage() {
   return (
@@ -23,7 +24,19 @@ export default function AboutPage() {
 
       <TargetCards title="Our Core Values" />
 
-      <GeneralInfo />
+      <GeneralInfo
+        title="What We Do"
+        description={
+          <>
+            {aboutGeneralCardInfo.map((title, index) => (
+              <p key={index}>{title}</p>
+            ))}
+          </>
+        }
+        link="/"
+        color="var(--gradient-2)"
+        icon={<Info size={24} color="var(--icon-color-2)" />}
+      />
     </div>
   );
 }

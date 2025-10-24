@@ -1,6 +1,13 @@
-import { CircleAlert, Eye } from 'lucide-react';
-import { InfoCard, PageInfo, SuggestionsCards } from '@/components';
+import { CircleAlert, CircleCheck, Eye, EyeOff } from 'lucide-react';
+import {
+  GeneralInfo,
+  InfoCard,
+  PageInfo,
+  SuggestionsCards,
+} from '@/components';
 import { privacySuggestions } from '@/constants/suggestionsData';
+import { privacyGeneralCardInfo } from '@/constants/generalCardInfo';
+import './privacy.scss';
 
 export default function PrivacyPage() {
   return (
@@ -22,6 +29,24 @@ export default function PrivacyPage() {
       <SuggestionsCards
         headerTitle="Who's tracking you and how they're doing it"
         suggestionsList={privacySuggestions}
+      />
+
+      <GeneralInfo
+        title="Privacy Tips & Best Practices"
+        description={
+          <div className="privacy-info">
+            {privacyGeneralCardInfo.map((title, index) => (
+              <div className="privacy-info--item" key={index}>
+                <div>
+                  <CircleCheck size={20} color="var(--icon-color-5)" />
+                </div>
+                <div>{title}</div>
+              </div>
+            ))}
+          </div>
+        }
+        color="var(--gradient-1)"
+        icon={<EyeOff size={24} color="var(--icon-color-5)" />}
       />
     </div>
   );
