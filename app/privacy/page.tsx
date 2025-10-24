@@ -1,5 +1,6 @@
 import { CircleAlert, Eye } from 'lucide-react';
-import { InfoCard, PageInfo } from '@/components';
+import { InfoCard, PageInfo, SuggestionsCards } from '@/components';
+import { privacySuggestions } from '@/constants/suggestionsData';
 
 export default function PrivacyPage() {
   return (
@@ -16,6 +17,11 @@ export default function PrivacyPage() {
         icon={<CircleAlert size={24} />}
         backgroundColor="var(--icon-color-5)"
         iconBackgroundColor="var(--gradient-1)"
+      />
+
+      <SuggestionsCards
+        headerTitle="Who's tracking you and how they're doing it"
+        suggestionsList={privacySuggestions}
       />
     </div>
   );

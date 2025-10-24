@@ -16,3 +16,4 @@ export * from './GeneralInfo/GeneralInfo';
 export * from './AdSense/AdSense';
 export * from './AdSense/AdComponents';
 export * from './InfoCard/InfoCard';
+export * from './SuggestionsCards/SuggestionsCards';
