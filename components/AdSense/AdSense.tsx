@@ -97,29 +97,31 @@ export const AdSense = ({
   }
 
   return (
-    <div className={`ad-container ${className}`}>
+    <div className={`ad-container ${className}`} style={style}>
       {/* Skeleton loader - show while ad is loading */}
       {!isAdLoaded && (
-        <div className="ad-skeleton" style={style}>
+        <div className="ad-skeleton">
           <div className="ad-skeleton__shimmer"></div>
         </div>
       )}
 
-      {/* Actual AdSense ad */}
-      <ins
-        ref={adRef}
-        className="adsbygoogle"
-        style={{
-          ...style,
-          opacity: isAdLoaded ? 1 : 0,
-          transition: 'opacity 0.3s ease',
-        }}
-        data-ad-client={googleAdsClientId}
-        data-ad-slot={adSlot}
-        data-ad-format={adFormat}
-        data-full-width-responsive={fullWidthResponsive}
-        data-adtest="on"
-      ></ins>
+      {/* Actual AdSense ad - wrapper enforces height */}
+      <div className="ad-wrapper">
+        <ins
+          ref={adRef}
+          className="adsbygoogle"
+          style={{
+            display: 'block',
+            opacity: isAdLoaded ? 1 : 0,
+            transition: 'opacity 0.3s ease',
+          }}
+          data-ad-client={googleAdsClientId}
+          data-ad-slot={adSlot}
+          data-ad-format={adFormat}
+          data-full-width-responsive={fullWidthResponsive}
+          data-adtest="on"
+        ></ins>
+      </div>
     </div>
   );
 };
