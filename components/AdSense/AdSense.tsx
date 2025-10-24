@@ -58,10 +58,10 @@ export const AdSense = ({
     };
 
     // Wait for script to load and DOM to be ready
-    const timer = setTimeout(loadAd, 500);
+    const timer = setInterval(loadAd, 500);
 
     return () => {
-      clearTimeout(timer);
+      clearInterval(timer);
       // Reset on cleanup to allow re-initialization if component remounts
       isLoadedRef.current = false;
       setIsAdLoaded(false);
@@ -118,6 +118,7 @@ export const AdSense = ({
         data-ad-slot={adSlot}
         data-ad-format={adFormat}
         data-full-width-responsive={fullWidthResponsive}
+        data-adtest="on"
       ></ins>
     </div>
   );
