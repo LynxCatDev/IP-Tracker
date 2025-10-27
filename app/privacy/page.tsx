@@ -5,7 +5,10 @@ import {
   PageInfo,
   SuggestionsCards,
 } from '@/components';
-import { privacySuggestions } from '@/constants/suggestionsData';
+import {
+  privacyProtectionSuggestions,
+  privacySuggestions,
+} from '@/constants/suggestionsData';
 import { privacyGeneralCardInfo } from '@/constants/generalCardInfo';
 import './privacy.scss';
 
@@ -29,6 +32,12 @@ export default function PrivacyPage() {
       <SuggestionsCards
         headerTitle="Who's tracking you and how they're doing it"
         suggestionsList={privacySuggestions}
+      />
+
+      <SuggestionsCards
+        headerTitle="Effective methods to reclaim your online privacy"
+        suggestionsList={privacyProtectionSuggestions}
+        itemsPerColumn={3}
       />
 
       <GeneralInfo

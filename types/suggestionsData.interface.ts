@@ -3,7 +3,15 @@ export interface SuggestionCardProps {
   icon: React.ReactNode;
   title: string;
   description: string;
-  severity?: 'high' | 'medium' | 'low' | 'very-high';
+  severity?:
+    | 'high'
+    | 'medium'
+    | 'low'
+    | 'very-high'
+    | 'protection-very-high'
+    | 'protection-high'
+    | 'protection-medium'
+    | 'protection-low';
   iconColor?: string;
   iconBgColor?: string;
 }
