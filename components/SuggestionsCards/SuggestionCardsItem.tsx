@@ -2,10 +2,12 @@ import { SuggestionCardProps } from '@/types/suggestionsData.interface';
 
 interface SuggestionsCardsItemProps {
   suggestion: SuggestionCardProps;
+  index?: number;
 }
 
 export const SuggestionsCardsItem = ({
   suggestion,
+  index,
 }: SuggestionsCardsItemProps) => {
   const getSeverityLabel = () => {
     switch (suggestion.severity) {
@@ -17,13 +19,26 @@ export const SuggestionsCardsItem = ({
         return 'Medium Impact';
       case 'low':
         return 'Low Impact';
+      case 'protection-very-high':
+        return 'Very High';
+      case 'protection-high':
+        return 'High';
+      case 'protection-medium':
+        return 'Medium';
+      case 'protection-low':
+        return 'Low';
       default:
         return null;
     }
   };
 
   return (
-    <div className="suggestions-card">
+    <div
+      className="suggestions-card"
+      style={{
+        animationDelay: index ? `${index * 0.1}s` : '0s',
+      }}
+    >
       <div className="suggestions-card--header">
         <div
           className="suggestions-card--icon"

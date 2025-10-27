@@ -1,4 +1,13 @@
-import { Database, Eye, Globe, Target } from 'lucide-react';
+import {
+  Activity,
+  Database,
+  Eye,
+  EyeOff,
+  Globe,
+  Shield,
+  Target,
+  UserX,
+} from 'lucide-react';
 import { SuggestionCardProps } from '@/types/suggestionsData.interface';
 
 export const privacySuggestions: SuggestionCardProps[] = [
@@ -41,5 +50,58 @@ export const privacySuggestions: SuggestionCardProps[] = [
     iconColor: 'var(--gradient-1)',
     iconBgColor: 'var(--icon-color-5)',
     icon: <Database size={24} />,
+  },
+];
+
+export const privacyProtectionSuggestions: SuggestionCardProps[] = [
+  {
+    id: 1,
+    title: 'Use a VPN Service',
+    description:
+      'A VPN encrypts your traffic and masks your real IP address, preventing ISPs, advertisers, and governments from tracking your activities.',
+    severity: 'protection-very-high',
+    iconColor: 'var(--gradient-3)',
+    iconBgColor: 'var(--icon-color-3)',
+    icon: <Shield size={24} />,
+  },
+  {
+    id: 2,
+    title: 'Privacy-Focused Browsers',
+    description:
+      'Use browsers like Brave or Firefox with enhanced tracking protection to block trackers and prevent fingerprinting.',
+    severity: 'protection-high',
+    iconColor: 'var(--gradient-3)',
+    iconBgColor: 'var(--icon-color-3)',
+    icon: <EyeOff size={24} />,
+  },
+  {
+    id: 3,
+    title: 'DNS Privacy',
+    description:
+      'Use encrypted DNS services (DNS over HTTPS) to prevent ISPs from seeing which websites you visit.',
+    severity: 'protection-high',
+    iconColor: 'var(--gradient-3)',
+    iconBgColor: 'var(--icon-color-3)',
+    icon: <Globe size={24} />,
+  },
+  {
+    id: 4,
+    title: 'Disable Trackers',
+    description:
+      'Use browser extensions like Privacy Badger or uBlock Origin to block third-party trackers and ads.',
+    severity: 'protection-medium',
+    iconColor: 'var(--gradient-3)',
+    iconBgColor: 'var(--icon-color-3)',
+    icon: <UserX size={24} />,
+  },
+  {
+    id: 5,
+    title: 'Regular Cookie Clearing',
+    description:
+      'Regularly clear cookies and browsing data to prevent long-term tracking across sessions.',
+    severity: 'protection-medium',
+    iconColor: 'var(--gradient-3)',
+    iconBgColor: 'var(--icon-color-3)',
+    icon: <Activity size={24} />,
   },
 ];
