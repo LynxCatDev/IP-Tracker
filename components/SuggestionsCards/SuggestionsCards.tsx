@@ -6,16 +6,19 @@ interface SuggestionsCardsProps {
   headerTitle?: string;
   suggestionsList?: SuggestionCardProps[];
   itemsPerColumn?: number;
+  styles?: React.CSSProperties;
 }
 
 export const SuggestionsCards = ({
   headerTitle,
   suggestionsList,
   itemsPerColumn = 2,
+  styles,
 }: SuggestionsCardsProps) => {
   return (
-    <div className="suggestions-cards">
-      <h3>{headerTitle}</h3>
+    <div className="suggestions-cards" style={{ ...styles }}>
+      {headerTitle && <h3>{headerTitle}</h3>}
+
       <div
         className="suggestions-list"
         style={{

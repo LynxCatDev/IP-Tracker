@@ -1,5 +1,17 @@
-import { CircleAlert, Lock } from 'lucide-react';
-import { InfoCard, PageInfo } from '@/components';
+import { CircleAlert, Key, Lock, LockOpen } from 'lucide-react';
+import {
+  BestPractices,
+  GeneralInfo,
+  InfoCard,
+  PageInfo,
+  SuggestionsCards,
+} from '@/components';
+import {
+  accessProtectionSuggestions,
+  accessStreamingSuggestions,
+  accessSuggestions,
+} from '@/constants/suggestionsData';
+import { accessGeneralCardInfo } from '@/constants/generalCardInfo';
 
 export default function AccessPage() {
   return (
@@ -16,6 +28,41 @@ export default function AccessPage() {
         icon={<CircleAlert size={24} />}
         backgroundColor="var(--gradient-11)"
         iconBackgroundColor="var(--gradient-12)"
+      />
+
+      <SuggestionsCards
+        headerTitle="How your location limits what you can access"
+        suggestionsList={accessSuggestions}
+      />
+
+      <SuggestionsCards
+        headerTitle="Methods to access geo-blocked content"
+        suggestionsList={accessProtectionSuggestions}
+      />
+
+      <GeneralInfo
+        title="Essential VPN Features for Streaming"
+        description={
+          <SuggestionsCards
+            suggestionsList={accessStreamingSuggestions}
+            itemsPerColumn={3}
+            styles={{ margin: '0' }}
+          />
+        }
+        color="var(--gradient-3)"
+        icon={<Key size={24} color="var(--icon-color-3)" />}
+      />
+
+      <GeneralInfo
+        title="Privacy Tips & Best Practices"
+        description={
+          <BestPractices
+            practicesData={accessGeneralCardInfo}
+            iconColor="var(--gradient-11)"
+          />
+        }
+        color="var(--gradient-3)"
+        icon={<LockOpen size={24} color="var(--icon-color-3)" />}
       />
     </div>
   );

@@ -1,6 +1,6 @@
 export interface SuggestionCardProps {
   id: number;
-  icon: React.ReactNode;
+  icon?: React.ReactNode;
   title: string;
   description: string;
   severity?:
@@ -11,7 +11,9 @@ export interface SuggestionCardProps {
     | 'protection-very-high'
     | 'protection-high'
     | 'protection-medium'
-    | 'protection-low';
+    | 'protection-low'
+    | 'critical';
   iconColor?: string;
   iconBgColor?: string;
+  bgColor?: string;
 }
