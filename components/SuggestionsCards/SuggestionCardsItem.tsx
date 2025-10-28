@@ -10,28 +10,17 @@ export const SuggestionsCardsItem = ({
   index,
 }: SuggestionsCardsItemProps) => {
   const getSeverityLabel = () => {
-    switch (suggestion.severity) {
-      case 'critical':
-        return 'Critical';
-      case 'very-high':
-        return 'Very High';
-      case 'high':
-        return 'High';
-      case 'medium':
-        return 'Medium';
-      case 'low':
-        return 'Low';
-      case 'protection-very-high':
-        return 'Very High';
-      case 'protection-high':
-        return 'High';
-      case 'protection-medium':
-        return 'Medium';
-      case 'protection-low':
-        return 'Low';
-      default:
-        return null;
-    }
+    const severity = suggestion.severity?.replace('protection-', '');
+
+    const labels: Record<string, string> = {
+      critical: 'Critical',
+      'very-high': 'Very High',
+      high: 'High',
+      medium: 'Medium',
+      low: 'Low',
+    };
+
+    return severity ? labels[severity] || null : null;
   };
 
   return (
