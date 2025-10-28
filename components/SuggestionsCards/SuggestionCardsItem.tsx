@@ -11,14 +11,16 @@ export const SuggestionsCardsItem = ({
 }: SuggestionsCardsItemProps) => {
   const getSeverityLabel = () => {
     switch (suggestion.severity) {
+      case 'critical':
+        return 'Critical';
       case 'very-high':
-        return 'Very High Impact';
+        return 'Very High';
       case 'high':
-        return 'High Impact';
+        return 'High';
       case 'medium':
-        return 'Medium Impact';
+        return 'Medium';
       case 'low':
-        return 'Low Impact';
+        return 'Low';
       case 'protection-very-high':
         return 'Very High';
       case 'protection-high':
@@ -37,29 +39,43 @@ export const SuggestionsCardsItem = ({
       className="suggestions-card"
       style={{
         animationDelay: index ? `${index * 0.1}s` : '0s',
+        padding: suggestion.bgColor && '16px',
+        backgroundColor: suggestion.bgColor && suggestion.bgColor,
       }}
     >
-      <div className="suggestions-card--header">
-        <div
-          className="suggestions-card--icon"
-          style={{
-            backgroundColor: suggestion.iconColor,
-            color: suggestion.iconBgColor,
-          }}
-        >
-          {suggestion.icon}
-        </div>
-        {suggestion.severity && (
-          <span
-            className={`suggestions-card--severity suggestions-card--severity--${suggestion.severity}`}
+      {suggestion.icon && (
+        <div className="suggestions-card--header">
+          <div
+            className="suggestions-card--icon"
+            style={{
+              backgroundColor: suggestion.iconColor,
+              color: suggestion.iconBgColor,
+            }}
           >
-            {getSeverityLabel()}
-          </span>
-        )}
-      </div>
+            {suggestion.icon}
+          </div>
+          {suggestion.severity && !suggestion.bgColor && (
+            <span
+              className={`suggestions-card--severity suggestions-card--severity--${suggestion.severity}`}
+            >
+              {getSeverityLabel()}
+            </span>
+          )}
+        </div>
+      )}
 
       <div className="suggestions-card--content">
-        <h4 className="suggestions-card--title">{suggestion.title}</h4>
+        <div className="suggestions-card--title">
+          <h4>{suggestion.title}</h4>
+
+          {suggestion.severity && suggestion.bgColor && (
+            <span
+              className={`suggestions-card--severity suggestions-card--severity--${suggestion.severity}`}
+            >
+              {getSeverityLabel()}
+            </span>
+          )}
+        </div>
         <span className="suggestions-card--description">
           {suggestion.description}
         </span>

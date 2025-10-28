@@ -8,6 +8,7 @@
     font-size: 24px;
     color: var(--primary-text);
     margin-bottom: 16px;
+    @include fade-in-right(0.5s);
   }
 }
 
@@ -51,7 +52,9 @@
     background-color: var(--gradient-14);
     color: var(--icon-color-3);
 
-    &--high {
+    &--high,
+    &--very-high,
+    &--critical {
       background-color: var(--gradient-7);
       color: var(--icon-color-6);
     }
@@ -66,6 +69,11 @@
     display: flex;
     flex-direction: column;
     gap: 16px;
+  }
+
+  &--title {
+    display: flex;
+    justify-content: space-between;
   }
 
   &--description {
