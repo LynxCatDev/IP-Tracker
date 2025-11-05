@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import { CircleAlert, CircleCheck, Eye, EyeOff } from 'lucide-react';
 import {
   BestPractices,
@@ -11,6 +12,25 @@ import {
   privacySuggestions,
 } from '@/constants/suggestionsData';
 import { privacyGeneralCardInfo } from '@/constants/generalCardInfo';
+
+export const metadata: Metadata = {
+  title: 'Privacy Policy - Internet Privacy & Tracking',
+  description:
+    'Understand how IP Tracker protects your privacy and learn methods to prevent tracking by governments, ISPs, and advertisers.',
+  keywords: [
+    'privacy policy',
+    'internet privacy',
+    'prevent tracking',
+    'online privacy',
+    'isp tracking',
+    'advertiser tracking',
+  ],
+  openGraph: {
+    title: 'Privacy Policy - Internet Privacy & Tracking',
+    description:
+      'Learn how we protect your privacy and methods to prevent online tracking.',
+  },
+};
 
 export default function PrivacyPage() {
   return (

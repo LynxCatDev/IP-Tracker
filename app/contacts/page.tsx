@@ -1,6 +1,25 @@
+import { Metadata } from 'next';
 import { Mail, MapPin, MessageSquare, Phone } from 'lucide-react';
 import { ContactForm, ContactsFAQ, PageInfo } from '@/components';
 import './contacts.scss';
+
+export const metadata: Metadata = {
+  title: 'Contact Us - Get in Touch',
+  description:
+    'Have questions about IP tracking or need assistance? Contact IP Tracker for support, inquiries, or feedback about our services.',
+  keywords: [
+    'contact ip tracker',
+    'support',
+    'help',
+    'customer service',
+    'get in touch',
+  ],
+  openGraph: {
+    title: 'Contact Us - IP Tracker',
+    description:
+      'Get in touch with IP Tracker for questions, support, or assistance.',
+  },
+};
 
 export default function ContactsPage() {
   return (

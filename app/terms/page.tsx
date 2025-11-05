@@ -1,6 +1,24 @@
+import { Metadata } from 'next';
 import { CircleAlert, FileText, Info } from 'lucide-react';
 import { BestPractices, GeneralInfo, InfoCard, PageInfo } from '@/components';
 import { termsGeneralCardInfo } from '@/constants/generalCardInfo';
+
+export const metadata: Metadata = {
+  title: 'Terms of Service',
+  description:
+    'Read the Terms of Service for IP Tracker. Learn about acceptable use, service limitations, and our legal obligations to users.',
+  keywords: [
+    'terms of service',
+    'user agreement',
+    'legal terms',
+    'service terms',
+    'acceptable use',
+  ],
+  openGraph: {
+    title: 'Terms of Service - IP Tracker',
+    description: 'Legal terms and conditions for using IP Tracker services.',
+  },
+};
 
 export default function TermsPage() {
   return (
