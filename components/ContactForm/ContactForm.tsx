@@ -2,10 +2,15 @@
 
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { Button } from '@/components/Button/Button';
 import { Send } from 'lucide-react';
 import { toast } from 'react-toastify';
+import { Button } from '@/components/Button/Button';
 import './ContactForm.scss';
+
+interface ContactFormValues {
+  style?: React.CSSProperties;
+  buttonTitle?: string;
+}
 
 const initialValues = {
   name: '',
@@ -17,12 +22,13 @@ const initialValues = {
 const validationSchema = Yup.object({
   name: Yup.string().required('Name is required'),
   email: Yup.string().email('Invalid email').required('Email is required'),
+  subject: Yup.string().required('Subject is required'),
   message: Yup.string()
     .min(20, 'Message must be at least 20 characters')
     .required('Message is required'),
 });
 
-export const ContactForm = () => {
+export const ContactForm = ({ style }: ContactFormValues) => {
   const formik = useFormik({
     initialValues,
     validationSchema,
@@ -39,7 +45,11 @@ export const ContactForm = () => {
   });
 
   return (
-    <div className="contact-form--container" suppressHydrationWarning>
+    <div
+      className="contact-form--container"
+      suppressHydrationWarning
+      style={style}
+    >
       <h3>Send us a Message</h3>
       <form
         onSubmit={formik.handleSubmit}
@@ -91,7 +101,9 @@ export const ContactForm = () => {
         </div>
 
         <div className="contact-form--group">
-          <label htmlFor="subject">Subject</label>
+          <label className="required" htmlFor="subject">
+            Subject
+          </label>
           <input
             id="subject"
             name="subject"

@@ -9,6 +9,7 @@ interface GeneralInfoProps {
   icon?: React.ReactNode;
   color?: string;
   link?: string;
+  linkTitle?: string;
 }
 
 export const GeneralInfo = ({
@@ -17,6 +18,7 @@ export const GeneralInfo = ({
   icon,
   color,
   link,
+  linkTitle = 'Check Your IP Now',
 }: GeneralInfoProps) => {
   return (
     <div className="general-info">
@@ -39,7 +41,7 @@ export const GeneralInfo = ({
       {link && (
         <div className="general-info--action">
           <Button href={link} variant="link">
-            Check Your IP Now
+            {linkTitle}
           </Button>
         </div>
       )}

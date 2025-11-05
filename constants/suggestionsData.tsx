@@ -1,15 +1,19 @@
 import {
   Activity,
   Ban,
+  CircleAlert,
   CircleCheck,
+  Clock,
   Database,
   Eye,
   EyeOff,
   FileCheck,
+  FileQuestionMark,
   Globe,
   Key,
   Lock,
   MapPin,
+  Search,
   Shield,
   ShieldAlert,
   Target,
@@ -361,5 +365,40 @@ export const accessStreamingSuggestions: SuggestionCardProps[] = [
     description: 'Access content on all your devices',
     severity: 'medium',
     bgColor: 'var(--gradient-14)',
+  },
+];
+
+export const supportSuggestions: SuggestionCardProps[] = [
+  {
+    id: 1,
+    title: 'Having trouble looking up an IP address?',
+    description:
+      "Ensure you're entering a valid IPv4 address format (e.g., 192.168.1.1). Check your internet connection and try again.",
+    iconColor: 'var(--hover-color-2)',
+    icon: <Search size={24} color="var(--icon-color-2)" />,
+  },
+  {
+    id: 2,
+    title: 'IP geolocation showing wrong location?',
+    description:
+      'IP geolocation is approximate and may not always be 100% accurate. Location data is based on ISP information and network routing.',
+    iconColor: 'var(--hover-color-2)',
+    icon: <CircleAlert size={24} color="var(--icon-color-2)" />,
+  },
+  {
+    id: 3,
+    title: 'Service taking too long to respond?',
+    description:
+      'This may be due to network latency or high server load. Try refreshing the page or clearing your browser cache.',
+    iconColor: 'var(--hover-color-2)',
+    icon: <Clock size={24} color="var(--icon-color-2)" />,
+  },
+  {
+    id: 4,
+    title: 'Not sure what the data means?',
+    description:
+      'Visit our FAQ page for detailed explanations of each data field, including ISP, timezone, and coordinates.',
+    iconColor: 'var(--hover-color-2)',
+    icon: <FileQuestionMark size={24} color="var(--icon-color-2)" />,
   },
 ];

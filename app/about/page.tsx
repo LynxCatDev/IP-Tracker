@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import { Info, Target } from 'lucide-react';
 import {
   Features,
@@ -7,6 +8,24 @@ import {
   TrustedStats,
 } from '@/components';
 import { aboutGeneralCardInfo } from '@/constants/generalCardInfo';
+
+export const metadata: Metadata = {
+  title: 'About Us - Our Mission & Values',
+  description:
+    "Learn about IP Tracker's mission to provide fast, accurate, and privacy-focused IP address information. We believe in transparency, security, and making network information accessible.",
+  keywords: [
+    'about ip tracker',
+    'ip tracker mission',
+    'network information',
+    'privacy focused',
+    'ip lookup service',
+  ],
+  openGraph: {
+    title: 'About IP Tracker - Our Mission & Values',
+    description:
+      'Providing fast, accurate, and privacy-focused IP address information to users worldwide.',
+  },
+};
 
 export default function AboutPage() {
   return (

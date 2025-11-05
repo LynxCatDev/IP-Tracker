@@ -14,18 +14,63 @@ const montserratAlternates = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: 'What Is My IP Address? - IP Tracker & Geolocation Tool',
+  metadataBase: new URL('https://ip-tracker-catweb.vercel.app'),
+  title: {
+    default: 'What Is My IP Address? - Free IP Tracker & Geolocation Tool',
+    template: '%s | IP Tracker',
+  },
   description:
-    'Discover your public IP address and get detailed information about your internet connection, location, ISP, and more. Free IP lookup tool with accurate geolocation data.',
-  keywords:
-    'what is my ip address?, IP address, what is my ip, ip tracker, geolocation, ip lookup, internet service provider, ISP, location tracker',
-  robots: 'index, follow',
+    'Discover your public IP address instantly. Get detailed geolocation data, ISP information, and network details. Free, fast, and accurate IP lookup tool with privacy protection tips.',
+  keywords: [
+    'what is my ip',
+    'my ip address',
+    'ip tracker',
+    'ip lookup',
+    'geolocation',
+    'find my ip',
+    'check ip address',
+    'internet service provider',
+    'ISP lookup',
+    'ip location',
+    'ipv4',
+    'ipv6',
+    'internet privacy',
+    'hide ip address',
+  ],
+  authors: [{ name: 'IP Tracker' }],
+  creator: 'Tudor Uzun',
+  publisher: 'IP Tracker',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://ip-tracker-catweb.vercel.app',
     title: 'What Is My IP Address? - Free IP Tracker & Geolocation Tool',
     description:
-      'Discover your public IP address and get detailed information about your internet connection, location, ISP, and more.',
-    type: 'website',
-    url: 'https://ip-tracker.vercel.app', // Your actual Vercel domain
+      'Discover your public IP address instantly. Get detailed geolocation data, ISP information, and network details.',
+    siteName: 'IP Tracker',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'What Is My IP Address? - Free IP Tracker',
+    description:
+      'Discover your public IP address instantly with detailed geolocation and ISP information.',
+  },
+  alternates: {
+    canonical: 'https://ip-tracker-catweb.vercel.app',
+  },
+  verification: {
+    google: googleAdsClientId,
   },
 };
 

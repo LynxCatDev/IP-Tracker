@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import { CircleAlert, Key, Lock, LockOpen } from 'lucide-react';
 import {
   BestPractices,
@@ -12,6 +13,23 @@ import {
   accessSuggestions,
 } from '@/constants/suggestionsData';
 import { accessGeneralCardInfo } from '@/constants/generalCardInfo';
+
+export const metadata: Metadata = {
+  title: 'Internet Access Freedom - Bypass Geo-Restrictions',
+  description:
+    'Access Netflix, Hulu, and streaming services without geographic restrictions. Learn how to bypass geo-blocking and access unrestricted content.',
+  keywords: [
+    'bypass geo restrictions',
+    'access netflix',
+    'streaming without restrictions',
+    'geo blocking',
+    'vpn streaming',
+  ],
+  openGraph: {
+    title: 'Internet Access Freedom - Bypass Geo-Restrictions',
+    description: 'Access streaming services without geographic restrictions.',
+  },
+};
 
 export default function AccessPage() {
   return (

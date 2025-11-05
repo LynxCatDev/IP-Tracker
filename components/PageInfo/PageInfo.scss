@@ -62,4 +62,9 @@
       }
     }
   }
+
+  &--time {
+    @include flex-center;
+    gap: 8px;
+  }
 }

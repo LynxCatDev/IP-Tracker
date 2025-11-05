@@ -108,6 +108,13 @@ export const AdSense = ({
       {/* Actual AdSense ad - wrapper enforces height */}
       <div className="ad-wrapper">
         <ins
+          className="adsbygoogle"
+          data-ad-client={googleAdsClientId}
+          data-ad-slot={adSlot}
+          data-ad-format="auto"
+          data-adtest="on" // ← Test mode enabled
+        ></ins>
+        {/* <ins
           ref={adRef}
           className="adsbygoogle"
           style={{
@@ -120,7 +127,7 @@ export const AdSense = ({
           data-ad-format={adFormat}
           data-full-width-responsive={fullWidthResponsive}
           data-adtest="on"
-        ></ins>
+        ></ins> */}
       </div>
     </div>
   );

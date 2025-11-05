@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import { Shield, TriangleAlert } from 'lucide-react';
 import {
   BestPractices,
@@ -11,6 +12,24 @@ import {
   securitySuggestions,
 } from '@/constants/suggestionsData';
 import { securityGeneralCardInfo } from '@/constants/generalCardInfo';
+
+export const metadata: Metadata = {
+  title: 'Internet Security - Protect Against Hackers',
+  description:
+    'Learn how to protect yourself from hackers on public Wi-Fi and unsecured networks. Secure your connection and prevent unauthorized access.',
+  keywords: [
+    'internet security',
+    'public wifi security',
+    'protect from hackers',
+    'network security',
+    'secure connection',
+  ],
+  openGraph: {
+    title: 'Internet Security - Protect Against Hackers',
+    description:
+      'Protect yourself from hackers on public Wi-Fi and other unsecured networks.',
+  },
+};
 
 export default function SecurityPage() {
   return (
