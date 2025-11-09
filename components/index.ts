@@ -18,3 +18,5 @@ export * from './AdSense/AdComponents';
 export * from './InfoCard/InfoCard';
 export * from './SuggestionsCards/SuggestionsCards';
 export * from './BestPractices/BestPractices';
+export * from './BlogArticle/BlogArticle';
+export * from './BlogCard/BlogCard';
