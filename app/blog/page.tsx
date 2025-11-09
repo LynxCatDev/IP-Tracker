@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { BookOpen } from 'lucide-react';
 import { PageInfo, BlogCard } from '@/components';
-import { blogArticles } from '@/constants/blogArticlesData';
+import { blogArticlesData } from '@/constants/blogArticlesData';
 import './blog.scss';
 
 export const metadata: Metadata = {
@@ -44,7 +44,7 @@ export default function BlogPage() {
         </div>
 
         <div className="blog-page--grid">
-          {blogArticles.map((article) => (
+          {blogArticlesData.map((article) => (
             <BlogCard
               key={article.slug}
               slug={article.slug}

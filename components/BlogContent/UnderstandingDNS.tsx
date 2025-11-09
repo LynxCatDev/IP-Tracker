@@ -1,38 +1,8 @@
-import { Metadata } from 'next';
-import { Globe } from 'lucide-react';
-import { BlogArticle } from '@/components';
+import React from 'react';
 
-export const metadata: Metadata = {
-  title: "Understanding DNS: The Internet's Phone Book",
-  description:
-    "Learn how the Domain Name System (DNS) works, why it's essential for internet functionality, and how it translates website names into IP addresses.",
-  keywords: [
-    'what is dns',
-    'dns explained',
-    'domain name system',
-    'how dns works',
-    'dns servers',
-    'dns lookup',
-    'dns security',
-    'dns privacy',
-  ],
-  openGraph: {
-    title: "Understanding DNS: The Internet's Phone Book",
-    description:
-      'Comprehensive guide to DNS, from basic concepts to security and privacy considerations.',
-    type: 'article',
-    publishedTime: '2025-11-09T00:00:00.000Z',
-  },
-};
-
-export default function UnderstandingDNS() {
+export function UnderstandingDNSContent() {
   return (
-    <BlogArticle
-      title="Understanding DNS: The Internet's Phone Book"
-      readTime="10 min read"
-      publishDate="November 9, 2025"
-      icon={Globe}
-    >
+    <>
       <p className="lead">
         Every time you visit a website, your computer performs a DNS lookup
         behind the scenes. The Domain Name System is one of the internet's most
@@ -388,6 +358,6 @@ export default function UnderstandingDNS() {
         powerful step toward a faster, safer, and more private internet
         experience.
       </p>
-    </BlogArticle>
+    </>
   );
 }

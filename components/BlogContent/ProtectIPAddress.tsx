@@ -1,38 +1,8 @@
-import { Metadata } from 'next';
-import { Shield } from 'lucide-react';
-import { BlogArticle } from '@/components';
+import React from 'react';
 
-export const metadata: Metadata = {
-  title: 'How to Protect Your IP Address from Tracking',
-  description:
-    'Discover effective methods to protect your IP address and maintain online privacy, including VPNs, Tor, proxies, and secure browsing practices.',
-  keywords: [
-    'hide ip address',
-    'protect ip',
-    'online privacy',
-    'vpn for privacy',
-    'tor browser',
-    'proxy servers',
-    'internet security',
-    'anonymous browsing',
-  ],
-  openGraph: {
-    title: 'How to Protect Your IP Address from Tracking',
-    description:
-      'Complete guide to protecting your IP address with VPNs, Tor, proxies, and best privacy practices.',
-    type: 'article',
-    publishedTime: '2025-11-04T00:00:00.000Z',
-  },
-};
-
-export default function ProtectIPAddress() {
+export function ProtectIPAddressContent() {
   return (
-    <BlogArticle
-      title="How to Protect Your IP Address from Tracking"
-      readTime="12 min read"
-      publishDate="November 4, 2025"
-      icon={Shield}
-    >
+    <>
       <p className="lead">
         Your IP address can reveal your location, ISP, and browsing habits to
         websites, advertisers, and potentially malicious actors. Learning how to
@@ -374,6 +344,6 @@ export default function ProtectIPAddress() {
         about new privacy threats, keep your tools updated, and always think
         critically about the data you share online.
       </p>
-    </BlogArticle>
+    </>
   );
 }
