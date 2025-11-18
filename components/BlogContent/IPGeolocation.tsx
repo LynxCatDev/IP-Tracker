@@ -1,37 +1,8 @@
-import { Metadata } from 'next';
-import { MapPin } from 'lucide-react';
-import { BlogArticle } from '@/components';
+import React from 'react';
 
-export const metadata: Metadata = {
-  title: 'Understanding Geolocation: How Websites Know Your Location',
-  description:
-    'Explore how geolocation technology works, its accuracy, common uses, and privacy implications of location tracking based on your IP address.',
-  keywords: [
-    'ip geolocation',
-    'location tracking',
-    'how geolocation works',
-    'ip location',
-    'geolocation privacy',
-    'ip tracking',
-    'location services',
-  ],
-  openGraph: {
-    title: 'Understanding Geolocation: How Websites Know Your Location',
-    description:
-      'Complete guide to IP geolocation technology, how it works, accuracy levels, and privacy considerations.',
-    type: 'article',
-    publishedTime: '2025-11-04T00:00:00.000Z',
-  },
-};
-
-export default function IPGeolocationExplained() {
+export function IPGeolocationContent() {
   return (
-    <BlogArticle
-      title="Understanding Geolocation: How Websites Know Your Location"
-      readTime="11 min read"
-      publishDate="November 4, 2025"
-      icon={MapPin}
-    >
+    <>
       <p className="lead">
         Have you ever wondered how websites automatically know your location,
         show local weather, or display content in your language? The answer lies
@@ -437,6 +408,6 @@ export default function IPGeolocationExplained() {
         between the benefits of geolocation and personal privacy will continue
         to be an important topic in our increasingly connected world.
       </p>
-    </BlogArticle>
+    </>
   );
 }

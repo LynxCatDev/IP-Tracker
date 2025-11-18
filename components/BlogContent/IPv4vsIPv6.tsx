@@ -1,37 +1,8 @@
-import { Metadata } from 'next';
-import { Network } from 'lucide-react';
-import { BlogArticle } from '@/components';
+import React from 'react';
 
-export const metadata: Metadata = {
-  title: 'IPv4 vs IPv6: Understanding the Differences',
-  description:
-    'Learn the key differences between IPv4 and IPv6 protocols, including address formats, security features, and why the internet is transitioning to IPv6.',
-  keywords: [
-    'ipv4 vs ipv6',
-    'internet protocol',
-    'ipv6 benefits',
-    'ip address format',
-    'network protocols',
-    'ipv6 adoption',
-    'ip addressing',
-  ],
-  openGraph: {
-    title: 'IPv4 vs IPv6: Understanding the Differences',
-    description:
-      'Detailed comparison of IPv4 and IPv6 protocols, their features, security, and the future of internet addressing.',
-    type: 'article',
-    publishedTime: '2025-11-04T00:00:00.000Z',
-  },
-};
-
-export default function IPv4vsIPv6() {
+export function IPv4vsIPv6Content() {
   return (
-    <BlogArticle
-      title="IPv4 vs IPv6: Understanding the Differences"
-      readTime="10 min read"
-      publishDate="November 4, 2025"
-      icon={Network}
-    >
+    <>
       <p className="lead">
         As the internet continues to grow, the transition from IPv4 to IPv6 has
         become increasingly important. Understanding the differences between
@@ -383,6 +354,6 @@ export default function IPv4vsIPv6() {
         IPv4 and the potential of IPv6 to enable the next generation of internet
         innovation.
       </p>
-    </BlogArticle>
+    </>
   );
 }

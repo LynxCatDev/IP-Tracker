@@ -1,6 +1,6 @@
 import { Book, Globe, Lock, MapPin, Network, Shield } from 'lucide-react';
 
-export const blogArticles = [
+export const blogArticlesData = [
   {
     slug: 'what-is-ip-address',
     title: 'What is an IP Address and How Does it Work?',

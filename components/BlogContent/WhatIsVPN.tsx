@@ -1,38 +1,8 @@
-import { Metadata } from 'next';
-import { Lock } from 'lucide-react';
-import { BlogArticle } from '@/components';
+import React from 'react';
 
-export const metadata: Metadata = {
-  title: 'What is a VPN and How Does it Work?',
-  description:
-    'Comprehensive guide to Virtual Private Networks (VPNs), how they encrypt your connection, protect your privacy, and help you bypass geographical restrictions.',
-  keywords: [
-    'what is vpn',
-    'vpn explained',
-    'virtual private network',
-    'vpn security',
-    'vpn privacy',
-    'how vpn works',
-    'vpn benefits',
-    'vpn encryption',
-  ],
-  openGraph: {
-    title: 'What is a VPN and How Does it Work?',
-    description:
-      'Learn everything about VPNs, from encryption protocols to privacy benefits and practical use cases.',
-    type: 'article',
-    publishedTime: '2025-11-09T00:00:00.000Z',
-  },
-};
-
-export default function WhatIsVPN() {
+export function WhatIsVPNContent() {
   return (
-    <BlogArticle
-      title="What is a VPN and How Does it Work?"
-      readTime="9 min read"
-      publishDate="November 9, 2025"
-      icon={Lock}
-    >
+    <>
       <p className="lead">
         A Virtual Private Network (VPN) is one of the most powerful tools for
         protecting your online privacy and security. But what exactly is a VPN,
@@ -326,6 +296,6 @@ export default function WhatIsVPN() {
         make sure to choose a trustworthy provider and understand both the
         capabilities and limitations of VPN technology.
       </p>
-    </BlogArticle>
+    </>
   );
 }

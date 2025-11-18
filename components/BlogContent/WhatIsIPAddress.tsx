@@ -1,38 +1,8 @@
-import { Metadata } from 'next';
-import { Book } from 'lucide-react';
-import { BlogArticle } from '@/components';
+import React from 'react';
 
-export const metadata: Metadata = {
-  title: 'What is an IP Address and How Does it Work?',
-  description:
-    'Learn the fundamentals of IP addresses, how they are assigned, their role in internet communication, and the difference between public and private IP addresses.',
-  keywords: [
-    'what is ip address',
-    'how ip works',
-    'ipv4 address',
-    'ipv6 address',
-    'public ip',
-    'private ip',
-    'internet protocol',
-    'ip assignment',
-  ],
-  openGraph: {
-    title: 'What is an IP Address and How Does it Work?',
-    description:
-      'Comprehensive guide to understanding IP addresses, their types, and how they enable internet communication.',
-    type: 'article',
-    publishedTime: '2025-11-04T00:00:00.000Z',
-  },
-};
-
-export default function WhatIsIPAddress() {
+export function WhatIsIPAddressContent() {
   return (
-    <BlogArticle
-      title="What is an IP Address and How Does it Work?"
-      readTime="8 min read"
-      publishDate="November 4, 2025"
-      icon={Book}
-    >
+    <>
       <p className="lead">
         Every device connected to the internet has a unique identifier called an
         IP address. Understanding what an IP address is and how it works is
@@ -259,6 +229,6 @@ export default function WhatIsIPAddress() {
         protocols continue to make internet communication faster, more secure,
         and more efficient.
       </p>
-    </BlogArticle>
+    </>
   );
 }
