@@ -11,6 +11,102 @@ interface UseIPDetailsReturn {
   refetch: () => void;
 }
 
+const USER_AGENT_HEADER = {
+  'User-Agent': 'IPTracker/1.0 (+https://ip-tracker.app)',
+};
+
+const normalizeLanguageField = (value?: string | string[]): string[] => {
+  if (Array.isArray(value)) {
+    return value.filter(Boolean);
+  }
+
+  if (typeof value === 'string') {
+    return value
+      .split(',')
+      .map((lang) => lang.trim())
+      .filter(Boolean);
+  }
+
+  return [];
+};
+
+const normalizeNumber = (value: unknown): number => {
+  if (typeof value === 'number') {
+    return Number.isFinite(value) ? value : 0;
+  }
+
+  if (typeof value === 'string') {
+    const parsed = parseFloat(value);
+    return Number.isFinite(parsed) ? parsed : 0;
+  }
+
+  return 0;
+};
+
+const transformIpwhoisResponse = (
+  data: Record<string, any>,
+): IPDetailsProps => ({
+  asn: data.connection?.asn ? String(data.connection.asn) : '',
+  city: data.city ?? '',
+  continent_code: data.continent_code ?? '',
+  country: data.country_code ?? data.country ?? '',
+  country_area: normalizeNumber(data.country_area),
+  country_calling_code: data.calling_code
+    ? `+${String(data.calling_code).replace('+', '')}`
+    : '',
+  country_capital: data.capital ?? '',
+  country_code: data.country_code ?? '',
+  country_code_iso3: data.country_code3 ?? '',
+  country_name: data.country ?? '',
+  country_population: normalizeNumber(data.country_population),
+  country_tld: data.tld ?? '',
+  currency: data.currency?.code ?? '',
+  currency_name: data.currency?.name ?? '',
+  in_eu: Boolean(data.is_eu),
+  ip: data.ip ?? '',
+  languages: normalizeLanguageField(data.languages),
+  latitude: normalizeNumber(data.latitude),
+  longitude: normalizeNumber(data.longitude),
+  network: data.connection?.domain ?? data.connection?.isp ?? '',
+  org: data.connection?.org ?? '',
+  postal: data.postal ?? '',
+  region: data.region ?? '',
+  region_code: data.region_code ?? '',
+  timezone: data.timezone?.id ?? '',
+  utc_offset: data.timezone?.utc ?? '',
+  version: data.type ?? '',
+});
+
+const fetchFromIpapi = async (ip?: string): Promise<IPDetailsProps> => {
+  const url = ip ? `https://ipapi.co/${ip}/json/` : 'https://ipapi.co/json/';
+  const response = await axios.get(url, { headers: USER_AGENT_HEADER });
+
+  if (response.data?.error) {
+    throw new Error(response.data?.reason || 'ipapi error');
+  }
+
+  return response.data as IPDetailsProps;
+};
+
+const fetchFromIpwhois = async (ip?: string): Promise<IPDetailsProps> => {
+  const url = ip ? `https://ipwho.is/${ip}` : 'https://ipwho.is/';
+  const response = await axios.get(url);
+
+  if (!response.data?.success) {
+    throw new Error(response.data?.message || 'ipwho.is error');
+  }
+
+  return transformIpwhoisResponse(response.data);
+};
+
+const deriveFriendlyError = (err: unknown): string => {
+  if (axios.isAxiosError(err) && err.response?.status === 429) {
+    return 'Rate limit exceeded. Please try again in a few minutes.';
+  }
+
+  return 'Failed to fetch IP information. Please try again later.';
+};
+
 export const useIPDetails = (ip: string): UseIPDetailsReturn => {
   const [ipData, setIPData] = useState<IPDetailsProps | null>(null);
   const [loading, setLoading] = useState(true);
@@ -24,41 +120,38 @@ export const useIPDetails = (ip: string): UseIPDetailsReturn => {
     30 * 60 * 1000, // 30 minutes in milliseconds
   );
 
-  console.log(cachedData, 'cachedData');
-
   const getIPData = async (skipCache = false) => {
     // Check cache first (unless skipCache is true for manual refetch)
     if (!skipCache && cachedData) {
-      console.log('Using cached data');
       setIPData(cachedData);
       setLoading(false);
       return;
     }
 
     try {
-      let url = '';
-      if (!ip) {
-        url = 'https://ipapi.co/json/';
-      } else {
-        url = `https://ipapi.co/${ip}/json/`;
-      }
       setLoading(true);
       setError(null);
-      const response = await axios.get(url);
-      console.log(response.data, 'response');
+      const primaryData = await fetchFromIpapi(ip);
+      setIPData(primaryData);
+      setCachedData(primaryData);
+    } catch (primaryError) {
+      console.error(
+        'Primary IP lookup failed, attempting fallback',
+        primaryError,
+      );
 
-      // Save the full response data (not just the IP)
-      setIPData(response.data);
-      setCachedData(response.data); // Save the entire data object
-    } catch (err) {
-      if (axios.isAxiosError(err) && err.response?.status === 429) {
-        setError('Rate limit exceeded. Please try again in a few minutes.');
-        toast.error('Too many requests. Please wait a moment.', {
+      try {
+        const fallbackData = await fetchFromIpwhois(ip);
+        setIPData(fallbackData);
+        setCachedData(fallbackData);
+        toast.info('Primary provider unavailable—using backup results.', {
           autoClose: 4000,
         });
-      } else {
-        setError('Failed to fetch IP information');
-        toast.error('Failed to fetch IP information', { autoClose: 4000 });
+      } catch (fallbackError) {
+        const friendlyMessage = deriveFriendlyError(primaryError);
+        setError(friendlyMessage);
+        toast.error(friendlyMessage, { autoClose: 4000 });
+        console.error('Fallback IP lookup also failed', fallbackError);
       }
     } finally {
       setLoading(false);
