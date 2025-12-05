@@ -6,6 +6,12 @@ import {
   Lock,
   Globe,
   LucideIcon,
+  Shuffle,
+  Wifi,
+  ShieldCheck,
+  Flame,
+  Skull,
+  AlertTriangle,
 } from 'lucide-react';
 
 // Export all content components
@@ -15,6 +21,12 @@ export { IPv4vsIPv6Content } from './IPv4vsIPv6';
 export { IPGeolocationContent } from './IPGeolocation';
 export { WhatIsVPNContent } from './WhatIsVPN';
 export { UnderstandingDNSContent } from './UnderstandingDNS';
+export { ProxyVsVPNContent } from './ProxyVsVPN';
+export { PublicVsPrivateIPContent } from './PublicVsPrivateIP';
+export { InternetSecurityTipsContent } from './InternetSecurityTips';
+export { WhatIsFirewallContent } from './WhatIsFirewall';
+export { DarkWebExplainedContent } from './DarkWebExplained';
+export { HowHackersStealDataContent } from './HowHackersStealData';
 
 export interface BlogArticleMetadata {
   slug: string;
@@ -152,5 +164,131 @@ export const blogArticlesMetadata: Record<string, BlogArticleMetadata> = {
     readTime: '10 min read',
     date: 'November 9, 2025',
     color: '#06b6d4',
+  },
+  'proxy-vs-vpn': {
+    slug: 'proxy-vs-vpn',
+    title: "Proxy vs VPN: What's the Difference and Which Should You Use?",
+    description:
+      'Understand the key differences between proxies and VPNs, their strengths, weaknesses, and when to use each for optimal online privacy and security.',
+    keywords: [
+      'proxy vs vpn',
+      'proxy server',
+      'vpn comparison',
+      'online privacy tools',
+      'socks proxy',
+      'http proxy',
+      'anonymous browsing',
+      'privacy protection',
+    ],
+    publishedTime: '2025-12-01T00:00:00.000Z',
+    icon: Shuffle,
+    readTime: '14 min read',
+    date: 'December 1, 2025',
+    color: '#f97316',
+  },
+  'public-vs-private-ip': {
+    slug: 'public-vs-private-ip',
+    title: 'Public vs Private IP Addresses: Everything You Need to Know',
+    description:
+      'Learn the difference between public and private IP addresses, how NAT works, and why this distinction is fundamental to how the internet functions.',
+    keywords: [
+      'public ip address',
+      'private ip address',
+      'nat explained',
+      'network address translation',
+      'ip addressing',
+      'home network ip',
+      'router ip address',
+      'internal vs external ip',
+    ],
+    publishedTime: '2025-12-02T00:00:00.000Z',
+    icon: Wifi,
+    readTime: '13 min read',
+    date: 'December 2, 2025',
+    color: '#14b8a6',
+  },
+  'internet-security-tips': {
+    slug: 'internet-security-tips',
+    title: 'Essential Internet Security Tips: Protect Yourself Online',
+    description:
+      'Comprehensive guide to internet security best practices including password management, 2FA, safe browsing, and protecting your devices from cyber threats.',
+    keywords: [
+      'internet security tips',
+      'online safety',
+      'cyber security',
+      'password security',
+      'two factor authentication',
+      'phishing protection',
+      'safe browsing',
+      'device security',
+    ],
+    publishedTime: '2025-12-03T00:00:00.000Z',
+    icon: ShieldCheck,
+    readTime: '15 min read',
+    date: 'December 3, 2025',
+    color: '#22c55e',
+  },
+  'what-is-firewall': {
+    slug: 'what-is-firewall',
+    title: 'What is a Firewall? Understanding Network Security Basics',
+    description:
+      'Learn what firewalls are, how they protect your network, different types of firewalls, and how to configure them for optimal security.',
+    keywords: [
+      'what is firewall',
+      'network firewall',
+      'firewall types',
+      'windows firewall',
+      'router firewall',
+      'firewall security',
+      'network protection',
+      'firewall configuration',
+    ],
+    publishedTime: '2025-12-04T00:00:00.000Z',
+    icon: Flame,
+    readTime: '12 min read',
+    date: 'December 4, 2025',
+    color: '#ef4444',
+  },
+  'dark-web-explained': {
+    slug: 'dark-web-explained',
+    title: 'The Dark Web Explained: What It Really Is and How It Works',
+    description:
+      "Learn what the dark web actually is, how it works, what's really on it, and separate fact from fiction about this misunderstood part of the internet.",
+    keywords: [
+      'dark web',
+      'deep web',
+      'tor network',
+      'onion sites',
+      'dark web explained',
+      'internet layers',
+      'anonymous internet',
+      'hidden web',
+    ],
+    publishedTime: '2025-12-05T00:00:00.000Z',
+    icon: Skull,
+    readTime: '13 min read',
+    date: 'December 5, 2025',
+    color: '#1f2937',
+  },
+  'how-hackers-steal-data': {
+    slug: 'how-hackers-steal-data',
+    title: 'How Hackers Actually Steal Your Data: Methods and Prevention',
+    description:
+      'Learn the real techniques hackers use to steal data — from phishing to malware to social engineering — and how to protect yourself.',
+    keywords: [
+      'how hackers steal data',
+      'phishing attacks',
+      'data theft',
+      'cyber attacks',
+      'malware',
+      'social engineering',
+      'password stealing',
+      'identity theft',
+    ],
+    publishedTime: '2025-12-06T00:00:00.000Z',
+    icon: AlertTriangle,
+    readTime: '14 min read',
+    date: 'December 6, 2025',
+    color: '#dc2626',
   },
 };
