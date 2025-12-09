@@ -15,7 +15,7 @@ export const Header = () => {
           </div>
 
           <div className="header--logo-text">
-            IP Tracker
+            IP Trackers
             <BetaTag />
           </div>
         </Link>

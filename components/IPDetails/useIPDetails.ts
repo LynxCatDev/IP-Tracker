@@ -11,10 +11,6 @@ interface UseIPDetailsReturn {
   refetch: () => void;
 }
 
-const USER_AGENT_HEADER = {
-  'User-Agent': 'IPTracker/1.0 (+https://ip-tracker.app)',
-};
-
 const normalizeLanguageField = (value?: string | string[]): string[] => {
   if (Array.isArray(value)) {
     return value.filter(Boolean);
@@ -79,7 +75,7 @@ const transformIpwhoisResponse = (
 
 const fetchFromIpapi = async (ip?: string): Promise<IPDetailsProps> => {
   const url = ip ? `https://ipapi.co/${ip}/json/` : 'https://ipapi.co/json/';
-  const response = await axios.get(url, { headers: USER_AGENT_HEADER });
+  const response = await axios.get(url);
 
   if (response.data?.error) {
     throw new Error(response.data?.reason || 'ipapi error');

@@ -1,3 +1,5 @@
+@use '../mixins.scss' as *;
+
 .blog-page {
   &--content {
     margin-top: 48px;
@@ -11,6 +13,7 @@
     padding: 32px;
     border-radius: 16px;
     color: var(--icon-color-2);
+    @include fade-in-right(0.6s);
   }
 
   &--grid {
@@ -31,6 +34,8 @@
     padding: 48px 32px;
     background-color: var(--primary-text);
     border-radius: 16px;
+    @include fade-in-up(0.6s);
+    animation-delay: 0.3s;
 
     h3 {
       font-size: 28px;
@@ -64,6 +69,8 @@
   flex-direction: column;
   height: 100%;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  @include fade-in-up(0.5s);
+  animation-fill-mode: backwards;
 
   &:hover {
     transform: translateY(-4px);
