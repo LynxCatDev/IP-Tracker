@@ -4,12 +4,28 @@
   margin-top: 32px;
   @include fade-in-up(0.6s);
 
+  @include respond-to('tablet') {
+    margin-top: 24px;
+  }
+
+  @include respond-to('mobile') {
+    margin-top: 20px;
+  }
+
   &--header {
     text-align: center;
     color: var(--primary-text);
 
     h3 {
       font-size: 32px;
+
+      @include respond-to('tablet') {
+        font-size: 28px;
+      }
+
+      @include respond-to('mobile') {
+        font-size: 24px;
+      }
     }
   }
 
@@ -18,6 +34,17 @@
     display: flex;
     justify-content: space-between;
     gap: var(--medium-size);
+
+    @include respond-to('tablet') {
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    @include respond-to('mobile') {
+      flex-direction: column;
+      margin-top: 20px;
+      gap: 16px;
+    }
   }
 
   &--item {
@@ -33,12 +60,33 @@
     border-radius: var(--default-size);
     @include fade-in-up(0.5s);
 
+    @include respond-to('tablet') {
+      flex: 1 1 calc(50% - 8px);
+      padding: 28px 24px;
+      gap: 24px;
+    }
+
+    @include respond-to('mobile') {
+      flex: 1 1 100%;
+      padding: 24px 20px;
+      gap: 20px;
+      border-radius: 12px;
+    }
+
     &:hover {
       box-shadow: 0 25px 50px -12px #00000040;
+
+      @include respond-to('mobile') {
+        box-shadow: 0 12px 24px -6px #00000030;
+      }
 
       .target-cards--item-icon {
         transform: scale(1.1) rotate(5deg);
         transition: all 0.3s ease-in-out;
+
+        @include respond-to('mobile') {
+          transform: scale(1.05);
+        }
       }
     }
   }
@@ -48,16 +96,44 @@
     height: 80px;
     @include flex-center;
     border-radius: 50%;
+
+    @include respond-to('tablet') {
+      width: 70px;
+      height: 70px;
+    }
+
+    @include respond-to('mobile') {
+      width: 60px;
+      height: 60px;
+
+      svg {
+        width: 28px;
+        height: 28px;
+      }
+    }
   }
 
   &--item-title {
     font-size: var(--medium-size);
     font-weight: 600;
     color: var(--primary-dark);
+
+    @include respond-to('tablet') {
+      font-size: 18px;
+    }
+
+    @include respond-to('mobile') {
+      font-size: 16px;
+    }
   }
 
   &--item-description {
     color: var(--text-foreground);
+
+    @include respond-to('mobile') {
+      font-size: 14px;
+      line-height: 1.5;
+    }
   }
 
   &--item-button {

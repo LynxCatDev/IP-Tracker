@@ -1,3 +1,5 @@
+@use '../../app/mixins.scss' as *;
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -7,6 +9,14 @@
   max-width: 1200px;
   margin: 0 auto;
 
+  @include respond-to('tablet') {
+    padding: 12px 24px;
+  }
+
+  @include respond-to('mobile') {
+    padding: 10px 16px;
+  }
+
   &--logo-link {
     display: flex;
     align-items: center;
@@ -14,6 +24,10 @@
 
     svg {
       color: var(--primary-text);
+    }
+
+    @include respond-to('mobile') {
+      gap: 6px;
     }
   }
 
@@ -23,10 +37,23 @@
     padding: 8px;
     border-radius: 50%;
     background-color: var(--primary-bg);
+
+    @include respond-to('mobile') {
+      padding: 6px;
+
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
   }
 
   &--logo-text {
     font-size: var(--medium-size);
     font-weight: 600;
+
+    @include respond-to('mobile') {
+      font-size: var(--default-size);
+    }
   }
 }

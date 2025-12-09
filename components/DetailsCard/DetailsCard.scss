@@ -11,10 +11,26 @@
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 
+  @include respond-to('tablet') {
+    padding: 14px 20px;
+    gap: 14px;
+    border-radius: 14px;
+  }
+
+  @include respond-to('mobile') {
+    padding: 14px 16px;
+    gap: 12px;
+    border-radius: 12px;
+  }
+
   &:hover {
     transform: translateY(-2px);
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
     background-color: var(--hover-color);
+
+    @include respond-to('mobile') {
+      transform: none;
+    }
   }
 
   &__icon {
@@ -25,9 +41,21 @@
     background: var(--icon-gradient);
     color: var(--icon-color);
 
+    @include respond-to('mobile') {
+      width: 40px;
+      height: 40px;
+      min-width: 40px;
+      border-radius: 10px;
+    }
+
     svg {
       width: 24px;
       height: 24px;
+
+      @include respond-to('mobile') {
+        width: 20px;
+        height: 20px;
+      }
     }
   }
 
@@ -42,6 +70,11 @@
     color: var(--text-grey);
     margin: 0 0 4px 0;
     line-height: 1.4;
+
+    @include respond-to('mobile') {
+      font-size: 12px;
+      margin-bottom: 2px;
+    }
   }
 
   &__value {
@@ -51,31 +84,9 @@
     margin: 0;
     line-height: 1.5;
     word-break: break-word;
-  }
-}
 
-// Responsive design
-@media (max-width: 768px) {
-  .details-card {
-    padding: 20px;
-    gap: 14px;
-
-    &__icon {
-      width: 40px;
-      height: 40px;
-
-      svg {
-        width: 20px;
-        height: 20px;
-      }
-    }
-
-    &__title {
+    @include respond-to('mobile') {
       font-size: 13px;
-    }
-
-    &__value {
-      font-size: 15px;
     }
   }
 }

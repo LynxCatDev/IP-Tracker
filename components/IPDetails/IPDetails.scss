@@ -6,9 +6,21 @@
   border-radius: var(--default-size);
   color: var(--primary-text);
 
+  @include respond-to('tablet') {
+    padding: 32px;
+  }
+
+  @include respond-to('mobile') {
+    padding: 24px 20px;
+    border-radius: 12px;
+  }
+
   &--wrapper {
     margin-top: 32px;
-    // @include fade-in-down(0.6s);
+
+    @include respond-to('mobile') {
+      margin-top: 24px;
+    }
   }
 
   &--info {
@@ -17,12 +29,22 @@
     align-items: center;
     font-size: var(--small-size);
     font-weight: 600;
+
+    @include respond-to('mobile') {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
   }
 
   &--info-header {
     display: flex;
     align-items: center;
     gap: 4px;
+
+    @include respond-to('mobile') {
+      flex-wrap: wrap;
+    }
 
     &-badge {
       padding: 2px 8px;
@@ -31,6 +53,10 @@
         rgba(51, 51, 51, 0.5)
       );
       border-radius: var(--extra-small-size);
+
+      @include respond-to('mobile') {
+        font-size: 10px;
+      }
     }
   }
 
@@ -40,15 +66,34 @@
     justify-content: space-between;
     align-items: center;
 
+    @include respond-to('tablet') {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
     h2 {
       font-size: 60px;
       font-weight: 700;
+
+      @include respond-to('tablet') {
+        font-size: 42px;
+      }
+
+      @include respond-to('mobile') {
+        font-size: 28px;
+        word-break: break-all;
+      }
     }
   }
 
   &--location {
     display: flex;
     gap: 8px;
+
+    @include respond-to('mobile') {
+      font-size: 14px;
+    }
   }
 
   &--selected-data {
@@ -62,11 +107,27 @@
     align-items: center;
     gap: 8px;
 
+    @include respond-to('tablet') {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    @include respond-to('mobile') {
+      margin-top: 24px;
+      padding: 12px;
+    }
+
     &-info {
       display: flex;
       flex-direction: column;
       gap: 32px;
       font-weight: 600;
+
+      @include respond-to('mobile') {
+        gap: 20px;
+        width: 100%;
+      }
 
       &-title {
         display: flex;
@@ -76,6 +137,11 @@
         padding: 8px 12px;
         background: #1f4872;
         border-radius: 8px;
+
+        @include respond-to('mobile') {
+          font-size: 16px;
+          padding: 6px 10px;
+        }
       }
 
       &-icon {
@@ -83,12 +149,25 @@
         background-color: var(--icon-color-2);
         padding: 8px;
         border-radius: 8px;
+
+        @include respond-to('mobile') {
+          padding: 6px;
+
+          svg {
+            width: 18px;
+            height: 18px;
+          }
+        }
       }
 
       &-list {
         display: flex;
         flex-direction: column;
         gap: 4px;
+
+        @include respond-to('mobile') {
+          font-size: 14px;
+        }
       }
     }
   }
@@ -133,27 +212,26 @@
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: var(--medium-size);
     margin-top: 32px;
+
+    @include respond-to('tablet') {
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    @include respond-to('mobile') {
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-top: 24px;
+    }
   }
 
   &--refresh {
     display: flex;
     justify-content: center;
     margin-top: 24px;
-  }
 
-  // Responsive grid
-  @media (max-width: 768px) {
-    &--cards-grid {
-      grid-template-columns: 1fr;
-      gap: 16px;
-    }
-  }
-
-  @media (max-width: 480px) {
-    padding: 24px;
-
-    &--cards-grid {
-      margin-top: 24px;
+    @include respond-to('mobile') {
+      margin-top: 20px;
     }
   }
 }

@@ -16,10 +16,19 @@
   position: relative;
   background: transparent;
 
+  @include respond-to('mobile') {
+    gap: 6px;
+    font-size: 13px;
+  }
+
   // Variants
   &--primary {
     background: var(--primary-text);
     padding: 12px 20px;
+
+    @include respond-to('mobile') {
+      padding: 10px 16px;
+    }
   }
 
   &--secondary {

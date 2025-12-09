@@ -28,10 +28,13 @@
   &--header {
     gap: var(--default-size);
 
+    @include respond-to('tablet') {
+      display: none;
+    }
+
     a {
       font-weight: 600;
       padding: 8px 12px;
-
       color: var(--secondary-bg);
 
       &:hover {
@@ -42,10 +45,25 @@
 
   &--footer {
     gap: 8px;
+
+    @include respond-to('tablet') {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    @include respond-to('mobile') {
+      gap: 4px;
+    }
+
     a {
       color: var(--primary-text);
       padding: 4px 8px;
       font-size: 14px;
+
+      @include respond-to('mobile') {
+        font-size: 12px;
+        padding: 4px 6px;
+      }
 
       &:hover {
         background: var(--gradient-5);

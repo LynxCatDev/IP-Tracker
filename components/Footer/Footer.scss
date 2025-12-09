@@ -1,17 +1,38 @@
+@use '../../app/mixins.scss' as *;
+
 .footer {
   background-color: var(--footer-bg);
 
   &--container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 40px 0;
+    padding: 40px 24px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @include respond-to('tablet') {
+      padding: 32px 24px;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    @include respond-to('mobile') {
+      padding: 24px 16px;
+      gap: 16px;
+    }
   }
 
   &--copyright {
     font-weight: 600;
     color: var(--primary-text);
+
+    @include respond-to('tablet') {
+      text-align: center;
+    }
+
+    @include respond-to('mobile') {
+      font-size: 14px;
+    }
   }
 }

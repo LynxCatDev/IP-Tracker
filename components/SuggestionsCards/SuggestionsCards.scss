@@ -3,18 +3,43 @@
 .suggestions-cards {
   margin-top: 32px;
 
+  @include respond-to('tablet') {
+    margin-top: 24px;
+  }
+
+  @include respond-to('mobile') {
+    margin-top: 20px;
+  }
+
   h3 {
     text-align: center;
     font-size: 24px;
     color: var(--primary-text);
     margin-bottom: 16px;
     @include fade-in-right(0.5s);
+
+    @include respond-to('tablet') {
+      font-size: 22px;
+    }
+
+    @include respond-to('mobile') {
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
   }
 }
 
 .suggestions-list {
   display: grid;
   gap: 24px;
+
+  @include respond-to('tablet') {
+    gap: 20px;
+  }
+
+  @include respond-to('mobile') {
+    gap: 16px;
+  }
 }
 
 .suggestions-card {
@@ -27,8 +52,24 @@
   transition: all 0.5s ease;
   @include fade-in-left(0.6s);
 
+  @include respond-to('tablet') {
+    padding: 20px;
+    border-radius: 14px;
+    gap: 14px;
+  }
+
+  @include respond-to('mobile') {
+    padding: 16px;
+    border-radius: 12px;
+    gap: 12px;
+  }
+
   &:hover {
     transform: translateY(-4px);
+
+    @include respond-to('mobile') {
+      transform: translateY(-2px);
+    }
   }
 
   &--header {
@@ -42,6 +83,16 @@
     height: 48px;
     @include flex-center;
     border-radius: 8px;
+
+    @include respond-to('mobile') {
+      width: 40px;
+      height: 40px;
+
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
   }
 
   &--severity {
@@ -51,6 +102,11 @@
     border-radius: 12px;
     background-color: var(--gradient-14);
     color: var(--icon-color-3);
+
+    @include respond-to('mobile') {
+      font-size: 11px;
+      padding: 2px 6px;
+    }
 
     &--high,
     &--very-high,
@@ -69,15 +125,28 @@
     display: flex;
     flex-direction: column;
     gap: 16px;
+
+    @include respond-to('mobile') {
+      gap: 12px;
+    }
   }
 
   &--title {
     display: flex;
     justify-content: space-between;
+
+    @include respond-to('mobile') {
+      font-size: 15px;
+    }
   }
 
   &--description {
     color: var(--text-foreground);
     font-size: 14px;
+
+    @include respond-to('mobile') {
+      font-size: 13px;
+      line-height: 1.5;
+    }
   }
 }

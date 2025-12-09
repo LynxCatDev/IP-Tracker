@@ -10,6 +10,18 @@
   gap: var(--large-size);
   @include fade-in-down(0.5s);
 
+  @include respond-to('tablet') {
+    padding: 24px;
+    gap: 20px;
+  }
+
+  @include respond-to('mobile') {
+    margin-top: var(--default-size);
+    padding: 20px;
+    gap: 16px;
+    border-radius: var(--default-size);
+  }
+
   &--header {
     display: flex;
     align-items: center;
@@ -17,11 +29,20 @@
 
     svg {
       color: var(--icon-color-1);
+
+      @include respond-to('mobile') {
+        width: 20px;
+        height: 20px;
+      }
     }
 
     span {
       font-size: 18px;
       font-weight: 600;
+
+      @include respond-to('mobile') {
+        font-size: 16px;
+      }
     }
   }
 
@@ -30,11 +51,20 @@
     font-size: 14px;
     margin: 0;
     line-height: 1.5;
+
+    @include respond-to('mobile') {
+      font-size: 13px;
+    }
   }
 
   &--input {
     display: flex;
     gap: 12px;
+
+    @include respond-to('mobile') {
+      flex-direction: column;
+      gap: 10px;
+    }
 
     input {
       flex: 1;
@@ -43,6 +73,11 @@
       padding: 10px 16px;
       font-size: 14px;
       transition: border-color 0.2s ease;
+
+      @include respond-to('mobile') {
+        padding: 12px 14px;
+        font-size: 16px; // Prevents zoom on iOS
+      }
 
       &:focus {
         outline: none;
@@ -79,6 +114,11 @@
     border-radius: 8px;
     color: #ef4444;
     font-size: 14px;
+
+    @include respond-to('mobile') {
+      padding: 10px 12px;
+      font-size: 13px;
+    }
   }
 
   &--results {
@@ -90,6 +130,11 @@
     border-radius: 8px;
     border: 1px solid var(--border-color-1);
 
+    @include respond-to('mobile') {
+      padding: 16px;
+      gap: 12px;
+    }
+
     &-header {
       display: flex;
       align-items: center;
@@ -99,6 +144,10 @@
       strong {
         color: var(--icon-color-1);
       }
+
+      @include respond-to('mobile') {
+        font-size: 14px;
+      }
     }
   }
 
@@ -106,6 +155,12 @@
     margin-left: auto;
     font-size: 12px;
     color: var(--text-foreground);
+
+    @include respond-to('mobile') {
+      width: 100%;
+      margin-left: 0;
+      margin-top: 8px;
+    }
   }
 
   &--records {
@@ -123,8 +178,18 @@
     border-radius: 6px;
     transition: transform 0.2s ease;
 
+    @include respond-to('mobile') {
+      flex-wrap: wrap;
+      padding: 10px 12px;
+      gap: 8px;
+    }
+
     &:hover {
       transform: translateX(4px);
+
+      @include respond-to('mobile') {
+        transform: none;
+      }
     }
 
     &-type {
@@ -135,6 +200,12 @@
       color: white;
       min-width: 60px;
       text-align: center;
+
+      @include respond-to('mobile') {
+        min-width: 50px;
+        padding: 3px 8px;
+        font-size: 11px;
+      }
     }
 
     &-value {
@@ -142,6 +213,13 @@
       font-family: monospace;
       font-size: 13px;
       word-break: break-all;
+
+      @include respond-to('mobile') {
+        width: 100%;
+        order: 3;
+        margin-top: 4px;
+        font-size: 12px;
+      }
     }
 
     &-ttl {
@@ -150,6 +228,10 @@
       background-color: var(--background-color);
       padding: 2px 8px;
       border-radius: 4px;
+
+      @include respond-to('mobile') {
+        font-size: 10px;
+      }
     }
   }
 
@@ -158,10 +240,20 @@
     padding-top: 16px;
     border-top: 1px solid var(--border-color-1);
 
+    @include respond-to('mobile') {
+      margin-top: 4px;
+      padding-top: 12px;
+    }
+
     h4 {
       margin: 0 0 12px 0;
       font-size: 14px;
       color: var(--text-foreground);
+
+      @include respond-to('mobile') {
+        font-size: 13px;
+        margin-bottom: 10px;
+      }
     }
 
     ul {
@@ -172,40 +264,23 @@
       padding: 0;
       list-style: none;
 
+      @include respond-to('mobile') {
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+
       li {
         font-size: 13px;
         color: var(--text-foreground);
+
+        @include respond-to('mobile') {
+          font-size: 12px;
+        }
 
         strong {
           color: var(--icon-color-1);
         }
       }
-    }
-  }
-}
-
-@media (max-width: 768px) {
-  .dns-lookup {
-    padding: 20px;
-
-    &--input {
-      flex-direction: column;
-    }
-
-    &--record {
-      flex-wrap: wrap;
-
-      &-value {
-        width: 100%;
-        order: 3;
-        margin-top: 4px;
-      }
-    }
-
-    &--timestamp {
-      width: 100%;
-      margin-left: 0;
-      margin-top: 8px;
     }
   }
 }
