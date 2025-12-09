@@ -1,25 +1,18 @@
-'use client';
-
-import { useState } from 'react';
 import { BlogCard, Pagination } from '@/components';
 import { blogArticlesData } from '@/constants/blogArticlesData';
 
 const ARTICLES_PER_PAGE = 6;
 
-export const BlogContent = () => {
-  const [currentPage, setCurrentPage] = useState(1);
+interface BlogContentProps {
+  currentPage: number;
+}
 
+export const BlogContent = ({ currentPage }: BlogContentProps) => {
   const totalPages = Math.ceil(blogArticlesData.length / ARTICLES_PER_PAGE);
 
   const startIndex = (currentPage - 1) * ARTICLES_PER_PAGE;
   const endIndex = startIndex + ARTICLES_PER_PAGE;
   const currentArticles = blogArticlesData.slice(startIndex, endIndex);
-
-  const handlePageChange = (page: number) => {
-    setCurrentPage(page);
-    // Scroll to top of the grid smoothly
-    window.scrollTo({ top: 300, behavior: 'smooth' });
-  };
 
   return (
     <>
@@ -41,7 +34,7 @@ export const BlogContent = () => {
       <Pagination
         currentPage={currentPage}
         totalPages={totalPages}
-        onPageChange={handlePageChange}
+        basePath="/blog"
       />
 
       <div className="blog-page--info">

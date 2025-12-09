@@ -1,18 +1,18 @@
-'use client';
-
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import Link from 'next/link';
+import { Button } from '../Button/Button';
 import './Pagination.scss';
 
 interface PaginationProps {
   currentPage: number;
   totalPages: number;
-  onPageChange: (page: number) => void;
+  basePath: string;
 }
 
 export const Pagination = ({
   currentPage,
   totalPages,
-  onPageChange,
+  basePath,
 }: PaginationProps) => {
   const getPageNumbers = () => {
     const pages: (number | string)[] = [];
@@ -49,34 +49,40 @@ export const Pagination = ({
     return pages;
   };
 
+  const getPageUrl = (page: number) => {
+    return page === 1 ? basePath : `${basePath}?page=${page}`;
+  };
+
   if (totalPages <= 1) return null;
 
   return (
     <div className="pagination">
-      <button
-        className="pagination--btn pagination--prev"
-        onClick={() => onPageChange(currentPage - 1)}
-        disabled={currentPage === 1}
-        aria-label="Previous page"
-      >
-        <ChevronLeft size={18} />
-        <span>Previous</span>
-      </button>
+      {currentPage > 1 ? (
+        <Button variant="link" href={getPageUrl(currentPage - 1)}>
+          <ChevronLeft size={18} />
+          <span>Previous</span>
+        </Button>
+      ) : (
+        <button className="pagination--btn" disabled>
+          <ChevronLeft size={18} />
+          <span>Previous</span>
+        </button>
+      )}
 
       <div className="pagination--pages">
         {getPageNumbers().map((page, index) =>
           typeof page === 'number' ? (
-            <button
+            <Link
               key={index}
+              href={getPageUrl(page)}
               className={`pagination--page ${
                 currentPage === page ? 'active' : ''
               }`}
-              onClick={() => onPageChange(page)}
               aria-label={`Page ${page}`}
               aria-current={currentPage === page ? 'page' : undefined}
             >
               {page}
-            </button>
+            </Link>
           ) : (
             <span key={index} className="pagination--ellipsis">
               {page}
@@ -85,15 +91,17 @@ export const Pagination = ({
         )}
       </div>
 
-      <button
-        className="pagination--btn pagination--next"
-        onClick={() => onPageChange(currentPage + 1)}
-        disabled={currentPage === totalPages}
-        aria-label="Next page"
-      >
-        <span>Next</span>
-        <ChevronRight size={18} />
-      </button>
+      {currentPage < totalPages ? (
+        <Button variant="link" href={getPageUrl(currentPage + 1)}>
+          <span>Next</span>
+          <ChevronRight size={18} />
+        </Button>
+      ) : (
+        <button className="pagination--btn" disabled>
+          <span>Next</span>
+          <ChevronRight size={18} />
+        </button>
+      )}
     </div>
   );
 };
