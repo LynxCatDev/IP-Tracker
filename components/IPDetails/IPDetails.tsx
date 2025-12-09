@@ -25,17 +25,19 @@ export const IPDetails = ({ ip }: IPDetailsProps) => {
 
   if (error) {
     return (
-      <div className="ip-details">
-        <div className="ip-details--error">
-          <h3>Error</h3>
-          <p>{error}</p>
-          <Button
-            variant="error"
-            onClick={refetch}
-            icon={<RotateCcw size={16} />}
-          >
-            Try Again
-          </Button>
+      <div className="ip-details--wrapper">
+        <div className="ip-details">
+          <div className="ip-details--error">
+            <h3>Error</h3>
+            <p>{error}</p>
+            <Button
+              variant="error"
+              onClick={refetch}
+              icon={<RotateCcw size={16} />}
+            >
+              Try Again
+            </Button>
+          </div>
         </div>
       </div>
     );

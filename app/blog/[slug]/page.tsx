@@ -9,6 +9,12 @@ import {
   IPGeolocationContent,
   WhatIsVPNContent,
   UnderstandingDNSContent,
+  ProxyVsVPNContent,
+  PublicVsPrivateIPContent,
+  InternetSecurityTipsContent,
+  WhatIsFirewallContent,
+  DarkWebExplainedContent,
+  HowHackersStealDataContent,
 } from '@/components/BlogContent';
 
 interface BlogArticlePageProps {
@@ -25,6 +31,12 @@ const contentComponents: Record<string, React.ComponentType> = {
   'ip-geolocation-explained': IPGeolocationContent,
   'what-is-vpn': WhatIsVPNContent,
   'understanding-dns': UnderstandingDNSContent,
+  'proxy-vs-vpn': ProxyVsVPNContent,
+  'public-vs-private-ip': PublicVsPrivateIPContent,
+  'internet-security-tips': InternetSecurityTipsContent,
+  'what-is-firewall': WhatIsFirewallContent,
+  'dark-web-explained': DarkWebExplainedContent,
+  'how-hackers-steal-data': HowHackersStealDataContent,
 };
 
 // Generate static params for all blog articles

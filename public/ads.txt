@@ -1,1 +1,5 @@
+# Ads.txt file for IP Tracker
+# This file authorizes Google AdSense to serve ads on this domain
+# Format: <domain>, <publisher-id>, <relationship>, <certification-authority-id>
+
 google.com, pub-2641120743401922, DIRECT, f08c47fec0942fa0

@@ -128,6 +128,7 @@
     @include main-gradient;
     padding: 12px 20px;
     color: var(--primary-text);
+    border: none;
 
     &:hover {
       color: var(--primary-text);

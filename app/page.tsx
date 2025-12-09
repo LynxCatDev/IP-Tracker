@@ -1,5 +1,10 @@
 import dynamic from 'next/dynamic';
-import { BannerAd, IPAddressLookup, TargetCards } from '@/components';
+import {
+  BannerAd,
+  DNSLookup,
+  IPAddressLookup,
+  TargetCards,
+} from '@/components';
 
 const IPDetails = dynamic(() =>
   import('@/components/IPDetails/IPDetails').then((mod) => mod.IPDetails),
@@ -12,6 +17,7 @@ export default function Home() {
       <IPDetails />
       <TargetCards title="Which is your biggest concern about using the Internet?" />
       <IPAddressLookup />
+      <DNSLookup />
     </div>
   );
 }

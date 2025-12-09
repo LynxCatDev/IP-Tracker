@@ -1,8 +1,11 @@
 import { Metadata } from 'next';
 import { BookOpen } from 'lucide-react';
-import { PageInfo, BlogCard } from '@/components';
+import { PageInfo } from '@/components';
+import { BlogContent } from './BlogContent';
 import { blogArticlesData } from '@/constants/blogArticlesData';
 import './blog.scss';
+
+const ARTICLES_PER_PAGE = 6;
 
 export const metadata: Metadata = {
   title: 'Blog - IP Address & Internet Privacy Guides',
@@ -23,7 +26,23 @@ export const metadata: Metadata = {
   },
 };
 
-export default function BlogPage() {
+interface BlogPageProps {
+  searchParams: Promise<{ page?: string }>;
+}
+
+export default async function BlogPage({ searchParams }: BlogPageProps) {
+  const { page } = await searchParams;
+  const totalPages = Math.ceil(blogArticlesData.length / ARTICLES_PER_PAGE);
+
+  let currentPage = parseInt(page || '1', 10);
+
+  // Validate page number
+  if (isNaN(currentPage) || currentPage < 1) {
+    currentPage = 1;
+  } else if (currentPage > totalPages) {
+    currentPage = totalPages;
+  }
+
   return (
     <div className="blog-page">
       <PageInfo
@@ -43,20 +62,7 @@ export default function BlogPage() {
           </h2>
         </div>
 
-        <div className="blog-page--grid">
-          {blogArticlesData.map((article) => (
-            <BlogCard
-              key={article.slug}
-              slug={article.slug}
-              title={article.title}
-              description={article.description}
-              icon={article.icon}
-              readTime={article.readTime}
-              date={article.date}
-              color={article.color}
-            />
-          ))}
-        </div>
+        <BlogContent currentPage={currentPage} />
 
         <div className="blog-page--footer">
           <div className="blog-page--cta">
