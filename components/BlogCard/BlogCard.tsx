@@ -11,6 +11,7 @@ interface BlogCardProps {
   readTime: string;
   date: string;
   color: string;
+  index?: number;
 }
 
 export const BlogCard = ({
@@ -21,9 +22,13 @@ export const BlogCard = ({
   readTime,
   date,
   color,
+  index = 0,
 }: BlogCardProps) => {
   return (
-    <article className="blog-card">
+    <article
+      className="blog-card"
+      style={{ animationDelay: `${index * 0.1}s` }}
+    >
       <div
         className="blog-card__icon"
         style={{

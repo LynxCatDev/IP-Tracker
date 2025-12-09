@@ -17,7 +17,7 @@ export const BlogContent = ({ currentPage }: BlogContentProps) => {
   return (
     <>
       <div className="blog-page--grid">
-        {currentArticles.map((article) => (
+        {currentArticles.map((article, index) => (
           <BlogCard
             key={article.slug}
             slug={article.slug}
@@ -27,6 +27,7 @@ export const BlogContent = ({ currentPage }: BlogContentProps) => {
             readTime={article.readTime}
             date={article.date}
             color={article.color}
+            index={index}
           />
         ))}
       </div>
