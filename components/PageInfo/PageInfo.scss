@@ -10,6 +10,16 @@
   border-radius: 8px;
   @include fade-in-down(0.5s);
 
+  @include respond-to('tablet') {
+    gap: 20px;
+    padding: 20px;
+  }
+
+  @include respond-to('mobile') {
+    gap: 16px;
+    padding: 16px;
+  }
+
   &--icon {
     width: 64px;
     height: 64px;
@@ -17,6 +27,16 @@
     transition: all 0.7s ease;
     @include flex-center;
     @include main-gradient;
+
+    @include respond-to('mobile') {
+      width: 52px;
+      height: 52px;
+
+      svg {
+        width: 24px;
+        height: 24px;
+      }
+    }
 
     &:hover {
       transform: scale(1.1) rotate(360deg);
@@ -29,13 +49,30 @@
     gap: 8px;
     max-width: 768px;
 
+    @include respond-to('mobile') {
+      gap: 6px;
+    }
+
     h1 {
       color: var(--icon-color-2);
       font-size: 28px;
+
+      @include respond-to('tablet') {
+        font-size: 24px;
+      }
+
+      @include respond-to('mobile') {
+        font-size: 20px;
+      }
     }
 
     span {
       color: var(--text-foreground);
+
+      @include respond-to('mobile') {
+        font-size: 14px;
+        line-height: 1.5;
+      }
     }
   }
 
@@ -66,5 +103,9 @@
   &--time {
     @include flex-center;
     gap: 8px;
+
+    @include respond-to('mobile') {
+      font-size: 14px;
+    }
   }
 }

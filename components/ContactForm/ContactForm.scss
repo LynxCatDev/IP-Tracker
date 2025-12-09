@@ -5,6 +5,10 @@
   flex-direction: column;
   gap: 16px;
 
+  @include respond-to('mobile') {
+    gap: 12px;
+  }
+
   &--container {
     padding: 24px;
     background-color: var(--primary-text);
@@ -16,6 +20,17 @@
     flex-direction: column;
     gap: 24px;
     @include fade-in-right(0.5s);
+
+    @include respond-to('tablet') {
+      grid-column: 1 / -1;
+      padding: 20px;
+      gap: 20px;
+    }
+
+    @include respond-to('mobile') {
+      padding: 16px;
+      gap: 16px;
+    }
   }
 
   .required {
@@ -34,6 +49,10 @@
     label {
       font-size: 14px;
       font-weight: 700;
+
+      @include respond-to('mobile') {
+        font-size: 13px;
+      }
     }
 
     input,
@@ -43,6 +62,11 @@
       border-radius: var(--border-radius);
       border: 1px solid var(--border-color-1);
       padding: 8px 12px;
+
+      @include respond-to('mobile') {
+        padding: 10px 12px;
+        font-size: 16px; // Prevents zoom on iOS
+      }
 
       &:focus {
         outline: none;
@@ -55,10 +79,23 @@
     display: flex;
     grid-template-columns: 1fr 1fr;
     gap: 24px;
+
+    @include respond-to('tablet') {
+      gap: 20px;
+    }
+
+    @include respond-to('mobile') {
+      flex-direction: column;
+      gap: 12px;
+    }
   }
 
   &--error {
     color: var(--icon-color-4);
     font-size: 12px;
+
+    @include respond-to('mobile') {
+      font-size: 11px;
+    }
   }
 }

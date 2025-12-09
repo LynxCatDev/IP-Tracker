@@ -10,10 +10,27 @@
   gap: 24px;
   @include fade-in-left(0.8s);
 
+  @include respond-to('tablet') {
+    padding: 36px;
+    margin-top: 24px;
+    gap: 20px;
+  }
+
+  @include respond-to('mobile') {
+    padding: 24px 20px;
+    border-radius: 12px;
+    margin-top: 20px;
+    gap: 16px;
+  }
+
   &--content {
     display: flex;
     align-items: center;
     gap: 12px;
+
+    @include respond-to('mobile') {
+      gap: 10px;
+    }
   }
 
   &--icon {
@@ -21,10 +38,26 @@
     width: 40px;
     height: 40px;
     border-radius: 8px;
+
+    @include respond-to('mobile') {
+      width: 36px;
+      height: 36px;
+      min-width: 36px;
+
+      svg {
+        width: 18px;
+        height: 18px;
+      }
+    }
   }
 
   &--description {
     color: var(--text-foreground);
+
+    @include respond-to('mobile') {
+      font-size: 14px;
+      line-height: 1.5;
+    }
   }
 
   &--action {

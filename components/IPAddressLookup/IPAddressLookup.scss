@@ -11,6 +11,18 @@
   gap: var(--large-size);
   @include fade-in-down(0.5s);
 
+  @include respond-to('tablet') {
+    padding: 24px;
+    gap: 20px;
+  }
+
+  @include respond-to('mobile') {
+    margin-top: var(--default-size);
+    padding: 20px;
+    gap: 16px;
+    border-radius: var(--default-size);
+  }
+
   &--header {
     display: flex;
     align-items: center;
@@ -18,6 +30,17 @@
 
     svg {
       color: var(--icon-color-1);
+
+      @include respond-to('mobile') {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    h3 {
+      @include respond-to('mobile') {
+        font-size: 16px;
+      }
     }
   }
 
@@ -25,12 +48,22 @@
     display: flex;
     gap: 12px;
 
+    @include respond-to('mobile') {
+      flex-direction: column;
+      gap: 10px;
+    }
+
     input {
       flex: 1;
       border-radius: 8px;
       border: 1px solid var(--border-color-1);
       padding: 4px 12px;
       transition: border-color 0.2s ease;
+
+      @include respond-to('mobile') {
+        padding: 10px 12px;
+        font-size: 16px; // Prevents zoom on iOS
+      }
 
       &.input-error {
         border-color: #ef4444;
@@ -48,5 +81,10 @@
     border-radius: 8px;
     color: #ef4444;
     font-size: 14px;
+
+    @include respond-to('mobile') {
+      padding: 10px 12px;
+      font-size: 13px;
+    }
   }
 }

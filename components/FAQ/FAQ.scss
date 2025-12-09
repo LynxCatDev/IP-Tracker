@@ -4,12 +4,30 @@
   margin-top: 60px;
   @include fade-in-up(0.5s);
 
+  @include respond-to('tablet') {
+    margin-top: 48px;
+  }
+
+  @include respond-to('mobile') {
+    margin-top: 40px;
+  }
+
   &--title {
     text-align: center;
     font-size: 32px;
     font-weight: 700;
     color: var(--primary-text);
     margin-bottom: 32px;
+
+    @include respond-to('tablet') {
+      font-size: 28px;
+      margin-bottom: 24px;
+    }
+
+    @include respond-to('mobile') {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
   }
 
   &--grid {
@@ -18,6 +36,15 @@
     gap: 24px;
     max-width: 1200px;
     margin: 0 auto;
+
+    @include respond-to('tablet') {
+      gap: 20px;
+    }
+
+    @include respond-to('mobile') {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
   }
 
   &--item {
@@ -27,9 +54,18 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     transition: all 0.3s ease;
 
+    @include respond-to('mobile') {
+      padding: 20px;
+      border-radius: 10px;
+    }
+
     &:hover {
       transform: translateY(-4px);
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+
+      @include respond-to('mobile') {
+        transform: translateY(-2px);
+      }
     }
   }
 
@@ -38,6 +74,15 @@
     font-weight: 600;
     color: var(--primary-dark);
     margin-bottom: 16px;
+
+    @include respond-to('tablet') {
+      font-size: 16px;
+      margin-bottom: 12px;
+    }
+
+    @include respond-to('mobile') {
+      font-size: 15px;
+    }
   }
 
   &--answer {
@@ -45,6 +90,10 @@
     line-height: 1.6;
     color: var(--text-grey);
     margin: 0;
+
+    @include respond-to('mobile') {
+      font-size: 13px;
+    }
   }
 }
 
@@ -54,6 +103,16 @@
   flex-direction: column;
   gap: 16px;
 
+  @include respond-to('tablet') {
+    margin-top: 40px;
+    gap: 14px;
+  }
+
+  @include respond-to('mobile') {
+    margin-top: 32px;
+    gap: 12px;
+  }
+
   &--item {
     background-color: var(--primary-text);
     border-radius: var(--border-radius);
@@ -61,9 +120,6 @@
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-
-    // CSS Animation
-    // animation: fadeInUp 0.5s ease-out backwards;
     @include fade-in-up(0.5s);
 
     &:hover {
@@ -88,6 +144,14 @@
     padding: 20px 24px;
     transition: background-color 0.2s ease;
 
+    @include respond-to('tablet') {
+      padding: 18px 20px;
+    }
+
+    @include respond-to('mobile') {
+      padding: 16px;
+    }
+
     &:hover {
       background-color: rgba(139, 92, 246, 0.02);
     }
@@ -98,6 +162,10 @@
     align-items: center;
     gap: 16px;
     flex: 1;
+
+    @include respond-to('mobile') {
+      gap: 12px;
+    }
   }
 
   &--icon {
@@ -108,8 +176,22 @@
     border-radius: var(--border-radius);
     transition: transform 0.3s ease;
 
+    @include respond-to('mobile') {
+      width: 36px;
+      height: 36px;
+
+      svg {
+        width: 18px;
+        height: 18px;
+      }
+    }
+
     .faq--item:hover & {
       transform: scale(1.1);
+
+      @include respond-to('mobile') {
+        transform: scale(1.05);
+      }
     }
   }
 
@@ -119,6 +201,10 @@
       font-size: 16px;
       font-weight: 600;
       color: var(--primary-dark);
+
+      @include respond-to('mobile') {
+        font-size: 14px;
+      }
     }
   }
 
@@ -126,6 +212,11 @@
     flex-shrink: 0;
     color: var(--text-grey);
     transition: transform 0.3s ease, color 0.2s ease;
+
+    @include respond-to('mobile') {
+      width: 18px;
+      height: 18px;
+    }
 
     .faq--item-open & {
       color: var(--icon-color-2);
@@ -144,8 +235,18 @@
     line-height: 1.7;
     padding: 0 24px;
 
+    @include respond-to('mobile') {
+      padding: 0 16px;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
     .faq--item-open & {
       padding-bottom: 24px;
+
+      @include respond-to('mobile') {
+        padding-bottom: 16px;
+      }
     }
   }
 }

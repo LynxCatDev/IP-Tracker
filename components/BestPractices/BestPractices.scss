@@ -1,10 +1,26 @@
+@use '../../app/mixins.scss' as *;
+
 .best-practices {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 16px;
 
+  @include respond-to('tablet') {
+    gap: 14px;
+  }
+
+  @include respond-to('mobile') {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
   &--item {
     display: flex;
     gap: 8px;
+
+    @include respond-to('mobile') {
+      gap: 6px;
+      font-size: 14px;
+    }
   }
 }

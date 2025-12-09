@@ -15,7 +15,7 @@ export const BlogContent = ({ currentPage }: BlogContentProps) => {
   const currentArticles = blogArticlesData.slice(startIndex, endIndex);
 
   return (
-    <>
+    <div className="blog-page--cards">
       <div className="blog-page--grid">
         {currentArticles.map((article, index) => (
           <BlogCard
@@ -32,16 +32,18 @@ export const BlogContent = ({ currentPage }: BlogContentProps) => {
         ))}
       </div>
 
-      <Pagination
-        currentPage={currentPage}
-        totalPages={totalPages}
-        basePath="/blog"
-      />
+      <div className="blog-page--pagination">
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          basePath="/blog"
+        />
 
-      <div className="blog-page--info">
-        Showing {startIndex + 1}-{Math.min(endIndex, blogArticlesData.length)}{' '}
-        of {blogArticlesData.length} articles
+        <div className="blog-page--info">
+          Showing {startIndex + 1}-{Math.min(endIndex, blogArticlesData.length)}{' '}
+          of {blogArticlesData.length} articles
+        </div>
       </div>
-    </>
+    </div>
   );
 };

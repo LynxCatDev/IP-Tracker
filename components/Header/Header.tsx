@@ -1,6 +1,7 @@
 import { Globe } from 'lucide-react';
 import Link from 'next/link';
 import { Navigation } from '../Navigation/Navigation';
+import { MobileMenu } from '../MobileMenu/MobileMenu';
 import { BetaTag } from '../BetaBadge/BetaBadge';
 import { NAVIGATION_LINKS } from '@/constants/navigationData';
 import './Header.scss';
@@ -21,11 +22,15 @@ export const Header = () => {
         </Link>
       </div>
 
+      {/* Desktop Navigation */}
       <Navigation
         links={NAVIGATION_LINKS.header}
         variant="header"
         showActiveStates={true}
       />
+
+      {/* Mobile Menu */}
+      <MobileMenu links={NAVIGATION_LINKS.header} />
     </header>
   );
 };

@@ -23,3 +23,4 @@ export * from './BlogArticle/BlogArticle';
 export * from './BlogCard/BlogCard';
 export * from './BetaBadge/BetaBadge';
 export * from './Pagination/Pagination';
+export * from './MobileMenu/MobileMenu';
