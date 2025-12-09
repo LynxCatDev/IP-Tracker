@@ -23,6 +23,12 @@
     margin-bottom: 64px;
   }
 
+  &--pagination {
+    @include fade-in-left(0.5s);
+    animation-delay: 0.4s;
+    animation-fill-mode: backwards;
+  }
+
   &--footer {
     margin-top: 64px;
   }
