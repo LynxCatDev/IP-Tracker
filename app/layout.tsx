@@ -14,10 +14,10 @@ const montserratAlternates = Montserrat({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://ip-tracker-catweb.vercel.app'),
+  metadataBase: new URL('https://ip-trackers.com'),
   title: {
-    default: 'What Is My IP Address? - Free IP Tracker & Geolocation Tool',
-    template: '%s | IP Tracker',
+    default: 'What Is My IP Address? - Free IP Trackers & Geolocation Tool',
+    template: '%s | IP Trackers',
   },
   description:
     'Discover your public IP address instantly. Get detailed geolocation data, ISP information, and network details. Free, fast, and accurate IP lookup tool with privacy protection tips.',
@@ -37,9 +37,9 @@ export const metadata: Metadata = {
     'internet privacy',
     'hide ip address',
   ],
-  authors: [{ name: 'IP Tracker' }],
+  authors: [{ name: 'IP Trackers' }],
   creator: 'Tudor Uzun',
-  publisher: 'IP Tracker',
+  publisher: 'IP Trackers',
   robots: {
     index: true,
     follow: true,
@@ -54,20 +54,20 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://ip-tracker-catweb.vercel.app',
-    title: 'What Is My IP Address? - Free IP Tracker & Geolocation Tool',
+    url: 'https://ip-trackers.com',
+    title: 'What Is My IP Address? - Free IP Trackers & Geolocation Tool',
     description:
       'Discover your public IP address instantly. Get detailed geolocation data, ISP information, and network details.',
-    siteName: 'IP Tracker',
+    siteName: 'IP Trackers',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'What Is My IP Address? - Free IP Tracker',
+    title: 'What Is My IP Address? - Free IP Trackers',
     description:
       'Discover your public IP address instantly with detailed geolocation and ISP information.',
   },
   alternates: {
-    canonical: 'https://ip-tracker-catweb.vercel.app',
+    canonical: 'https://ip-trackers.com',
   },
   verification: {
     google: googleAdsClientId,

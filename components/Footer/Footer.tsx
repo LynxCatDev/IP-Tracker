@@ -7,7 +7,7 @@ export const Footer = () => {
     <footer className="footer">
       <div className="footer--container">
         <div className="footer--copyright">
-          © {new Date().getFullYear()} IP Tracker. All rights reserved.
+          © {new Date().getFullYear()} IP Trackers. All rights reserved.
         </div>
         <div>
           <Navigation
