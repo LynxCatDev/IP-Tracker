@@ -45,6 +45,13 @@
       color: #6b7280;
     }
   }
+
+  &--info {
+    text-align: center;
+    margin-top: 16px;
+    font-size: 14px;
+    color: var(--text-secondary);
+  }
 }
 
 .blog-card {

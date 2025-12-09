@@ -1,0 +1,84 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 48px;
+  flex-wrap: wrap;
+
+  &--btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 16px;
+    background: var(--primary-text);
+    border: 1px solid var(--border-color-1);
+    border-radius: 8px;
+    color: var(--text-foreground);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover:not(:disabled) {
+      background: var(--icon-color-1);
+      color: white;
+      border-color: var(--icon-color-1);
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    span {
+      @media (max-width: 480px) {
+        display: none;
+      }
+    }
+  }
+
+  &--pages {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  &--page {
+    min-width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary-text);
+    border: 1px solid var(--border-color-1);
+    border-radius: 8px;
+    color: var(--text-foreground);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover:not(.active) {
+      background: var(--background-color);
+      border-color: var(--icon-color-1);
+    }
+
+    &.active {
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      color: white;
+      border-color: transparent;
+      box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
+    }
+  }
+
+  &--ellipsis {
+    min-width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    font-size: 14px;
+  }
+}

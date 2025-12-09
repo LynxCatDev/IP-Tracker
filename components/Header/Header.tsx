@@ -1,6 +1,7 @@
 import { Globe } from 'lucide-react';
 import Link from 'next/link';
 import { Navigation } from '../Navigation/Navigation';
+import { BetaTag } from '../BetaBadge/BetaBadge';
 import { NAVIGATION_LINKS } from '@/constants/navigationData';
 import './Header.scss';
 
@@ -13,7 +14,10 @@ export const Header = () => {
             <Globe width={30} height={30} />
           </div>
 
-          <div className="header--logo-text">IP Tracker</div>
+          <div className="header--logo-text">
+            IP Tracker
+            <BetaTag />
+          </div>
         </Link>
       </div>
 

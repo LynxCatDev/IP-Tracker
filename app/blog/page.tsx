@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { BookOpen } from 'lucide-react';
-import { PageInfo, BlogCard } from '@/components';
-import { blogArticlesData } from '@/constants/blogArticlesData';
+import { PageInfo } from '@/components';
+import { BlogContent } from './BlogContent';
 import './blog.scss';
 
 export const metadata: Metadata = {
@@ -43,20 +43,7 @@ export default function BlogPage() {
           </h2>
         </div>
 
-        <div className="blog-page--grid">
-          {blogArticlesData.map((article) => (
-            <BlogCard
-              key={article.slug}
-              slug={article.slug}
-              title={article.title}
-              description={article.description}
-              icon={article.icon}
-              readTime={article.readTime}
-              date={article.date}
-              color={article.color}
-            />
-          ))}
-        </div>
+        <BlogContent />
 
         <div className="blog-page--footer">
           <div className="blog-page--cta">
