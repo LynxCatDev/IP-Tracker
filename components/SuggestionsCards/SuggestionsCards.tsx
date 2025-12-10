@@ -20,10 +20,7 @@ export const SuggestionsCards = ({
       {headerTitle && <h3>{headerTitle}</h3>}
 
       <div
-        className="suggestions-list"
-        style={{
-          gridTemplateColumns: `repeat(${itemsPerColumn}, 1fr)`,
-        }}
+        className={`suggestions-list suggestions-list--cols-${itemsPerColumn}`}
       >
         {suggestionsList?.map((suggestion, index) => (
           <SuggestionsCardsItem

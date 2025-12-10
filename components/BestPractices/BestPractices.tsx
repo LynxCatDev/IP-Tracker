@@ -10,15 +10,9 @@ interface BestPracticesProps {
 export const BestPractices = ({
   practicesData,
   iconColor = 'var(--icon-color-5)',
-  itemsPerColumn = 2,
 }: BestPracticesProps) => {
   return (
-    <div
-      className="best-practices"
-      style={{
-        gridTemplateColumns: `repeat(${itemsPerColumn}, 1fr)`,
-      }}
-    >
+    <div className="best-practices">
       {practicesData.map((title, index) => (
         <div className="best-practices--item" key={index}>
           <div>
