@@ -82,7 +82,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={montserratAlternates.variable}>
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/tracker-favicon.png" sizes="any" />
 
         {/* Google AdSense - Load in all environments for verification */}
         {process.env.NEXT_PUBLIC_NODE_ENV === 'production' && (

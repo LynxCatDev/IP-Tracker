@@ -12,7 +12,13 @@ export const Header = () => {
       <div className="header--logo">
         <Link href="/" className="header--logo-link">
           <div className="header--logo-icon">
-            <Globe width={30} height={30} />
+            {/* <Globe width={30} height={30} /> */}
+            <img
+              width={46}
+              height={46}
+              src="/tracker-favicon.png"
+              alt="IP Trackers Logo"
+            />
           </div>
 
           <div className="header--logo-text">
