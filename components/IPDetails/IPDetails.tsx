@@ -62,7 +62,8 @@ export const IPDetails = ({ ip }: IPDetailsProps) => {
         </div>
 
         <div className="ip-details--ip-address">
-          <h2>{ipData.ip}</h2>
+          {ipData.version === 'IPv4' && <h2>{ipData.ip}</h2>}
+          {ipData.version === 'IPv6' && <h3>{ipData.ip}</h3>}
           <CopyButton textToCopy={ipData.ip} variant="secondary" />
         </div>
 
