@@ -9,7 +9,7 @@
   flex-direction: column;
   justify-content: center;
   gap: var(--large-size);
-  @include fade-in-down(0.5s);
+  @include fade-in-up(0.8s);
 
   @include respond-to('tablet') {
     padding: 24px;
