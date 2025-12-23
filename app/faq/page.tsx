@@ -2,6 +2,10 @@ import { Metadata } from 'next';
 import { CircleQuestionMark } from 'lucide-react';
 import { FAQ, PageInfo } from '@/components';
 
+// Static generation with hourly revalidation
+export const dynamic = 'force-static';
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: 'FAQ - Frequently Asked Questions',
   description:

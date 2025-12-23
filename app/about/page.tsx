@@ -9,6 +9,10 @@ import {
 } from '@/components';
 import { aboutGeneralCardInfo } from '@/constants/generalCardInfo';
 
+// Static generation with hourly revalidation
+export const dynamic = 'force-static';
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: 'About Us - Our Mission & Values',
   description:

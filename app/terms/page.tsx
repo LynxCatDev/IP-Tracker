@@ -3,6 +3,10 @@ import { CircleAlert, FileText, Info } from 'lucide-react';
 import { BestPractices, GeneralInfo, InfoCard, PageInfo } from '@/components';
 import { termsGeneralCardInfo } from '@/constants/generalCardInfo';
 
+// Static generation with hourly revalidation
+export const dynamic = 'force-static';
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: 'Terms of Service',
   description:

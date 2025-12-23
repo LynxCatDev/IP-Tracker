@@ -1,5 +1,5 @@
-import { Globe } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Navigation } from '../Navigation/Navigation';
 import { MobileMenu } from '../MobileMenu/MobileMenu';
 import { BetaTag } from '../BetaBadge/BetaBadge';
@@ -12,12 +12,12 @@ export const Header = () => {
       <div className="header--logo">
         <Link href="/" className="header--logo-link">
           <div className="header--logo-icon">
-            {/* <Globe width={30} height={30} /> */}
-            <img
+            <Image
               width={46}
               height={46}
               src="/tracker-favicon.png"
               alt="IP Trackers Logo"
+              priority
             />
           </div>
 
