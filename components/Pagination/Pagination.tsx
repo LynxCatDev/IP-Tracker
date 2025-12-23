@@ -78,6 +78,7 @@ export const Pagination = ({
               className={`pagination--page ${
                 currentPage === page ? 'active' : ''
               }`}
+              prefetch={false}
               aria-label={`Page ${page}`}
               aria-current={currentPage === page ? 'page' : undefined}
             >

@@ -10,7 +10,7 @@ export const Header = () => {
   return (
     <header className="header">
       <div className="header--logo">
-        <Link href="/" className="header--logo-link">
+        <Link href="/" className="header--logo-link" prefetch={false}>
           <div className="header--logo-icon">
             <Image
               width={46}

@@ -12,6 +12,7 @@ export const TargetCardsItem = ({ targetCard }: Props) => {
       href={targetCard.link || ''}
       key={targetCard.id}
       className="target-cards--item"
+      prefetch={false}
       style={{
         animationDelay: `${targetCard.id * 0.2}s`,
       }}
