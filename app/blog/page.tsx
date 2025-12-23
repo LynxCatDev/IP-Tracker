@@ -5,6 +5,10 @@ import { BlogContent } from './BlogContent';
 import { blogArticlesData } from '@/constants/blogArticlesData';
 import './blog.scss';
 
+// Static generation with hourly revalidation
+export const dynamic = 'force-static';
+export const revalidate = 3600;
+
 const ARTICLES_PER_PAGE = 6;
 
 export const metadata: Metadata = {

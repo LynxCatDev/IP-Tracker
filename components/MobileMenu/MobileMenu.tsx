@@ -87,6 +87,7 @@ export const MobileMenu = ({ links }: MobileMenuProps) => {
                   isActive(link.href) ? 'mobile-menu__link--active' : ''
                 }`}
                 onClick={() => setIsOpen(false)}
+                prefetch={false}
               >
                 {link.icon && (
                   <span className="mobile-menu__link-icon">{link.icon}</span>

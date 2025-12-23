@@ -13,6 +13,10 @@ import {
 } from '@/constants/suggestionsData';
 import { securityGeneralCardInfo } from '@/constants/generalCardInfo';
 
+// Static generation with hourly revalidation
+export const dynamic = 'force-static';
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: 'Internet Security - Protect Against Hackers',
   description:

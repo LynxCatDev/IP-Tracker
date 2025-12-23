@@ -13,6 +13,10 @@ import {
 } from '@/constants/suggestionsData';
 import { privacyGeneralCardInfo } from '@/constants/generalCardInfo';
 
+// Static generation with hourly revalidation
+export const dynamic = 'force-static';
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: 'Privacy Policy - Internet Privacy & Tracking',
   description:

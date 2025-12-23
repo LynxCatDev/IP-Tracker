@@ -25,6 +25,7 @@ export const NavigationLink = ({
     <Link
       href={href}
       className={`${className} ${isActive ? 'navigation--link--active' : ''}`}
+      prefetch={false}
     >
       {icon && <span className="navigation--link--icon">{icon}</span>}
       <span>{label}</span>

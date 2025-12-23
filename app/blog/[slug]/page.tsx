@@ -17,6 +17,10 @@ import {
   HowHackersStealDataContent,
 } from '@/components/BlogContent';
 
+// In pages like about/page.tsx, faq/page.tsx
+export const dynamic = 'force-static';
+export const revalidate = 3600; // Revalidate every hour
+
 interface BlogArticlePageProps {
   params: {
     slug: string;
