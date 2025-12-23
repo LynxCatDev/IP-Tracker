@@ -2,7 +2,9 @@ import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
-const CAPTCHA_SECRET = process.env.CAPTCHA_SECRET_KEY;
+const CAPTCHA_SECRET =
+  process.env.HCAPTCHA_SECRET_KEY ||
+  '0x0000000000000000000000000000000000000000';
 
 // Sanitize input to prevent HTML/script injection
 function sanitizeInput(str: string): string {
