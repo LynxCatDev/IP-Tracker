@@ -22,7 +22,7 @@ export function BlogArticle({
   return (
     <div className="blog-article">
       <div className="blog-article__header">
-        <Link href="/blog">
+        <Link href="/blog" prefetch={false}>
           <Button variant="primary" icon={<ArrowLeft size={16} />}>
             Back to Blog
           </Button>
@@ -40,7 +40,7 @@ export function BlogArticle({
         {children}
 
         <div className="blog-article__footer">
-          <Link href="/blog">
+          <Link href="/blog" prefetch={false}>
             <Button
               href="/blog"
               variant="primary"

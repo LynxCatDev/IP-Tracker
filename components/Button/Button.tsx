@@ -50,6 +50,7 @@ export const Button = ({
       <Link
         href={href || '/'}
         className="button button--link"
+        prefetch={false}
         {...(props as AnchorHTMLAttributes<HTMLAnchorElement>)}
       >
         {loading ? <div className="button--spinner"></div> : children}
