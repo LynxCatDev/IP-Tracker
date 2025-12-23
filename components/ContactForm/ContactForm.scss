@@ -1,3 +1,4 @@
+@use 'sass:color';
 @use '../../app/mixins.scss' as *;
 
 .contact-form {
@@ -96,6 +97,125 @@
 
     @include respond-to('mobile') {
       font-size: 11px;
+    }
+  }
+
+  &--upload {
+    position: relative;
+  }
+
+  &--file-input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  &--upload-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 24px;
+    border: 2px dashed var(--border-color-1);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background-color: var(--primary-text);
+
+    &:hover {
+      border-color: var(--icon-color-2);
+      background-color: rgba(102, 126, 234, 0.05);
+    }
+
+    span {
+      font-size: 14px;
+      color: var(--secondary-text);
+    }
+
+    svg {
+      color: var(--icon-color-2);
+    }
+  }
+
+  &--upload-hint {
+    font-size: 12px !important;
+    color: var(--gray-text) !important;
+  }
+
+  &--preview {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    background-color: var(--primary-text);
+    border: 1px solid var(--border-color-1);
+    border-radius: var(--border-radius);
+
+    img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 6px;
+      border: 1px solid var(--border-color-1);
+    }
+  }
+
+  &--preview-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+
+    span:first-child {
+      font-size: 14px;
+      font-weight: 500;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  &--preview-size {
+    font-size: 12px;
+    color: var(--gray-text);
+  }
+
+  &--remove-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border: none;
+    background-color: var(--icon-color-4);
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+
+    &:hover {
+      background-color: color.adjust(#e74c3c, $lightness: -10%);
+      transform: scale(1.05);
+    }
+  }
+
+  &--captcha {
+    display: flex;
+    justify-content: center;
+    margin: 8px 0;
+
+    @include respond-to('mobile') {
+      transform: scale(0.9);
+      transform-origin: center;
     }
   }
 }

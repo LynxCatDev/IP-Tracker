@@ -38,7 +38,8 @@
       color: var(--secondary-bg);
 
       &:hover {
-        background-color: var(--hover-color-2);
+        background-color: var(--gradient-21);
+        color: var(--primary-text);
       }
     }
   }
