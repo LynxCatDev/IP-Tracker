@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@hcaptcha/react-hcaptcha": "^1.17.1",
     "axios": "^1.13.2",
     "formik": "^2.4.9",
     "lucide-react": "^0.556.0",
@@ -15,6 +16,7 @@
     "react": "19.2.1",
     "react-dom": "19.2.1",
     "react-toastify": "^11.0.5",
+    "resend": "^6.6.0",
     "sass": "^1.95.0",
     "yup": "^1.7.1"
   },
