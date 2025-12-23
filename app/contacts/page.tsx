@@ -43,7 +43,7 @@ export default function ContactsPage() {
               <div>
                 <div className="contacts-page--info-title">Email</div>
                 <div className="contacts-page--info-content">
-                  support@iptracker.com
+                  uzuntudor@gmail.com
                 </div>
               </div>
             </div>
@@ -56,7 +56,7 @@ export default function ContactsPage() {
               <div>
                 <div className="contacts-page--info-title">Phone</div>
                 <div className="contacts-page--info-content">
-                  +1 (234) 567-8901
+                  +373 (79) 46-41-89
                 </div>
               </div>
             </div>
@@ -69,7 +69,7 @@ export default function ContactsPage() {
               <div>
                 <div className="contacts-page--info-title">Address</div>
                 <div className="contacts-page--info-content">
-                  123 Main St, Anytown, USA
+                  Mircea cel Bătrân 20/1, Chișinău, Moldova
                 </div>
               </div>
             </div>
