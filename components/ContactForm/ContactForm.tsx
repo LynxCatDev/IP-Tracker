@@ -275,7 +275,7 @@ export const ContactForm = ({ style }: ContactFormValues) => {
           <HCaptcha
             ref={captchaRef}
             sitekey={
-              process.env.NEXT_PUBLIC_CAPTCHA_SITE_KEY ||
+              process.env.CAPTCHA_SITE_KEY ||
               '10000000-ffff-ffff-ffff-000000000001'
             }
             onVerify={(token) => setCaptchaToken(token)}
