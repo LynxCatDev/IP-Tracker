@@ -3,7 +3,16 @@ import { NextRequest, NextResponse } from 'next/server';
 const CACHE = new Map<string, { data: any; expires: number }>();
 
 export async function GET(req: NextRequest) {
-  const ip = req.nextUrl.searchParams.get('ip') || '';
+  let ip = req.nextUrl.searchParams.get('ip');
+  if (!ip) {
+    // Try to get real client IP from x-forwarded-for header
+    const forwarded = req.headers.get('x-forwarded-for');
+    if (forwarded) {
+      ip = forwarded.split(',')[0].trim();
+    } else {
+      ip = '';
+    }
+  }
   const cacheKey = ip || 'auto';
 
   // Check cache (5 min)
