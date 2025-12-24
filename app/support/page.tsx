@@ -3,10 +3,6 @@ import { Headphones } from 'lucide-react';
 import { ContactForm, PageInfo, SuggestionsCards } from '@/components';
 import { supportSuggestions } from '@/constants/suggestionsData';
 
-// Static generation with hourly revalidation
-export const dynamic = 'force-static';
-export const revalidate = 3600;
-
 export const metadata: Metadata = {
   title: 'Support Center - Get Help',
   description:

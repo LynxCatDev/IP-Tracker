@@ -31,6 +31,10 @@ export const metadata: Metadata = {
   },
 };
 
+// Static generation with hourly revalidation
+export const dynamic = 'force-static';
+export const revalidate = 3600;
+
 export default function AccessPage() {
   return (
     <div className="access-page">
