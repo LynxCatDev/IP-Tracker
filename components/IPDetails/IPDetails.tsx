@@ -2,6 +2,7 @@
 
 import { useMemo } from 'react';
 import { MapPin, RefreshCcw, RotateCcw, Satellite, Shield } from 'lucide-react';
+import dynamic from 'next/dynamic';
 import { CopyButton } from '../CopyButton/CopyButton';
 import { useIPDetails } from './useIPDetails';
 import { Button } from '../Button/Button';
@@ -9,6 +10,8 @@ import { DetailsCard, DetailsCardProps } from '../DetailsCard/DetailsCard';
 import { IPDetailsSkeleton } from './IPDetailsSkeleton';
 import { IP_DETAILS_DATA } from '@/constants/ipDetailsData';
 import './IPDetails.scss';
+
+const Map = dynamic(() => import('../Map/Map'), { ssr: false });
 
 interface IPDetailsProps {
   ip?: string;
@@ -87,37 +90,43 @@ export const IPDetails = ({ ip }: IPDetailsProps) => {
       </div>
 
       <div className="ip-details--selected-data">
-        <div className="ip-details--selected-data-info">
-          <div className="ip-details--selected-data-info-title">
-            <div className="ip-details--selected-data-info-icon">
-              <Shield />
+        <div className="ip-details--selected-data-wrapper">
+          <div className="ip-details--selected-data-info">
+            <div className="ip-details--selected-data-info-title">
+              <div className="ip-details--selected-data-info-icon">
+                <Shield />
+              </div>
+              <div>
+                Additional Details For: <br /> {ipData.ip}
+              </div>
             </div>
-            <div>Additional Details For: {ipData.ip}</div>
-          </div>
 
-          <div className="ip-details--selected-data-info-list">
-            {ipData.asn && <div>ASN: {ipData.asn}</div>}
-            {ipData.timezone && (
-              <div>
-                Time Zone: {ipData.timezone} ({ipData.continent_code})
-              </div>
-            )}
-            {ipData.country_capital && (
-              <div>Capital: {ipData.country_capital}</div>
-            )}
-            {ipData.org && <div>ISP: {ipData.org}</div>}
-            {ipData.currency_name && (
-              <div>
-                Currency: {ipData.currency_name} ({ipData.currency})
-              </div>
-            )}
-            {ipData.postal && <div>Postal Code: {ipData.postal}</div>}
-            {ipData.latitude && <div>Latitude: {ipData.latitude}</div>}
-            {ipData.longitude && <div>Longitude: {ipData.longitude}</div>}
+            <div className="ip-details--selected-data-info-list">
+              {ipData.asn && <div>ASN: {ipData.asn}</div>}
+              {ipData.timezone && (
+                <div>
+                  Time Zone: {ipData.timezone} ({ipData.continent_code})
+                </div>
+              )}
+              {ipData.country_capital && (
+                <div>Capital: {ipData.country_capital}</div>
+              )}
+              {ipData.org && <div>ISP: {ipData.org}</div>}
+              {ipData.currency_name && (
+                <div>
+                  Currency: {ipData.currency_name} ({ipData.currency})
+                </div>
+              )}
+              {ipData.postal && <div>Postal Code: {ipData.postal}</div>}
+              {ipData.latitude && <div>Latitude: {ipData.latitude}</div>}
+              {ipData.longitude && <div>Longitude: {ipData.longitude}</div>}
+            </div>
           </div>
         </div>
 
-        <div>map</div>
+        <div style={{ width: '100%' }}>
+          <Map lat={ipData.latitude} lng={ipData.longitude} zoom={6} />
+        </div>
       </div>
 
       <div className="ip-details--refresh">

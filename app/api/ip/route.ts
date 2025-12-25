@@ -14,6 +14,46 @@ export async function GET(req: NextRequest) {
       ip = '';
     }
   }
+
+  const isLocalIp = (v?: string) => {
+    if (!v) return true;
+    // IPv6 loopback
+    if (v === '::1') return true;
+    // IPv4 loopback
+    if (v === '127.0.0.1') return true;
+    // IPv4 mapped IPv6 like ::ffff:127.0.0.1
+    if (v.startsWith('::ffff:')) {
+      const maybeIpv4 = v.split('::ffff:')[1];
+      if (maybeIpv4 === '127.0.0.1') return true;
+    }
+    // RFC1918 ranges
+    if (v.startsWith('10.') || v.startsWith('192.168.')) return true;
+    if (v.match(/^172\.(1[6-9]|2[0-9]|3[0-1])\./)) return true;
+    return false;
+  };
+
+  // If we detected a local/reserved address, try to resolve the machine's public IP
+  // using a lightweight external service (only for local development).
+  if (isLocalIp(ip)) {
+    try {
+      const r = await fetch('https://api.ipify.org?format=json', {
+        signal: AbortSignal.timeout(3000),
+      });
+      if (r.ok) {
+        const j = await r.json();
+        if (j?.ip && typeof j.ip === 'string') {
+          ip = j.ip;
+          console.info('[IP API] resolved public IP via ipify:', ip);
+        }
+      }
+    } catch (err) {
+      console.warn(
+        '[IP API] ipify lookup failed (continuing with detected ip):',
+        err,
+      );
+    }
+  }
+
   const cacheKey = ip || 'auto';
 
   // Check cache (5 min)
@@ -39,7 +79,7 @@ export async function GET(req: NextRequest) {
   let lastError = null;
   for (const { base, format, name } of providers) {
     try {
-      const url = base + format(ip);
+      const url = base + format(ip ?? '');
       const res = await fetch(url, { signal: AbortSignal.timeout(4000) });
       const data = await res.json();
 
