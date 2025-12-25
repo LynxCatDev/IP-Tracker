@@ -73,32 +73,20 @@ const transformIpwhoisResponse = (
   version: data.type ?? '',
 });
 
-const fetchFromIpapi = async (ip?: string): Promise<IPDetailsProps> => {
-  const url = ip ? `https://ipapi.co/${ip}/json/` : 'https://ipapi.co/json/';
-  const response = await axios.get(url, {
-    timeout: 5000, // 5 second timeout for faster fallback
-    signal: AbortSignal.timeout(3000),
-  });
+const fetchIPData = async (ip?: string): Promise<IPDetailsProps> => {
+  const url = ip ? `/api/ip?ip=${ip}` : '/api/ip';
+  const response = await axios.get(url);
 
   if (response.data?.error) {
-    throw new Error(response.data?.reason || 'ipapi error');
+    throw new Error(response.data?.error);
+  }
+
+  // Handle ipwho.is format (has 'success' field)
+  if (response.data?.success !== undefined) {
+    return transformIpwhoisResponse(response.data);
   }
 
   return response.data as IPDetailsProps;
-};
-
-const fetchFromIpwhois = async (ip?: string): Promise<IPDetailsProps> => {
-  const url = ip ? `https://ipwho.is/${ip}` : 'https://ipwho.is/';
-  const response = await axios.get(url, {
-    timeout: 5000, // 5 second timeout
-    signal: AbortSignal.timeout(3000),
-  });
-
-  if (!response.data?.success) {
-    throw new Error(response.data?.message || 'ipwho.is error');
-  }
-
-  return transformIpwhoisResponse(response.data);
 };
 
 const deriveFriendlyError = (err: unknown): string => {
@@ -133,28 +121,14 @@ export const useIPDetails = (ip: string): UseIPDetailsReturn => {
     try {
       setLoading(true);
       setError(null);
-      const primaryData = await fetchFromIpapi(ip);
-      setIPData(primaryData);
-      setCachedData(primaryData);
-    } catch (primaryError) {
-      console.error(
-        'Primary IP lookup failed, attempting fallback',
-        primaryError,
-      );
-
-      try {
-        const fallbackData = await fetchFromIpwhois(ip);
-        setIPData(fallbackData);
-        setCachedData(fallbackData);
-        toast.info('Primary provider unavailable—using backup results.', {
-          autoClose: 4000,
-        });
-      } catch (fallbackError) {
-        const friendlyMessage = deriveFriendlyError(primaryError);
-        setError(friendlyMessage);
-        toast.error(friendlyMessage, { autoClose: 4000 });
-        console.error('Fallback IP lookup also failed', fallbackError);
-      }
+      const data = await fetchIPData(ip);
+      setIPData(data);
+      setCachedData(data);
+    } catch (err) {
+      console.error('IP lookup failed:', err);
+      const friendlyMessage = deriveFriendlyError(err);
+      setError(friendlyMessage);
+      toast.error(friendlyMessage, { autoClose: 4000 });
     } finally {
       setLoading(false);
     }
