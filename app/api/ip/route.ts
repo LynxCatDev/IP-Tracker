@@ -1,3 +1,4 @@
+// app/api/ip/route.ts not used
 import { NextRequest, NextResponse } from 'next/server';
 
 const CACHE = new Map<string, { data: any; expires: number }>();
@@ -21,32 +22,44 @@ export async function GET(req: NextRequest) {
     return NextResponse.json(cached.data);
   }
 
-  // Try ipapi.co first, then ipwho.is
+  // Try both providers and collect errors
   const providers = [
     {
       base: 'https://ipapi.co',
       format: (ip: string) => (ip ? `/${ip}/json/` : '/json/'),
+      name: 'ipapi.co',
     },
-    { base: 'https://ipwho.is', format: (ip: string) => (ip ? `/${ip}` : '/') },
+    {
+      base: 'https://ipwho.is',
+      format: (ip: string) => (ip ? `/${ip}` : '/'),
+      name: 'ipwho.is',
+    },
   ];
 
-  for (const { base, format } of providers) {
+  let lastError = null;
+  for (const { base, format, name } of providers) {
     try {
       const url = base + format(ip);
       const res = await fetch(url, { signal: AbortSignal.timeout(4000) });
       const data = await res.json();
 
-      if (data.error || data.success === false) continue;
+      if (data.error || data.success === false) {
+        lastError = data.error || data.message || `Unknown error from ${name}`;
+        console.error(`[IP API] ${name} error:`, data.error || data.message);
+        continue;
+      }
 
       CACHE.set(cacheKey, { data, expires: Date.now() + 5 * 60 * 1000 });
       return NextResponse.json(data);
-    } catch {
+    } catch (err) {
+      lastError = err instanceof Error ? err.message : String(err);
+      console.error(`[IP API] ${name} fetch error:`, err);
       continue;
     }
   }
 
   return NextResponse.json(
-    { error: 'Failed to fetch IP data' },
+    { error: 'Failed to fetch IP data', details: lastError },
     { status: 503 },
   );
 }
